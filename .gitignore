@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/catenary/catenary/catenary.vcxproj
+/catenary/catenary/catenary.vcxproj.filters
+/catenary/catenary.sln
+/catenary/Sample-Test1/Sample-Test1.vcxproj
+/catenary/Sample-Test1/pch.h
+/catenary/Sample-Test1/pch.cpp
+/catenary/Sample-Test1/packages.config
