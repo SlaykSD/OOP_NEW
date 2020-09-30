@@ -15,8 +15,7 @@ const int Nmsg = sizeof(msgs) / sizeof(msgs[0]);
 //Создадим массив функий
 int (*Operation[])(CH_Line&) { nullptr, dialog_info, dialog_function, dialog_lenght, dialog_radius, dialog_center, dialog_integral, dialog_set };
 
-namespace Chain_Line
-{
+namespace Chain_Line{
 
 	int dialog(const char* msgs[], int N)
 	{
