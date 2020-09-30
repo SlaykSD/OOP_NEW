@@ -6,8 +6,7 @@ namespace Chain_Line
 		double x, y;
 		Point(double x0 = 0, double y0 = 0) : x(x0), y(y0) {}
 	};
-	class  CH_Line
-	{
+	class  CH_Line {
 	public:
 
 		CH_Line(double ad = 1);
