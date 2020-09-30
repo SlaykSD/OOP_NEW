@@ -2,8 +2,7 @@
 #include "dialog.h"
 
 using namespace Chain_Line;
-const char* msgs[] = { "0. EXIT",
-						"1.Get an information about catenary ",
+const char* msgs[] = { "0. EXIT","1.Get an information about catenary ",
 						"2.Get F(X) relative to the variable {X}",
 						"3.Get the catenary length",
 						"4.Get radius curvature",

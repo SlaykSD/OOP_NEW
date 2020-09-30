@@ -28,10 +28,10 @@ TEST(CatenaryConstructor, TestException)
 TEST(CatenaryMethods, Setters)
 {
     Chain_Line::CH_Line a;
-    Chain_Line::Point p1(3, 2);
-    a.setPoints(p1.x, p1.y);
-    ASSERT_EQ(2, a.getP1().x);
-    ASSERT_EQ(3, a.getP2().x);
+    a.setX1(2);
+    a.setX2(3);
+    ASSERT_EQ(2, a.getX1());
+    ASSERT_EQ(3, a.getX2());
     Chain_Line::CH_Line a0(2, 3, 2);
     a0.setHeight(3);
     ASSERT_EQ(3, a0.getHeight());
