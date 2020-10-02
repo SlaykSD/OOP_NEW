@@ -1,7 +1,6 @@
 #include <math.h>
 
-namespace Chain_Line
-{
+namespace Chain_Line{
 	struct Point {
 		double x, y;
 		Point(double x0 = 0, double y0 = 0) : x(x0), y(y0) {}

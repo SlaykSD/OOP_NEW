@@ -355,3 +355,5 @@ MigrationBackup/
 /catenary/Sample-Test1/pch.h
 /catenary/Sample-Test1/pch.cpp
 /catenary/Sample-Test1/packages.config
+*.filters
+*.vcxproj
