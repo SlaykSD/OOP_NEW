@@ -357,3 +357,6 @@ MigrationBackup/
 /catenary/Sample-Test1/packages.config
 *.filters
 *.vcxproj
+/Long_Ineteger/LongInteger.sln
+/Long_Ineteger/Long_Ineteger/Long.sln
+/LONG/LONG.sln
