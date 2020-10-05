@@ -6,7 +6,7 @@ namespace LInteger
 	{
 	private:
 		int len;
-		int static const len_max = 50;
+		int static const len_max = 7;
 		char* Invers(char*)const;
 		int AddColumn(char*, char*, int k = len_max, bool = false)const;
 		const int auto_len();

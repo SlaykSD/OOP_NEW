@@ -10,7 +10,6 @@ int main()
     using std::endl;
     int n = 0;
     while (std::cin >> n, n > 0) {
-        /*
         char* str = new char[228];
         cout << "Create some number max_size [50]: ";
         std::cin >> str;
@@ -27,7 +26,6 @@ int main()
         cout << "Create the other some number max_size [50]: ";
         b.Input(i);
         b.Output(std::cout);
-         */
         LI b;
         int ff;
         cout << "Input INTEGER max_size [50]: ";

@@ -10,12 +10,12 @@ namespace LInteger
 			a[i] = '0';
 		}
 	}
-	LI::LongInteger(const char* a): LongInteger()//Передаем готовмое число(массив )
+	LI::LongInteger(const char* a) : LongInteger()//Передаем готовмое число(массив )
 	{
 		int l = strlen(a);
 		if (len_max < l)
 			throw "Invalid size. Ovewflow";
-		if ((l - (a[0] == '-' ? 1 : 0)- (a[0] == '+' ? 1 : 0)) != strspn(a + (a[0] == '-' ? 1 : 0)+ (a[0] == '+' ? 1 : 0), "0123456789"))
+		if ((l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)) != strspn(a + (a[0] == '-' ? 1 : 0) + (a[0] == '+' ? 1 : 0), "0123456789"))
 			throw "Data error!";
 		//знак -  первый разряд храним в прямом коде!!
 		if (a[0] == '+' || a[0] == '-' || (((int)a[0] >= (int)'0') && ((int)a[0] <= (int)'9')))//проверка числа
@@ -37,12 +37,12 @@ namespace LInteger
 		//Копировка
 		for (int i = len_max; i > 0; i--)
 		{
-			if ( l <= 1)
+			if (l <= 1)
 			{
 				if ((((int)a[0] >= 48) && ((int)a[0] <= 57)))
 				{
 					LI::a[i] = a[0], len = strlen(a);
-						break;
+					break;
 				}
 				if (a[0] == '-' || a[0] == '+')
 				{
@@ -60,14 +60,14 @@ namespace LInteger
 			LI::a[i] = x.a[i];
 		len = x.getlen();
 	}
-	LI::LongInteger(int& a):LongInteger()
+	LI::LongInteger(int& a) :LongInteger()
 	{
 		//пРоВеРка на Overflow
 		if (a > 0)
 			LI::a[0] = '0';
 		else
 			LI::a[0] = '9', a = -a;
-		int i = 10, k  = 1;
+		int i = 10, k = 1;
 		while (a / i > 0)
 		{
 			i *= 10;
@@ -83,8 +83,8 @@ namespace LInteger
 			a /= 10;
 		}
 		len = len_max - SZ;
-	}	
-	LI::LongInteger(long int& a):LongInteger()
+	}
+	LI::LongInteger(long int& a) :LongInteger()
 	{
 		//пРоВеРка на Overflow	
 		int i = 10, k = 1;
@@ -116,11 +116,11 @@ namespace LInteger
 			str[0] = '-';
 			for (int i = len_max + 1 - len; i < len_max + 1; i++)
 				str[i - (len_max - len)] = a[i];
-			str[len+1] = 0;
+			str[len + 1] = 0;
 			return str;
 		}
 		for (int i = len_max + 1 - len; i < len_max + 1; i++)
-			str[i - (len_max+1 - len)] = a[i];
+			str[i - (len_max + 1 - len)] = a[i];
 		str[len] = 0;
 		return str;
 	}
@@ -128,21 +128,21 @@ namespace LInteger
 	{
 		if (a[0] == '9')
 			s << '-';
-		for (int i = len_max+1 - len; i < len_max + 1; ++i)
+		for (int i = len_max + 1 - len; i < len_max + 1; ++i)
 		{
 			s << a[i];
- 		}
+		}
 		s << std::endl;
 		return s;
 	}
-	std::istream& LI::Input(std::istream& c) 
+	std::istream& LI::Input(std::istream& c)
 	{
 		char a[len_max + 1];
 		c >> a;
 		int l = strlen(a);
-			if (len_max < (l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)))
+		if (len_max < (l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)))
 			throw "Invalid size. Ovewflow";
-		if ((l - (a[0] == '-' ? 1 : 0)- (a[0] == '+' ? 1 : 0)) != strspn(a + (a[0] == '-' ? 1 : 0)+ (a[0] == '+' ? 1 : 0), "0123456789"))
+		if ((l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)) != strspn(a + (a[0] == '-' ? 1 : 0) + (a[0] == '+' ? 1 : 0), "0123456789"))
 			throw "Data error!";
 		//знак -  первый разряд храним в прямом коде!!
 		if (a[0] == '+' || a[0] == '-' || (((int)a[0] >= (int)'0') && ((int)a[0] <= (int)'9')))//проверка числа
@@ -157,7 +157,7 @@ namespace LInteger
 			}
 		}
 		else
-			if(l!= 0)
+			if (l != 0)
 				throw "Incorrect number";
 		//Копировка
 		for (int i = len_max; i > 0; i--)
@@ -186,36 +186,45 @@ namespace LInteger
 		len = len_max + 1 - i;
 		return len;
 	}
-	LongInteger& LI::add(const LongInteger& x, bool flag) 
+	LongInteger& LI::add(const LongInteger& x, bool flag)
 	{
 		char* arr2 = x.getInfo();
 		if (flag)
-		{
-			if (x.a[0] == '0')
-				arr2[0] = '9';
+		{//что делать со знаком
+			if (a[0] == '0')
+				a[0] = '9';
 			else
-				arr2[0] = '0';
+				a[0] = '0';
 		}
-			LongInteger cop2(arr2);//Копия в котором будет жить наш доп код
-			char* arr = getInfo();
-			LongInteger cop1(arr);
-			delete[] arr;
-			delete[] arr2;
-			Invers(cop1.a), Invers(cop2.a);
-			try
-			{
-				AddColumn(cop1.a, cop2.a);
-			}
-			catch (std::exception)
-			{
-				std::cout << "Error in AddColumn" << std::endl;
-				return *this;
-			}
-			Invers(cop1.a), cop1.auto_len();
-			len = cop1.len;
-				for (int i = 0; i < len_max + 1; i++)
-				a[i] = cop1.a[i];
-			return	*this;	
+		char* arr = getInfo();
+		LongInteger cop2(arr2);//Копия в котором будет жить наш доп код
+
+		LongInteger cop1(arr);
+		delete[] arr;
+		delete[] arr2;
+		Invers(cop1.a), Invers(cop2.a);
+		try
+		{
+			AddColumn(cop1.a, cop2.a);
+		}
+		catch (const char* a)
+		{
+			if(a = "Oweflow")
+			std::cout << "Error in AddColumn. Max size:" << len_max<<"!!!!!"<<std::endl;
+			return *this;
+		}
+		Invers(cop1.a), cop1.auto_len();
+		len = cop1.len;
+		for (int i = 0; i < len_max + 1; i++)
+			a[i] = cop1.a[i];
+		if (flag)
+		{//что делать со знаком
+			if (a[0] == '0')
+				a[0] = '9';
+			else
+				a[0] = '0';
+		}
+		return	*this;
 	}
 	char* LI::Invers(char* str) const//функция для перевода в доп код
 	{
@@ -226,13 +235,13 @@ namespace LInteger
 				str[i] = (char)((int)'0' + (9 - ((int)str[i] - (int)'0')));
 			}
 			//+1?
-			char arr[len_max+2];
+			char arr[len_max + 2];
 			char* p = &arr[0];
-			for (int i = 0; i < len_max ; ++i)
+			for (int i = 0; i < len_max; ++i)
 			{
 				arr[i] = '0';
 			}
-			arr[len_max] = '1', arr[len_max+1] = 0;
+			arr[len_max] = '1', arr[len_max + 1] = 0;
 			AddColumn(str, p, len_max, false);
 		}
 		return str;
@@ -247,7 +256,7 @@ namespace LInteger
 			flag = false;
 			if (sum >= 10)
 			{
-				str1[k] = (char)((int)'0' + (10 - sum));
+				str1[k] = (char)((int)'0' + (sum - 10));
 				flag = true;
 			}
 			else
@@ -260,20 +269,12 @@ namespace LInteger
 			int sum = ((int)str1[k] + (int)str2[k] - 2 * (int)'0');
 			if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
 				sum++;
-			if (str1[0] == str2[0] && flag)
-			{
-				//Переполнение
+
+			if(str1[0]== str2[0]&& str1[0]== '0'&& sum==1)
 				throw "Oweflow";
-			}
-			else
-			{
-				if (sum == 10)
-					str1[0] = '0';
-				if (sum == 18)
-					str1[0] = '9';
-				if(sum<10)
-					str1[0] = (char)((int)'0' + (sum));
-			}
+			if (str1[0] == str2[0] && str1[0] == '9' && sum == 18)
+				throw "Oweflow";
+			str1[0] = (char)((int)'0' + sum % 10);
 			return 0;
 		}
 	}
