@@ -26,18 +26,19 @@ int main()
         cout << "Create the other some number max_size [50]: ";
         b.Input(i);
         b.Output(std::cout);
-        LI b;
         int ff;
         cout << "Input INTEGER max_size [50]: ";
         std::cin >> ff;
         b.add(ff);
         ff = -2133;
+        cout << "Input INTEGER max_size [50](function ADD): ";
         b.add(ff);
         b.Output(std::cout);
+        cout << "Input INTEGER max_size [50](function SUB): ";
         std::cin >> ff;
         b.sub(ff);
         b.Output(std::cout);
-       // delete[] str;
+        delete[] str;
     }
 }
 
