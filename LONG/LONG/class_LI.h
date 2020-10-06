@@ -5,12 +5,17 @@ namespace LInteger
 	class LongInteger
 	{
 	private:
+		//parametr
 		int len;
 		int static const len_max = 50;
+		char a[len_max + 1];//+1 за счет знака
+		//Metods
 		char* Invers(char*)const;
 		int AddColumn(char*, char*, int k = len_max, bool flag = false, bool zero = true)const;
 		const int auto_len();
-		char a[len_max+1];//+1 за счет знака
+		int copy_rc(const char* str, int i0 = 0);
+		int correct(const char* str);
+		int insignificant0(const char* str , int i);
 	public:
 		//Constructors
 		LongInteger();//Пустой конструктоор

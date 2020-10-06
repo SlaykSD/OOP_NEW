@@ -14,46 +14,80 @@ namespace LInteger
 	LI::LongInteger(const char* a) : LongInteger()//Передаем готовмое число(массив )
 	{
 		int l = strlen(a);
-		if (len_max < l)
-			throw "Invalid size. Ovewflow";
-		if ((l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)) != strspn(a + (a[0] == '-' ? 1 : 0) + (a[0] == '+' ? 1 : 0), "0123456789"))
-			throw "Data error!";
-		//знак -  первый разряд храним в прямом коде!!
-		if (a[0] == '+' || a[0] == '-' || (((int)a[0] >= (int)'0') && ((int)a[0] <= (int)'9')))//проверка числа
+		int j;
+		try 
 		{
-			if (a[0] == '+' || (((int)a[0] >= 48) && ((int)a[0] <= 57)))
-			{
-				LI::a[0] = '0';
-			}
-			else
-			{
-				LI::a[0] = '9';
-			}
+			j = correct(a);
+		}
+		catch (const char* a)
+		{
+			if (a == "Incorrcet input")
+				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
+			if (a == "Owerflow")
+				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
+		}
+		if (j != l)
+			copy_rc(a , j);
+		else LI::a[0] = '0';
+	}
+	int LI::copy_rc(const char* str, int i0)
+	{
+		for (int i = len_max; i > len_max - len; i--)
+		{
+			LI::a[i] = str[i0 +len -1];
+			i0--;
+		}
+		return 0;
+	}
+	int LI::correct(const char* str)
+	{
+		if (!(str[0] == '+' || str[0] == '-' || (((int)str[0] >= (int)'0') && ((int)str[0] <= (int)'9'))))
+			throw "Incorrcet input";
+		int i = 0, j = 0;
+		if (str[0] == '-' || str[0] == '+')
+			i = 1;
+		if (str[0] == '+' || (((int)str[0] >= 48) && ((int)str[0] <= 57)))
+		{
+			a[0] = '0';
 		}
 		else
 		{
-			if (l != 0)
-				throw "Incorrect number";
+			a[0] = '9';
 		}
-		//Копировка
-		for (int i = len_max; i > 0; i--)
+		int l = strlen(str);
+		j = insignificant0(str, i);
+		if (j == l)
+			return l;
+		while (i < l)
 		{
-			if (l <= 1)
+			if (!(((int)str[i] >= 48) && ((int)str[i] <= 57)))
 			{
-				if ((((int)a[0] >= 48) && ((int)a[0] <= 57)))
+				break;
+			}
+			i++;
+		}
+		if (i - j > len_max)
+			throw "Owerflow";
+		len = i - j;
+		return j;
+	}
+	int LI::insignificant0(const char* str, int i)
+	{
+		int l = strlen(str);
+		while (i < l)
+		{
+			if (str[i] != '0')
+			{
+				if (!(((int)str[i] >= 48) && ((int)str[i] <= 57)))
 				{
-					LI::a[i] = a[0], len = strlen(a);
-					break;
-				}
-				if (a[0] == '-' || a[0] == '+')
-				{
-					len = strlen(a) - 1;// + или минус в начале
+					len = 0;
+					return l;
 				}
 				break;
 			}
-			l--;
-			LI::a[i] = a[l];
+			i++;
 		}
+		return i;
 	}
 	LI::LongInteger(const LongInteger& x)
 	{
@@ -88,10 +122,10 @@ namespace LInteger
 	LI::LongInteger(long int& a) :LongInteger()
 	{
 		//пРоВеРка на Overflow	
-		if(a > 0)
+		if (a > 0)
 			LI::a[0] = '0';
 		else
-		LI::a[0] = '9', a = -a;
+			LI::a[0] = '9', a = -a;
 		int i = 10, k = 1;
 		while (a / i > 0)
 		{
@@ -142,42 +176,21 @@ namespace LInteger
 		char a[len_max + 1];
 		c >> a;
 		int l = strlen(a);
-		if (len_max < (l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)))
-			throw "Invalid size. Ovewflow";
-		if ((l - (a[0] == '-' ? 1 : 0) - (a[0] == '+' ? 1 : 0)) != strspn(a + (a[0] == '-' ? 1 : 0) + (a[0] == '+' ? 1 : 0), "0123456789"))
-			throw "Data error!";
-		//знак -  первый разряд храним в прямом коде!!
-		if (a[0] == '+' || a[0] == '-' || (((int)a[0] >= (int)'0') && ((int)a[0] <= (int)'9')))//проверка числа
+		int j;
+		try
 		{
-			if (a[0] == '+' || (((int)a[0] >= 48) && ((int)a[0] <= 57)))
-			{
-				LI::a[0] = '0';
-			}
-			else
-			{
-				LI::a[0] = '9';
-			}
+			j = correct(a);
 		}
-		else
-			if (l != 0)
-				throw "Incorrect number";
-		//Копировка
-		for (int i = len_max; i > 0; i--)
+		catch (const char* a)
 		{
-			if (l == 0)
-			{
-				if ((((int)a[0] >= 48) && ((int)a[0] <= 57)))
-				{
-					LI::a[i] = a[0], len = strlen(a);
-					break;
-				}
-				if (a[0] == '-' || a[0] == '+')
-					len = strlen(a) - 1;// + или минус в начале
-				break;
-			}
-			l--;
-			LI::a[i] = a[l];
+			if (a == "Incorrcet input")
+				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
+			if (a == "Owerflow")
+				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
 		}
+		if (j != l)
+			copy_rc(a, j);
+		else LI::a[0] = '0';
 		return c;
 	}
 	const int LI::auto_len()
@@ -213,15 +226,15 @@ namespace LInteger
 		}
 		catch (const char* a)
 		{
-			if(a = "Owerflow")
-			std::cout << "Error in AddColumn. Max size:" << len_max<<"!!!!!"<<std::endl;
+			if (a = "Owerflow")
+				std::cout << "Error in AddColumn. Max size:" << len_max << "!!!!!" << std::endl;
 			return *this;
 		}
 		Invers(cop1.a), cop1.auto_len();
 		len = cop1.len;
 		for (int i = 0; i < len_max + 1; i++)
 			a[i] = cop1.a[i];
-		if (fl&& k)
+		if (fl && k)
 		{
 			if (a[0] == '0')
 				a[0] = '9';
@@ -258,7 +271,7 @@ namespace LInteger
 			if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
 				sum++;
 			flag = false;
-			if (!(sum==0 || sum == 10))
+			if (!(sum == 0 || sum == 10))
 				zero = false;
 			if (sum >= 10)
 			{
@@ -294,7 +307,6 @@ namespace LInteger
 	}
 	LongInteger& LI::DIV()//Функция деления на 10(целая часть)
 	{
-		len--;
 		bool zero = true;
 		for (int i = len_max; i > 1; i--) {
 			a[i] = a[i - 1];
@@ -304,6 +316,8 @@ namespace LInteger
 		a[1] = '0';
 		if (zero)// 0 не должен быть <0 0 -положительный!!!!
 			a[0] = '0';
+		else
+			len--;
 		return *this;
 	}
 	LongInteger& LI::Multiply10()

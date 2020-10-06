@@ -43,11 +43,6 @@ TEST(LongConstructor, InitConstructorsANDSetters)
     delete[] arr;
 }
 
-TEST(LongConstructor, TestException)
-{
-    ASSERT_ANY_THROW(LInteger::LongInteger b("-asfdasdf"));
-    ASSERT_ANY_THROW(LInteger::LongInteger b("23ad"));
-}
 TEST(LongMethods, Parameters)
 {
     const char* str = { "+1234" };
