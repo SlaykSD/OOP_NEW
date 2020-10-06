@@ -360,3 +360,6 @@ MigrationBackup/
 /Long_Ineteger/LongInteger.sln
 /Long_Ineteger/Long_Ineteger/Long.sln
 /LONG/LONG.sln
+/LONG/Sample-Test1/pch.h
+/LONG/Sample-Test1/pch.cpp
+/LONG/Sample-Test1/packages.config

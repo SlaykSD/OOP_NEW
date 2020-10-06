@@ -6,9 +6,9 @@ namespace LInteger
 	{
 	private:
 		int len;
-		int static const len_max = 7;
+		int static const len_max = 50;
 		char* Invers(char*)const;
-		int AddColumn(char*, char*, int k = len_max, bool = false)const;
+		int AddColumn(char*, char*, int k = len_max, bool flag = false, bool zero = true)const;
 		const int auto_len();
 		char a[len_max+1];//+1 за счет знака
 	public:
@@ -20,7 +20,7 @@ namespace LInteger
 		LongInteger(const LongInteger&);
 		//Сеттеры+ геттер
 		int getlen() const { return len; }
-		char* getInfo() const;
+		const char* getInfo(char*) const;
 		std::ostream& Output(std::ostream&) const;//геттер
 		std::istream& Input(std::istream&);//сетер 
 		//Возможности класа

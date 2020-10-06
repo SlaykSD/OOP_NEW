@@ -10,6 +10,7 @@ namespace LInteger
 			a[i] = '0';
 		}
 	}
+	//Пофиксить 
 	LI::LongInteger(const char* a) : LongInteger()//Передаем готовмое число(массив )
 	{
 		int l = strlen(a);
@@ -87,11 +88,11 @@ namespace LInteger
 	LI::LongInteger(long int& a) :LongInteger()
 	{
 		//пРоВеРка на Overflow	
-		int i = 10, k = 1;
-		if (a > 0)
+		if(a > 0)
 			LI::a[0] = '0';
 		else
-			LI::a[0] = '9', a = -a;
+		LI::a[0] = '9', a = -a;
+		int i = 10, k = 1;
 		while (a / i > 0)
 		{
 			i *= 10;
@@ -99,18 +100,17 @@ namespace LInteger
 		}
 		if (k > len_max)
 			throw "Invalid size. Ovewflow";
-		int SZ = len_max + 1;
+		int SZ = len_max;
 		while (a > 0)
 		{
 			LI::a[SZ] = (char)((int)'0' + a % 10);
 			SZ--;
 			a /= 10;
 		}
-		len = len_max + 1 - SZ;
+		len = len_max - SZ;
 	}
-	char* LI::getInfo() const
+	const char* LI::getInfo(char* str) const
 	{
-		char* str = new char[len + 2];//1 идет на \0 второй на знак
 		if (a[0] == '9')
 		{
 			str[0] = '-';
@@ -128,6 +128,8 @@ namespace LInteger
 	{
 		if (a[0] == '9')
 			s << '-';
+		if (len == 0)
+			s << '0';
 		for (int i = len_max + 1 - len; i < len_max + 1; ++i)
 		{
 			s << a[i];
@@ -186,30 +188,32 @@ namespace LInteger
 		len = len_max + 1 - i;
 		return len;
 	}
-	LongInteger& LI::add(const LongInteger& x, bool flag)
+	LongInteger& LI::add(const LongInteger& x, bool fl)
 	{
-		char* arr2 = x.getInfo();
-		if (flag)
-		{//что делать со знаком
+		char* arr = new char[len + 2];//1 идет на \0 второй на знак
+		char* arr2 = new char[x.getlen() + 2];//1 идет на \0 второй на знак
+		x.getInfo(arr2);
+		if (fl)
+		{
 			if (a[0] == '0')
 				a[0] = '9';
 			else
 				a[0] = '0';
 		}
-		char* arr = getInfo();
+		getInfo(arr);
 		LongInteger cop2(arr2);//Копия в котором будет жить наш доп код
-
 		LongInteger cop1(arr);
 		delete[] arr;
 		delete[] arr2;
 		Invers(cop1.a), Invers(cop2.a);
+		int k;
 		try
 		{
-			AddColumn(cop1.a, cop2.a);
+			k = AddColumn(cop1.a, cop2.a);
 		}
 		catch (const char* a)
 		{
-			if(a = "Oweflow")
+			if(a = "Owerflow")
 			std::cout << "Error in AddColumn. Max size:" << len_max<<"!!!!!"<<std::endl;
 			return *this;
 		}
@@ -217,8 +221,8 @@ namespace LInteger
 		len = cop1.len;
 		for (int i = 0; i < len_max + 1; i++)
 			a[i] = cop1.a[i];
-		if (flag)
-		{//что делать со знаком
+		if (fl&& k)
+		{
 			if (a[0] == '0')
 				a[0] = '9';
 			else
@@ -246,7 +250,7 @@ namespace LInteger
 		}
 		return str;
 	}
-	int LI::AddColumn(char* str1, char* str2, int k, bool flag) const
+	int LI::AddColumn(char* str1, char* str2, int k, bool flag, bool zero) const
 	{
 		if (k > 0)
 		{
@@ -254,6 +258,8 @@ namespace LInteger
 			if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
 				sum++;
 			flag = false;
+			if (!(sum==0 || sum == 10))
+				zero = false;
 			if (sum >= 10)
 			{
 				str1[k] = (char)((int)'0' + (sum - 10));
@@ -262,20 +268,28 @@ namespace LInteger
 			else
 				str1[k] = (char)((int)'0' + (sum));
 			k--;
-			AddColumn(str1, str2, k, flag);
+			AddColumn(str1, str2, k, flag, zero);
 		}
 		else
 		{
-			int sum = ((int)str1[k] + (int)str2[k] - 2 * (int)'0');
-			if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
-				sum++;
+			if (zero)
+			{
+				str1[0] = '0';
+				return 0;
+			}
+			else
+			{
+				int sum = ((int)str1[k] + (int)str2[k] - 2 * (int)'0');
+				if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
+					sum++;
 
-			if(str1[0]== str2[0]&& str1[0]== '0'&& sum==1)
-				throw "Oweflow";
-			if (str1[0] == str2[0] && str1[0] == '9' && sum == 18)
-				throw "Oweflow";
-			str1[0] = (char)((int)'0' + sum % 10);
-			return 0;
+				if (str1[0] == str2[0] && str1[0] == '0' && sum == 1)
+					throw "Owerflow";
+				if (str1[0] == str2[0] && str1[0] == '9' && sum == 18)
+					throw "Owerflow";
+				str1[0] = (char)((int)'0' + sum % 10);
+			}
+			return 1;
 		}
 	}
 	LongInteger& LI::DIV()//Функция деления на 10(целая часть)

@@ -2,7 +2,20 @@
 //
 #include "class_LI.h"
 #include <iostream>
+#include <limits.h>
 
+int getN_Int(int* a) {
+    bool good = true;
+    do
+    {
+        std::cin >> *a;
+        if (!(good = std::cin.good()))
+            std::cout << "Error! Please, repeat your input(INTEGER): ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    } while (!good);
+    return 1;
+}
 int main()
 {
     using LI = LInteger::LongInteger;
@@ -15,9 +28,12 @@ int main()
         std::cin >> str;
         cout<<endl;
         LI a(str);
+        cout << "Your number: ";
         a.Output(std::cout);
+        cout << "Use a method divisions: ";
         a.DIV();
         a.Output(std::cout);
+        cout << "Use a method multiplications: ";
         a.Multiply10();
         a.Output(std::cout);
               
@@ -27,16 +43,20 @@ int main()
         b.Input(i);
         b.Output(std::cout);
         int ff;
-        cout << "Input INTEGER max_size [50]: ";
-        std::cin >> ff;
+        cout << "Input INTEGER max_size [50] to ADD : ";
+        getN_Int(&ff);
         b.add(ff);
-        ff = -2133;
+        cout << endl;
+        b.Output(std::cout);
         cout << "Input INTEGER max_size [50](function ADD): ";
+        getN_Int(&ff);
         b.add(ff);
+        cout << endl;
         b.Output(std::cout);
         cout << "Input INTEGER max_size [50](function SUB): ";
-        std::cin >> ff;
+        getN_Int(&ff);
         b.sub(ff);
+        cout << endl;
         b.Output(std::cout);
         delete[] str;
     }
