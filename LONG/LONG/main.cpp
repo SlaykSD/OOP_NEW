@@ -24,6 +24,7 @@ int main()
     int n = 0;
     while (std::cin >> n, n > 0) {
         char* str = new char[228];
+        cout<<~3500<<endl;
         cout << "Create some number max_size [50]: ";
         std::cin >> str;
         cout<<endl;

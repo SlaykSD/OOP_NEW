@@ -37,6 +37,5 @@ namespace LInteger
 		}
 		LongInteger& DIV();
 		LongInteger& Multiply10();
-
 	};
 }
