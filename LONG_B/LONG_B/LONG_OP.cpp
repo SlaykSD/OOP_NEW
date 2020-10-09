@@ -1,4 +1,5 @@
 #include "LONG_OP.h"
+#include <cctype> 
 
 namespace LInteger
 {
@@ -24,7 +25,7 @@ namespace LInteger
 		int j;
 		try
 		{
-			j = correct(a);
+			j = convert_to_signmagnitude(a);
 		}
 		catch (const char* a)
 		{
@@ -46,28 +47,21 @@ namespace LInteger
 		}
 		return 0;
 	}
-	int LI::correct(const char* str)
+	int LI::convert_to_signmagnitude(const char* str)
 	{
-		if (!(str[0] == '+' || str[0] == '-' || (((int)str[0] >= (int)'0') && ((int)str[0] <= (int)'9'))))
+		if (!(str[0] == '+' || str[0] == '-' || isdigit(str[0])))
 			throw "Incorrcet input";
 		int i = 0, j = 0;
 		if (str[0] == '-' || str[0] == '+')
 			i = 1;
-		if (str[0] == '+' || (((int)str[0] >= 48) && ((int)str[0] <= 57)))
-		{
-			a[0] = '0';
-		}
-		else
-		{
-			a[0] = '9';
-		}
+		a[0] = str[0] == '+' || isdigit(str[0]) ? '0' : '9';
 		int l = strlen(str);
 		j = insignificant0(str, i);
 		if (j == l)
 			return l;
 		while (i < l)
 		{
-			if (!(((int)str[i] >= 48) && ((int)str[i] <= 57)))
+			if (!(isdigit(str[i])))
 			{
 				break;
 			}
@@ -102,30 +96,7 @@ namespace LInteger
 			LI::a[i] = x.a[i];
 		len = x.getlen();
 	}
-	LI::LongInteger(int& a) :LongInteger()
-	{
-		//п–о¬е–ка на Overflow
-		if (a > 0)
-			LI::a[0] = '0';
-		else
-			LI::a[0] = '9', a = -a;
-		int i = 10, k = 1;
-		while (a / i > 0)
-		{
-			i *= 10;
-			k++;
-		}
-		if (k > len_max)
-			throw "Invalid size. Ovewflow";
-		int SZ = len_max;
-		while (a > 0)
-		{
-			LI::a[SZ] = (char)((int)'0' + a % 10);
-			SZ--;
-			a /= 10;
-		}
-		len = len_max - SZ;
-	}
+
 	LI::LongInteger(long int& a) :LongInteger()
 	{
 		//п–о¬е–ка на Overflow	
@@ -156,7 +127,7 @@ namespace LInteger
 	{
 		if (a[0] == '0')
 			return *this;
-		LongInteger res;
+		LongInteger res; res.a[0] = '9';
 		for (int i = 1; i < len_max + 1; ++i)
 		{
 			res.a[i] = (char)((int)'0' + (9 - ((int)a[i] - (int)'0')));
@@ -179,7 +150,7 @@ namespace LInteger
 		for(int i=0;i<len_max+1;++i)
 			if (a[i] !='0' )
 			{
-				b.a[i] = a[i] == '0' ? '9' : '0';
+				b.a[0] = a[0] == '0' ? '9' : '0';
 				break;
 			}
 		return b;
@@ -224,6 +195,8 @@ namespace LInteger
 				std::cout << "Incorrect multiply" << std::endl;
 			if (a == "Owerflow")
 				std::cout << "Your number takes up all space" << std::endl;
+			LI b = *this;
+			return b;
 		}
 	}
 	const LongInteger LI::operator /(const int th)
@@ -243,13 +216,15 @@ namespace LInteger
 			if (zero)// 0 не должен быть <0 0 -положительный!!!!
 				b.a[0] = '0';
 			else
-				len--;
+				b.len--;
 			return b;
 		}
 		catch (const char*a)
 		{
 			if (a == "Error div")
 				std::cout << "Incorrect division" << std::endl;
+			LI b = *this;
+			return b;
 		}
 	}
 	int LI::AddColumn(char* str1, char* str2, int k, bool flag, bool zero) const
@@ -301,7 +276,7 @@ namespace LInteger
 		int j;
 		try
 		{
-			j = x.correct(a);
+			j = x.convert_to_signmagnitude(a);
 		}
 		catch (const char* a)
 		{
@@ -309,6 +284,7 @@ namespace LInteger
 				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
 			if (a == "Owerflow")
 				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
+			return c;
 		}
 		if (j != l)
 			x.copy_rc(a, j);
