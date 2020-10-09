@@ -30,9 +30,9 @@ namespace LInteger
 		catch (const char* a)
 		{
 			if (a == "Incorrcet input")
-				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
+				std::cout << "Your number is not correct.The first symbol should be - or + or integer" << std::endl;
 			if (a == "Owerflow")
-				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
+				std::cout << "Your number is not correct.Your number is too big " << std::endl;
 		}
 		if (j != l)
 			copy_rc(a, j);
@@ -54,6 +54,9 @@ namespace LInteger
 		int i = 0, j = 0;
 		if (str[0] == '-' || str[0] == '+')
 			i = 1;
+		if (strlen(a) == i)
+			throw "Incorrcet input";
+
 		a[0] = str[0] == '+' || isdigit(str[0]) ? '0' : '9';
 		int l = strlen(str);
 		j = insignificant0(str, i);
@@ -75,8 +78,6 @@ namespace LInteger
 	int LI::insignificant0(const char* str, int i)
 	{
 		int l = strlen(str);
-		if (l == 1)
-			throw "Incorrcet input";
 		while (i < l)
 		{
 			if (str[i] != '0')
@@ -285,9 +286,11 @@ namespace LInteger
 		catch (const char* a)
 		{
 			if (a == "Incorrcet input")
-				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
+			{
+				std::cout << "Your number is not correct.The first symbol should be - or + or integer" << std::endl;
+			}
 			if (a == "Owerflow")
-				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
+				std::cout << "Your number is not correct.Your number is too big " << std::endl;
 			return c;
 		}
 		if (j != l)
