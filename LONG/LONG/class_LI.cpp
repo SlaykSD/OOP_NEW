@@ -1,5 +1,7 @@
 #include "class_LI.h"
 #include <string.h>
+#include <cctype>
+
 namespace LInteger
 {
 	using LI = LongInteger;
@@ -17,7 +19,7 @@ namespace LInteger
 		int j;
 		try 
 		{
-			j = correct(a);
+			j = convert_to_signmagnitude(a);
 		}
 		catch (const char* a)
 		{
@@ -25,6 +27,7 @@ namespace LInteger
 				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
 			if (a == "Owerflow")
 				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
+
 		}
 		if (j != l)
 			copy_rc(a , j);
@@ -39,28 +42,21 @@ namespace LInteger
 		}
 		return 0;
 	}
-	int LI::correct(const char* str)
+	int LI::convert_to_signmagnitude(const char* str)
 	{
-		if (!(str[0] == '+' || str[0] == '-' || (((int)str[0] >= (int)'0') && ((int)str[0] <= (int)'9'))))
+		if (!(str[0] == '+' || str[0] == '-' || isdigit(str[0])))
 			throw "Incorrcet input";
 		int i = 0, j = 0;
 		if (str[0] == '-' || str[0] == '+')
 			i = 1;
-		if (str[0] == '+' || (((int)str[0] >= 48) && ((int)str[0] <= 57)))
-		{
-			a[0] = '0';
-		}
-		else
-		{
-			a[0] = '9';
-		}
+		a[0] = str[0] == '+' || isdigit(str[0]) ? '0' : '9';
 		int l = strlen(str);
 		j = insignificant0(str, i);
 		if (j == l)
 			return l;
 		while (i < l)
 		{
-			if (!(((int)str[i] >= 48) && ((int)str[i] <= 57)))
+			if (!(isdigit(str[i])))
 			{
 				break;
 			}
@@ -74,12 +70,16 @@ namespace LInteger
 	int LI::insignificant0(const char* str, int i)
 	{
 		int l = strlen(str);
+		if(l==1)
+			throw "Incorrcet input";
 		while (i < l)
 		{
 			if (str[i] != '0')
 			{
-				if (!(((int)str[i] >= 48) && ((int)str[i] <= 57)))
+				if (!(isdigit(str[i])))
 				{
+					if (i == 1)
+						throw "Incorrcet input";
 					len = 0;
 					return l;
 				}
@@ -179,7 +179,7 @@ namespace LInteger
 		int j;
 		try
 		{
-			j = correct(a);
+			j = convert_to_signmagnitude(a);
 		}
 		catch (const char* a)
 		{
@@ -187,6 +187,7 @@ namespace LInteger
 				std::cout << "Your number is nor correct.The first symbol should be - or + or integer" << std::endl;
 			if (a == "Owerflow")
 				std::cout << "Your number is nor correct.Your number is too big " << std::endl;
+			return c;
 		}
 		if (j != l)
 			copy_rc(a, j);
@@ -315,7 +316,11 @@ namespace LInteger
 		}
 		a[1] = '0';
 		if (zero)// 0 не должен быть <0 0 -положительный!!!!
+		{
 			a[0] = '0';
+			if (len > 0)
+				len = 0;
+		}
 		else
 			len--;
 		return *this;

@@ -22,10 +22,12 @@ int main()
     using std::cout;
     using std::endl;
     int n = 0;
-    while (std::cin >> n, n > 0) {
+    while (cout<<"Input n>0: ",std::cin >> n, n > 0) {
         char* str = new char[228];
         cout << "Create some number max_size [50]: ";
         std::cin >> str;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         cout<<endl;
         LI a(str);
         cout << "Your number: ";
@@ -41,6 +43,8 @@ int main()
         LI b;
         cout << "Create the other some number max_size [50]: ";
         b.Input(i);
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         b.Output(std::cout);
         int ff;
         cout << "Input INTEGER max_size [50] to ADD : ";

@@ -14,7 +14,7 @@ namespace LInteger
 		int AddColumn(char*, char*, int k = len_max, bool flag = false, bool zero = true)const;
 		const int auto_len();
 		int copy_rc(const char* str, int i0 = 0);
-		int correct(const char* str);
+		int convert_to_signmagnitude(const char* str);
 		int insignificant0(const char* str , int i);
 	public:
 		//Constructors
