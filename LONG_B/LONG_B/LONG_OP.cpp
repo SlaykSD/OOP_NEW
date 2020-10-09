@@ -75,12 +75,16 @@ namespace LInteger
 	int LI::insignificant0(const char* str, int i)
 	{
 		int l = strlen(str);
+		if (l == 1)
+			throw "Incorrcet input";
 		while (i < l)
 		{
 			if (str[i] != '0')
 			{
-				if (!(((int)str[i] >= 48) && ((int)str[i] <= 57)))
+				if (!(isdigit(str[i])))
 				{
+					if (i == 1)
+						throw "Incorrcet input";
 					len = 0;
 					return l;
 				}
