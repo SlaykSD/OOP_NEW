@@ -159,6 +159,7 @@ namespace LInteger
 }
 int main()
 {
+
 	LInteger::LongInteger BIG;
 	int rc = 0;
 	LInteger::dialog_set(BIG);
