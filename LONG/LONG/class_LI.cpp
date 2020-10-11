@@ -205,14 +205,10 @@ namespace LInteger
 		x.getInfo(arr2);
 		if (fl)
 		{
-			if (a[0] == '0')
-				a[0] = '9';
-			else
-				a[0] = '0';
+			a[0] = a[0] == '0' ? '9' : '0';
 		}
 		getInfo(arr);
-		LongInteger cop2(arr2);
-		LongInteger cop1(arr);
+		LongInteger cop2(arr2);LongInteger cop1(arr);
 		delete[] arr;
 		delete[] arr2;
 		compute_invers(cop1.a), compute_invers(cop2.a);
@@ -233,10 +229,7 @@ namespace LInteger
 			a[i] = cop1.a[i];
 		if (fl && k)
 		{
-			if (a[0] == '0')
-				a[0] = '9';
-			else
-				a[0] = '0';
+			a[0] = a[0] == '0' ? '9' : '0';
 		}
 		return	*this;
 	}
@@ -248,7 +241,6 @@ namespace LInteger
 			{
 				str[i] = (char)((int)'0' + (9 - ((int)str[i] - (int)'0')));
 			}
-			//+1?
 			char arr[LEN_MAX + 2];
 			char* p = &arr[0];
 			for (int i = 0; i < LEN_MAX; ++i)
