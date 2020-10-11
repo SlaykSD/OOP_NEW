@@ -7,11 +7,11 @@ namespace LInteger
 	private:
 		//parametr
 		int len;
-		int static const len_max = 50;
-		char a[len_max + 1];//+1 за счет знака
+		int static const LEN_MAX = 50;
+		char a[LEN_MAX + 1];//+1 за счет знака
 		//Metods
-		char* Invers(char*)const;
-		int AddColumn(char*, char*, int k = len_max, bool flag = false, bool zero = true)const;
+		char* compute_invers(char*)const;
+		int add_column(char*, char*)const;
 		const int auto_len();
 		int copy_rc(const char* str, int i0 = 0);
 		int convert_to_signmagnitude(const char* str);
@@ -26,8 +26,8 @@ namespace LInteger
 		//Сеттеры+ геттер
 		int getlen() const { return len; }
 		const char* getInfo(char*) const;
-		std::ostream& Output(std::ostream&) const;//геттер
-		std::istream& Input(std::istream&);//сетер 
+		std::ostream& output(std::ostream&) const;//геттер
+		std::istream& input(std::istream&);//сетер 
 		//Возможности класа
 		LongInteger& add(const LongInteger&, bool flag = false);
 		LongInteger& sub(const LongInteger& x) 
@@ -35,7 +35,7 @@ namespace LInteger
 			add(x, true);
 			return *this; 
 		}
-		LongInteger& DIV();
-		LongInteger& Multiply10();
+		LongInteger& div();
+		LongInteger& multiply10();
 	};
 }

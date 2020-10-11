@@ -31,37 +31,37 @@ int main()
         cout<<endl;
         LI a(str);
         cout << "Your number: ";
-        a.Output(std::cout);
+        a.output(std::cout);
         cout << "Use a method divisions: ";
-        a.DIV();
-        a.Output(std::cout);
+        a.div();
+        a.output(std::cout);
         cout << "Use a method multiplications: ";
-        a.Multiply10();
-        a.Output(std::cout);
+        a.multiply10();
+        a.output(std::cout);
               
         std::istream& i = std::cin;
         LI b;
         cout << "Create the other some number max_size [50]: ";
-        b.Input(i);
+        b.input(i);
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        b.Output(std::cout);
+        b.output(std::cout);
         int ff;
         cout << "Input INTEGER max_size [50] to ADD : ";
         getN_Int(&ff);
         b.add(ff);
         cout << endl;
-        b.Output(std::cout);
+        b.output(std::cout);
         cout << "Input INTEGER max_size [50](function ADD): ";
         getN_Int(&ff);
         b.add(ff);
         cout << endl;
-        b.Output(std::cout);
+        b.output(std::cout);
         cout << "Input INTEGER max_size [50](function SUB): ";
         getN_Int(&ff);
         b.sub(ff);
         cout << endl;
-        b.Output(std::cout);
+        b.output(std::cout);
         delete[] str;
     }
 }
