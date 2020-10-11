@@ -6,11 +6,11 @@ namespace LInteger
 	private:
 		//parametr
 		int len;
-		int static const len_max = 50;
-		char a[len_max + 1];//+1 за счет знака
+		int static const LEN_MAX = 50;
+		char a[LEN_MAX + 1];
 		//Metods
 		char* Invers(char*)const;
-		int AddColumn(char*, char*, int k = len_max, bool flag = false, bool zero = true)const;
+		int add_column(char*, char*)const;
 		const int auto_len();
 		int copy_rc(const char* str, int i0 = 0);
 		int convert_to_signmagnitude(const char* str);
@@ -18,7 +18,7 @@ namespace LInteger
 	public:
 		//Constructors
 		LongInteger();//Пустой конструктоор
-		LongInteger(const char* a);//Конструктор для числа 
+		LongInteger(const char* a);
 	//	LongInteger(int& a);
 		LongInteger(long int& a);
 		LongInteger(const LongInteger&);
@@ -36,6 +36,5 @@ namespace LInteger
 		const LongInteger operator /(const int th);
 		const char* getInfo() const;
 		int getlen() const { return len; };
-
 	};
 }

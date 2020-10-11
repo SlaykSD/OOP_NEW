@@ -6,7 +6,7 @@ namespace LInteger
 	using LI = LongInteger;
 	LI::LongInteger() :len(0)//Пустой конструктоор
 	{
-		for (int i = 0; i < len_max + 1; ++i)
+		for (int i = 0; i <	LEN_MAX + 1; ++i)
 		{
 			a[i] = '0';
 		}
@@ -16,7 +16,7 @@ namespace LInteger
 		int i = 1;
 		while (a[i] == '0')
 			i++;
-		len = len_max + 1 - i;
+		len = LEN_MAX + 1 - i;
 		return len;
 	}
 	LI::LongInteger(const char* a) : LongInteger()//Передаем готовмое число(массив )
@@ -40,7 +40,7 @@ namespace LInteger
 	}
 	int LI::copy_rc(const char* str, int i0)
 	{
-		for (int i = len_max; i > len_max - len; i--)
+		for (int i = LEN_MAX; i > LEN_MAX - len; i--)
 		{
 			LI::a[i] = str[i0 + len - 1];
 			i0--;
@@ -70,7 +70,7 @@ namespace LInteger
 			}
 			i++;
 		}
-		if (i - j > len_max)
+		if (i - j > LEN_MAX)
 			throw "Owerflow";
 		len = i - j;
 		return j;
@@ -97,7 +97,7 @@ namespace LInteger
 	}
 	LI::LongInteger(const LongInteger& x)
 	{
-		for (int i = 0; i < len_max + 1; ++i)
+		for (int i = 0; i < LEN_MAX + 1; ++i)
 			LI::a[i] = x.a[i];
 		len = x.getlen();
 	}
@@ -115,16 +115,16 @@ namespace LInteger
 			i *= 10;
 			k++;
 		}
-		if (k > len_max)
+		if (k > LEN_MAX)
 			throw "Invalid size. Ovewflow";
-		int SZ = len_max;
+		int SZ = LEN_MAX;
 		while (a > 0)
 		{
 			LI::a[SZ] = (char)((int)'0' + a % 10);
 			SZ--;
 			a /= 10;
 		}
-		len = len_max - SZ;
+		len = LEN_MAX - SZ;
 	}
 
 
@@ -133,26 +133,25 @@ namespace LInteger
 		if (a[0] == '0')
 			return *this;
 		LongInteger res; res.a[0] = '9';
-		for (int i = 1; i < len_max + 1; ++i)
+		for (int i = 1; i < LEN_MAX + 1; ++i)
 		{
 			res.a[i] = (char)((int)'0' + (9 - ((int)a[i] - (int)'0')));
 		}
-		//+1?
-		char arr[len_max + 2];
+		char arr[LEN_MAX + 2];
 		char* p = &arr[0];
-		for (int i = 0; i < len_max; ++i)
+		for (int i = 0; i < LEN_MAX; ++i)
 		{
 			arr[i] = '0';
 		}
-		arr[len_max] = '1', arr[len_max + 1] = 0;
-		AddColumn(res.a, p, len_max, false);
+		arr[LEN_MAX] = '1', arr[LEN_MAX + 1] = 0;
+		add_column(res.a, p);
 		res.auto_len();
 		return res;
 	}
 	const LongInteger LI::operator-()const
 	{
 		LongInteger b = *this;
-		for(int i=0;i<len_max+1;++i)
+		for(int i=0;i<LEN_MAX+1;++i)
 			if (a[i] !='0' )
 			{
 				b.a[0] = a[0] == '0' ? '9' : '0';
@@ -162,16 +161,15 @@ namespace LInteger
 	}
 	LongInteger operator +(const LongInteger& x1, const LongInteger& x2)
 	{
-		LongInteger cop2(~x2),cop1(~x1);//Копия в котором будет жить наш доп код
-		int k;
+		LongInteger cop2(~x2),cop1(~x1);
 		try
 		{
-			k = x1.AddColumn(cop1.a, cop2.a);
+			x1.add_column(cop1.a, cop2.a);
 		}
 		catch (const char* a)
 		{
 			if (a = "Owerflow")
-				std::cout << "Error in AddColumn. Max size:" << x1.len_max << "!!!!!" << std::endl;
+				std::cout << "Error in AddColumn. Max size:" << x1.LEN_MAX << "!!!!!" << std::endl;
 			return 0;
 		}
 		cop1 = ~cop1, cop1.auto_len();
@@ -187,11 +185,11 @@ namespace LInteger
 				throw "Owerflow";
 			LongInteger b = *this;
 			b.len = len + 1;
-			for (int i = 1; i < len_max; i++)
+			for (int i = 1; i < LEN_MAX; i++)
 			{
 				b.a[i] = b.a[i + 1];
 			}
-			b.a[len_max] = '0';
+			b.a[LEN_MAX] = '0';
 			return b;
 		}
 		catch (const char* a)
@@ -212,7 +210,7 @@ namespace LInteger
 				throw "Error div";
 			bool zero = true;
 			LongInteger b = *this;
-			for (int i = len_max; i > 1; i--) {
+			for (int i = LEN_MAX; i > 1; i--) {
 				b.a[i] = b.a[i - 1];
 				if (zero && (b.a[i] != '0' || b.a[i - 1] != '0'))
 					zero = false;
@@ -232,50 +230,47 @@ namespace LInteger
 			return b;
 		}
 	}
-	int LI::AddColumn(char* str1, char* str2, int k, bool flag, bool zero) const
+	int LI::add_column(char* str1, char* str2) const
 	{
-		if (k > 0)
+		bool flag = false;
+		bool zero = true;
+		for (int i = LEN_MAX; i > 0; i--)
 		{
-			int sum = ((int)str1[k] + (int)str2[k] - 2 * (int)'0');
-			if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
+			int sum = ((int)str1[i] + (int)str2[i] - 2 * (int)'0');
+			if (flag)
 				sum++;
 			flag = false;
 			if (!(sum == 0 || sum == 10))
 				zero = false;
 			if (sum >= 10)
 			{
-				str1[k] = (char)((int)'0' + (sum - 10));
+				str1[i] = (char)((int)'0' + (sum - 10));
 				flag = true;
 			}
 			else
-				str1[k] = (char)((int)'0' + (sum));
-			k--;
-			AddColumn(str1, str2, k, flag, zero);
+				str1[i] = (char)((int)'0' + (sum));
+		}
+		if (zero)
+		{
+			str1[0] = '0';
+			return 0;
 		}
 		else
 		{
-			if (zero)
-			{
-				str1[0] = '0';
-				return 0;
-			}
-			else
-			{
-				int sum = ((int)str1[k] + (int)str2[k] - 2 * (int)'0');
-				if (flag)//в случае в прошлом сложении добавляем 1(по правилу столбика)
-					sum++;
-				if (str1[0] == str2[0] && str1[0] == '0' && sum == 1)
-					throw "Owerflow";
-				if (str1[0] == str2[0] && str1[0] == '9' && sum == 18)
-					throw "Owerflow";
-				str1[0] = (char)((int)'0' + sum % 10);
-			}
-			return 1;
+			int sum = ((int)str1[0] + (int)str2[0] - 2 * (int)'0');
+			if (flag)
+				sum++;
+			if (str1[0] == str2[0] && str1[0] == '0' && sum == 1)
+				throw "Owerflow";
+			if (str1[0] == str2[0] && str1[0] == '9' && sum == 18)
+				throw "Owerflow";
+			str1[0] = (char)((int)'0' + sum % 10);
 		}
+		return 1;
 	}
 	std::istream& operator>>(std::istream& c,LongInteger& x)
 	{
-		char a[x.len_max + 1];
+		char a[x.LEN_MAX + 1];
 		c >> a;
 		int l = strlen(a);
 		int j;
@@ -304,7 +299,7 @@ namespace LInteger
 			s << '-';
 		if (x.len == 0)
 			s << '0';
-		for (int i = x.len_max + 1 - x.len; i < x.len_max + 1; ++i)
+		for (int i = x.LEN_MAX + 1 - x.len; i < x.LEN_MAX + 1; ++i)
 		{
 			s << x.a[i];
 		}
@@ -313,19 +308,18 @@ namespace LInteger
 	}
 	const char* LI::getInfo() const
 	{
-		char str[len_max + 2];
+		char str[LEN_MAX + 2];
 		if (a[0] == '9')
 		{
 			str[0] = '-';
-			for (int i = len_max + 1 - len; i < len_max + 1; i++)
-				str[i - (len_max - len)] = a[i];
+			for (int i = LEN_MAX + 1 - len; i < LEN_MAX + 1; i++)
+				str[i - (LEN_MAX - len)] = a[i];
 			str[len + 1] = 0;
 			return str;
 		}
-		for (int i = len_max + 1 - len; i < len_max + 1; i++)
-			str[i - (len_max + 1 - len)] = a[i];
+		for (int i = LEN_MAX + 1 - len; i < LEN_MAX + 1; i++)
+			str[i - (LEN_MAX + 1 - len)] = a[i];
 		str[len] = 0;
 		return str;
 	}
-
 }
