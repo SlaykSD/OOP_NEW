@@ -140,7 +140,7 @@ namespace LInteger
 			if (!getN_Int(&ff))
 				return 0;
 			LI res2(ff);
-			BIG = res2;
+			BIG = (res2);
 		}
 		LI res;
 		switch (rc)

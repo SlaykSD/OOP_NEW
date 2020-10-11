@@ -1,5 +1,6 @@
 #include "LONG_OP.h"
 #include <cctype> 
+#include <string>
 
 namespace LInteger
 {
@@ -38,14 +39,20 @@ namespace LInteger
 	}
 	int LI::copy_rc(const char* str, int i0)
 	{
+		char sgn;
 		if (a != nullptr)
+		{
+			sgn = a[0];
 			delete[] a;
+		}
 		a = new char[len + 1];
+		a[0] = sgn;
 		for (int i = len; i > 0; i--)
 		{
 			LI::a[i] = str[i0 + len - 1];
 			i0--;
 		}
+		a[len + 1] = 0;
 		return 0;
 	}
 	int LI::convert_to_signmagnitude(const char* str)
@@ -99,8 +106,6 @@ namespace LInteger
 	LI::LongInteger(const LongInteger& x)
 	{
 		try {
-			if (a != nullptr)
-				delete[] a;
 			len = x.len;
 			a = new char[len + 1];
 			for (int i = 0; i < len + 1; ++i)
@@ -210,11 +215,11 @@ namespace LInteger
 		}
 		cop1 = ~cop1;
 		int dif = cop1.insignificant0(cop1.a, 1);
-		if(dif!=0)
+		if (dif != 0)
 			cop1.change_of_length(dif, false);
 		return	cop1;
 	}
-	LI::LongInteger(LongInteger& b, int difference)
+	LI::LongInteger(LongInteger& b, int difference) :len(b.len)
 	{
 		len += difference;
 		a = new char[len + 1];
@@ -268,7 +273,7 @@ namespace LInteger
 				throw "Error multiply";
 			LongInteger b = *this;
 			b.change_of_length(1);
-			for (int i = 1; i < len+1; i++)
+			for (int i = 1; i < len + 1; i++)
 			{
 				b.a[i] = b.a[i + 1];
 			}
@@ -355,8 +360,9 @@ namespace LInteger
 	std::istream& operator>>(std::istream& c, LongInteger& x)
 	{
 		//Разобратсья с вводом
-		char * a;
-		c >> a;
+		std::string str;
+		std::getline(c, str);
+		const char* a = str.c_str();
 		int l = strlen(a);
 		int j;
 		try
@@ -393,7 +399,7 @@ namespace LInteger
 	}
 	const char* LI::getInfo() const
 	{
-		char* str =  new char[len + 2];
+		char* str = new char[len + 2];
 		if (a[0] == '9')
 		{
 			str[0] = '-';
@@ -407,5 +413,34 @@ namespace LInteger
 		str[len] = 0;
 		return str;
 	}
-
+	LongInteger& LI::operator=(const LongInteger& other)
+	{
+		if (this != &other)
+		{
+			if (a != nullptr)
+				delete[] a;
+			if (other.len != 0)
+			{
+				len = other.len;
+				copy_rc(other.a, 1);
+				a[0] = other.a[0];
+			}
+		}
+		return *this;
+	}
+	LongInteger& LI::operator=(LongInteger&& other) noexcept
+	{
+		if (this != &other)
+		{
+			if (a != nullptr)
+			{
+				delete[] a;
+				len = other.len;
+				a = other.a;
+				other.a = nullptr;
+				other.len = 0;
+			}
+		}
+		return *this;
+	}
 }
