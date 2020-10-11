@@ -8,7 +8,7 @@ namespace LInteger
 		//parametr
 		int len;
 		int static const LEN_MAX = 50;
-		char a[LEN_MAX + 1];//+1 за счет знака
+		char a[LEN_MAX + 1];
 		//Metods
 		char* compute_invers(char*)const;
 		int add_column(char*, char*)const;
@@ -18,17 +18,17 @@ namespace LInteger
 		int insignificant0(const char* str , int i);
 	public:
 		//Constructors
-		LongInteger();//Пустой конструктоор
-		LongInteger(const char* a);//Конструктор для числа 
+		LongInteger();
+		LongInteger(const char* a);
 		LongInteger(int& a);
 		LongInteger(long int& a);
 		LongInteger(const LongInteger&);
-		//Сеттеры+ геттер
+		//setters
 		int getlen() const { return len; }
 		const char* getInfo(char*) const;
-		std::ostream& output(std::ostream&) const;//геттер
-		std::istream& input(std::istream&);//сетер 
-		//Возможности класа
+		std::ostream& output(std::ostream&) const;//setter
+		std::istream& input(std::istream&);//getter
+		//Opportunities of class
 		LongInteger& add(const LongInteger&, bool flag = false);
 		LongInteger& sub(const LongInteger& x) 
 		{ 
