@@ -8,7 +8,7 @@ namespace LInteger
 		int len;
 		char* a;
 		//Metods
-		int AddColumn(char*, char*, int k , bool flag = false, bool zero = true)const;
+		int add_column(char*, char*)const;
 		int copy_rc(const char* str, int i0 = 0);
 		int convert_to_signmagnitude(const char* str);
 		int insignificant0(const char* str, int i)const;
