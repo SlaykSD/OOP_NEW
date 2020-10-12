@@ -436,7 +436,6 @@ namespace LInteger
 			len = other.len;
 			copy_rc(other.a, 1);
 			a[0] = other.a[0];
-
 		}
 		return *this;
 	}
