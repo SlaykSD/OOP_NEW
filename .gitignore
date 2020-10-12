@@ -371,3 +371,6 @@ MigrationBackup/
 /LONG_B/Sample-Test1/pch.cpp
 /LONG_B/Sample-Test1/packages.config
 /LONG_B/Sample-Test1/pch.h
+*.config
+/LONG_B/TEST_C/pch.h
+/LONG_B/TEST_C/pch.cpp
