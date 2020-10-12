@@ -78,7 +78,7 @@ namespace LInteger
 	{
 		cout << "Your twos compliment equal = ";
 		LI res = ~BIG;
-		cout << res << endl;
+		cout << res.getSignMagnitude() << endl;
 		return 1;
 	}
 	int dialog_pos(LongInteger& BIG)

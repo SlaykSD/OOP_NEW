@@ -26,7 +26,7 @@ namespace LInteger
 			if (a == "Owerflow")
 				std::cout << "Your number is not correct.Your number is too big " << std::endl;
 		}
-		char sign = a[0];
+		char sign = a[0]=='-'?'9': '0';
 		if (j != l)
 		{
 			copy_rc(a, j);
@@ -141,6 +141,8 @@ namespace LInteger
 			}
 			LI::a[len + 1] = 0;
 		}
+		else
+			LI::a[1] = (char)((int)'0' + a);
 		this->a[0] = sign;
 	}
 
@@ -414,14 +416,22 @@ namespace LInteger
 		if (a[0] == '9')
 		{
 			str[0] = '-';
-			for (int i = 0; i < len + 1; i++)
+			for (int i = 1; i < len + 1; i++)
 				str[i] = a[i];
 			str[len + 1] = 0;
 			return str;
 		}
+		for (int i = 1; i < len+1; i++)
+			str[i-1] = a[i];
+		str[len] = 0;
+		return str;
+	}
+	const char* LI::getSignMagnitude()const
+	{
+		char* str = new char[len + 2];
 		for (int i = 0; i < len + 1; i++)
 			str[i] = a[i];
-		str[len] = 0;
+		str[len+1] = 0;
 		return str;
 	}
 	LongInteger& LI::operator=(const LongInteger& other)

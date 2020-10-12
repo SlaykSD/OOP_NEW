@@ -35,6 +35,7 @@ namespace LInteger
 		const LongInteger operator *(const int th);
 		const LongInteger operator /(const int th);
 		const char* getInfo() const;
+		const char* getSignMagnitude()const;
 		int getlen() const { return len; };
 		//destructor
 		~LongInteger() 
