@@ -46,5 +46,6 @@ namespace LInteger
 		//New option
 		LongInteger& operator=(const LongInteger&); //Copy assignment operator.
 		LongInteger& operator=(LongInteger&&) noexcept;// Move assignment operator.
+		//кек
 	};
 }
