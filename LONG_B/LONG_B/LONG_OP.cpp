@@ -126,7 +126,30 @@ namespace LInteger
 		}
 		len = LEN_MAX - SZ;
 	}
-
+	LI::LongInteger(int& a) :LongInteger()
+	{
+		//ïÐîÂåÐêà íà Overflow	
+		if (a > 0)
+			LI::a[0] = '0';
+		else
+			LI::a[0] = '9', a = -a;
+		int i = 10, k = 1;
+		while (a / i > 0)
+		{
+			i *= 10;
+			k++;
+		}
+		if (k > LEN_MAX)
+			throw "Invalid size. Ovewflow";
+		int SZ = LEN_MAX;
+		while (a > 0)
+		{
+			LI::a[SZ] = (char)((int)'0' + a % 10);
+			SZ--;
+			a /= 10;
+		}
+		len = LEN_MAX - SZ;
+	}
 
 	const LongInteger LI::operator~() const
 	{

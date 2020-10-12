@@ -19,7 +19,7 @@ namespace LInteger
 		//Constructors
 		LongInteger();//Пустой конструктоор
 		LongInteger(const char* a);
-	//	LongInteger(int& a);
+		LongInteger(int& a);
 		LongInteger(long int& a);
 		LongInteger(const LongInteger&);
 		//Operators
