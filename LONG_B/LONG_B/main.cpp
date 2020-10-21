@@ -12,7 +12,8 @@ const char* msgs[] = { "0-> Exit",
 "4-> increase by 10",
 "5-> decrease by 10",
 "6-> Look at the biggest number in the world",
-"7-> Set number" };
+"7-> Set number",
+"8-> Experiment"};
 const char* INmsgs[] = { "0-> Nothing input",
 "1-> Input string" ,
 "2-> Input long int" };
@@ -24,8 +25,9 @@ LInteger::dialog_pos,
 LInteger::dialog_neg,
 LInteger::dialog_m10,
 LInteger::dialog_d10,
-LInteger::dialog_fun,
-LInteger::dialog_set };
+LInteger::dialog_output,
+LInteger::dialog_set,
+LInteger::dialog_tofun };
 
 namespace LInteger
 {
@@ -87,7 +89,7 @@ namespace LInteger
 		LI cry;
 		std::cin >> cry;
 		BIG += cry;
-		cout << "Current the number: "<< BIG << endl;
+		cout << "Current the number: " << BIG << endl;
 		return 1;
 	}
 	int dialog_neg(LongInteger& BIG)
@@ -113,9 +115,9 @@ namespace LInteger
 		cout << BIG << endl;
 		return 1;
 	}
-	int dialog_fun(LongInteger& BIG)
+	int dialog_output(LongInteger& BIG)
 	{
-		cout << "Current the number:" << BIG <<endl;
+		cout << "Current the number:" << BIG << endl;
 		return 1;
 	}
 	int dialog_set(LongInteger& BIG)
@@ -132,7 +134,7 @@ namespace LInteger
 			if (n == 0)
 				rc = 0;
 		} while (rc < 0 || rc >= InN);
-		if(rc!=0)
+		if (rc != 0)
 			cout << "Input big number-> ";
 		if (rc == 2)
 		{
@@ -154,6 +156,14 @@ namespace LInteger
 		default:
 			break;
 		}
+		return 1;
+	}
+	int dialog_tofun(LongInteger& BIG)
+	{
+		LongInteger res;
+		long int pika = 13;
+		res = BIG + pika;
+		cout << res;
 		return 1;
 	}
 }

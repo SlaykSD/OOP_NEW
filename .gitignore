@@ -374,3 +374,8 @@ MigrationBackup/
 *.config
 /LONG_B/TEST_C/pch.h
 /LONG_B/TEST_C/pch.cpp
+/AppliactionProgram_3_lab/Calculator/MyForm.cpp
+/AppliactionProgram_3_lab/Calculator/MyForm.h
+/AppliactionProgram_3_lab/Calculator/MyForm.resx
+/AppliactionProgram_3_lab/AppliactionProgram_3_lab/Calculator.h
+/AppliactionProgram_3_lab/AppliactionProgram_3_lab/main1.cpp

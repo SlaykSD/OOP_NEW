@@ -9,6 +9,7 @@ namespace LInteger {
 	int dialog_neg(LongInteger&);
 	int dialog_m10(LongInteger&);
 	int dialog_d10(LongInteger&);
-	int dialog_fun(LongInteger&);
+	int dialog_output(LongInteger&);
 	int dialog_set(LongInteger&);
+	int dialog_tofun(LongInteger&);
 }
