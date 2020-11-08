@@ -1,0 +1,2 @@
+D:\Git_C\OOP\OOP_NEW\TD_last\TD_last\tinyxml\DebugtinyXmlTestSTL\tinyXmlTestSTL.exe
+D:\Git_C\OOP\OOP_NEW\TD_last\TD_last\tinyxml\DebugtinyXmlTestSTL\tinyXmlTestSTL.pdb
