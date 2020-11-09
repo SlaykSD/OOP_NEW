@@ -18,7 +18,8 @@ public:
 	sf::Vector2i GetTileSize();//получаем размер тайла
 	virtual bool handleEvent(const sf::Event& event) ;
 	virtual bool update(sf::Time dt);
-	Grid getGrid()const { return logicalGrid;}
+	bool setTower(sf::Vector2i Position, sf::RenderWindow* window);
+	const Grid& getGrid()const { return logicalGrid;}
 private:
 	int findRoadID(int ID)const;
 	int findCastleID(int ID)const;

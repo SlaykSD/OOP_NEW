@@ -72,6 +72,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 			subRects.push_back(rect);
 		}
 
+	this->logicalGrid.setRectGrid(subRects);
 	// работа со слоями
 	TiXmlElement* layerElement;
 	layerElement = map->FirstChildElement("layer");
@@ -164,7 +165,9 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 		layerElement = layerElement->NextSiblingElement("layer");
 	}
 	logicalGrid.setTiles(layers, width, height,obj);
+	logicalGrid.setTexture(this->tilesetImage);
 	delete obj;
+	
 	return true;
 }
 
@@ -208,4 +211,10 @@ int Level::findLierID(int ID)const
 		if (ID == roadID[i])
 			return ID;
 	return -1;
+}
+
+bool Level:: setTower(sf::Vector2i Position, sf::RenderWindow* window)
+{
+	this->logicalGrid.setTextureTower(Position, window);
+	return true;
 }

@@ -25,11 +25,10 @@ Grid();
 
 Grid(const Grid&);
 
-Tile getTile(int i, int  j);
+const Tile& getTile(int i, int  j)const;
 
 void draw();
 
-bool pushTile();
 std::vector<std::vector<Tile>> getTiles() const { return tileMap; }
 
 void setTiles(const std::vector<std::vector<Tile>> newMap) 
@@ -41,13 +40,19 @@ int findObjects(Objects* obj, sf::Sprite tile);
 
 bool setTiles(std::vector<Layer> tmp, int, int, Objects*);
 
+int setTextureTower(sf::Vector2i Position, sf::RenderWindow *window);
+
+void setTexture(sf::Texture);
+
+void setRectGrid(std::vector<sf::Rect<int>> rectG);
 
 private: 
     int _width;
     int _height;
+    int tileWidth, tileHeight;
+    std::vector<sf::Rect<int>> subRects;//Прямоугольная сетка по ID
     Texture texture;
     std::vector<std::vector<Tile>> tileMap;
-   // Tile map[weight][height];
 };
 
 #endif //_GRID_H

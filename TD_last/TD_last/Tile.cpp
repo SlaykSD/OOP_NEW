@@ -36,9 +36,17 @@ void Tile::setTileNumber(int numb)
 {
 	tileNumber = numb;
 }
-
+void Tile::setTexture(sf::Texture& t, sf::IntRect rect)
+{
+	this->sprite.setTexture(t);
+	this->sprite.setTextureRect(rect);
+}
 int Tile::getState() {
 	return state;
+}
+const sf::Sprite& Tile::getSprite()const
+{
+	return sprite;
 }
 void Tile::draw() {
 	;

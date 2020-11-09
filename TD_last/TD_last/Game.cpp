@@ -47,12 +47,14 @@ namespace Game_def {
 
 	void Game::draw() {
 		lvl.Draw(window);
+		sysMouse.draw(window);
 	}
 
 	Game::Game():window(sf::VideoMode(640, 640), "TD_betta")
 	{
 		lvl.LoadFromFile("realmap_forest.tmx");
 		sysMouse.setLvl(&lvl);
+		sysMouse.setWindow(&window);
 		gState.setLevel(&lvl);
 		gState.addState(&sysMouse);
 		gState.addState(&lvl);

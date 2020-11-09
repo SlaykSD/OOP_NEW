@@ -24,7 +24,5 @@ namespace Game_def {
         RenderWindow window;
         Level lvl;
         GameState gState;
-     //   GameState gameState;
-        //Camera camera;
     };
 }

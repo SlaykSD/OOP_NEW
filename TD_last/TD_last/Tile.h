@@ -13,12 +13,15 @@ public:
 void setState(int );
 void setSprite(sf::Sprite tmp) { sprite = tmp;}
 void setTileNumber(int);
-    
+
+const sf::Sprite& getSprite()const;
+
 int getState();
     
 int getTileNumber() const;
     
-void setTexture(sf::Texture);
+void setTexture(sf::Texture&, sf::IntRect);
+
 private: 
     Type state;
     int tileNumber;

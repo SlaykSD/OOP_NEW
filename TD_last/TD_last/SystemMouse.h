@@ -7,10 +7,14 @@ class SystemMouse : public State
 public:
 	virtual bool handleEvent(const sf::Event& event);
 	virtual bool update(sf::Time dt);
+	void draw(sf::RenderWindow& window);
 	void setLvl(Level* lev) { lvl = lev; }
+	void setWindow(sf::RenderWindow* windows) { window = windows; }
 private:
 	int state[4];// 0 - улучшение , 1- постройка, 2- удаление, 4- веделение
 	Level* lvl;
+	sf::Sprite curr;
+	sf::RenderWindow* window;
 	sf::Mouse cursor;
 };
 

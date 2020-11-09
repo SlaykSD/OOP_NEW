@@ -3,17 +3,13 @@
 /**
  * Grid implementation
  */
-Grid::Grid()
+Grid::Grid():_height(10),_width(10),tileHeight(64),tileWidth(64)
 {
 }
-Grid::Grid(const Grid& grid)
+Grid::Grid(const Grid& grid): Grid()
 {
 	std::vector<std::vector<Tile>> copy = grid.getTiles();
 	this->setTiles(copy);
-}
-bool Grid::pushTile()
-{
-	return true;
 }
 bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 {
@@ -48,7 +44,7 @@ bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 	}
 	return true;
 }
-Tile Grid::getTile(int i, int j)
+const Tile& Grid::getTile(int i, int j)const
 {
 	return tileMap[i][j];
 }
@@ -78,4 +74,28 @@ int Grid::findObjects(Objects* obj, sf::Sprite tile)
 			return 3;
 	}
 	return 0;
+}
+int Grid::setTextureTower(sf::Vector2i Position, sf::RenderWindow* window)
+{
+	try {
+		
+		int x = Position.x / tileWidth, y = Position.y / tileHeight;
+		tileMap[y][x].setTexture(texture,subRects[249]);
+			return 1;
+	}
+	catch (...)
+	{
+		std::cout << "Probably need set tileWeight and tile Height" << std::endl;
+		return 0;
+	}
+}
+
+void Grid::setTexture(sf::Texture t)
+{
+	texture = t;
+}
+
+void Grid::setRectGrid(std::vector<sf::Rect<int>> rectG)
+{
+	this->subRects = rectG;
 }
