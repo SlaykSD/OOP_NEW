@@ -1,7 +1,6 @@
 #pragma once
 #include "level.h"
 #include "StateSystem.h"
-
 class GameState:public StateSystem {
 public:
     GameState& setLevel(Level* lvl) 

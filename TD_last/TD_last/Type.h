@@ -11,8 +11,7 @@ enum Type
     forest = 0,
     road,
     castle,
-    lier,
-    tower
+    lier
 };
 
 #endif //_TYPE_H

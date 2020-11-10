@@ -16,7 +16,7 @@ void setTileNumber(int);
 
 const sf::Sprite& getSprite()const;
 
-int getState() const;
+int getState();
     
 int getTileNumber() const;
     

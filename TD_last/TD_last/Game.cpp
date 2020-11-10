@@ -46,8 +46,8 @@ namespace Game_def {
 	}
 
 	void Game::draw() {
-		lvl.DrawMap(window);
-		lvl.DrawGrid(window);
+		lvl.Draw(window);
+		sysMouse.draw(window);
 	}
 
 	Game::Game():window(sf::VideoMode(640, 640), "TD_betta")
