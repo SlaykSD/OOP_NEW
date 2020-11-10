@@ -26,6 +26,9 @@ void Tile::setState(int i) {
 	case(3):
 		state = Type::lier;
 		break;
+	case(4):
+		state = Type::tower;
+		break;
 	}
 }
 int Tile:: getTileNumber()const

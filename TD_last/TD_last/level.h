@@ -42,14 +42,14 @@ const int roadID[]
 };
 const int N = sizeof(roadID) / sizeof(roadID[0]);
 
-const int lierID[]
+const int castleID[]
 {
 	40,44,63,67,
 	86,90,109,113
 };
 const int Nl = sizeof(roadID) / sizeof(roadID[0]);
 
-const int castleID[]
+const int lierID[]
 {
 	41,64,87,110,
 	45,68,91,114

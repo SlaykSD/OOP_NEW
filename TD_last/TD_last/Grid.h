@@ -8,9 +8,9 @@
 #include <SFML/Graphics.hpp>
 
 struct Objects {
-    std::vector<sf::Sprite*> roads;
-    std::vector<sf::Sprite*> castles;
-    std::vector<sf::Sprite*> liers;
+    std::vector<sf::Sprite> roads;
+    std::vector<sf::Sprite> castles;
+    std::vector<sf::Sprite> liers;
 };
 
 struct Layer//слои

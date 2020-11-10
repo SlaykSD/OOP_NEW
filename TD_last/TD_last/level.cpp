@@ -140,11 +140,11 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 				sprite.setColor(sf::Color(255, 255, 255, layer.opacity));
 
 				if (roadIDentifcation > 0)
-					obj->roads.push_back(&sprite);
+					obj->roads.push_back(sprite);
 				if (lierIDentifcation > 0)
-					obj->liers.push_back(&sprite);
+					obj->liers.push_back(sprite);
 				if (castleIDentifcation > 0)
-					obj->castles.push_back(&sprite);
+					obj->castles.push_back(sprite);
 
 				layer.tiles.push_back(sprite);//закидываем в слой спрайты тайлов
 			}

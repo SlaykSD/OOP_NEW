@@ -64,19 +64,19 @@ int Grid::findObjects(Objects* obj, sf::Sprite tile)
 	int size = obj->roads.size();
 	for (int i = 0; i < size; i++)
 	{
-		if (obj->roads[i]->getPosition() == tile.getPosition())
+		if (obj->roads[i].getPosition() == tile.getPosition())
 			return 1;
 	}
 	size = obj->castles.size();
 	for (int i = 0; i < size; i++)
 	{
-		if (obj->castles[i]->getPosition() == tile.getPosition())
+		if (obj->castles[i].getPosition() == tile.getPosition())
 			return 2;
 	}
 	size = obj->liers.size();
 	for (int i = 0; i < size; i++)
 	{
-		if (obj->liers[i]->getPosition() == tile.getPosition())
+		if (obj->liers[i].getPosition() == tile.getPosition())
 			return 3;
 	}
 	return 0;
