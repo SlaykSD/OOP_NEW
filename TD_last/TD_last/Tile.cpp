@@ -41,7 +41,8 @@ void Tile::setTexture(sf::Texture& t, sf::IntRect rect)
 	this->sprite.setTexture(t);
 	this->sprite.setTextureRect(rect);
 }
-int Tile::getState() {
+int Tile::getState() const
+{
 	return state;
 }
 const sf::Sprite& Tile::getSprite()const

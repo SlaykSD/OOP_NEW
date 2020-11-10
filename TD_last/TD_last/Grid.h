@@ -18,6 +18,7 @@ struct Layer//слои
     int opacity;//непрозрачность слоя
     std::vector<sf::Sprite> tiles;//закидываем в вектор тайлы
 };
+
 class Grid {
 public: 
 
@@ -27,7 +28,7 @@ Grid(const Grid&);
 
 const Tile& getTile(int i, int  j)const;
 
-void draw();
+void draw(sf::RenderWindow &window);
 
 std::vector<std::vector<Tile>> getTiles() const { return tileMap; }
 

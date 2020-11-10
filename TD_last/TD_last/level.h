@@ -14,7 +14,8 @@ public:
 	Level();
 	Level(std::string filename);
 	bool LoadFromFile(std::string filename);//возвращает false если не получилось загрузить
-	void Draw(sf::RenderWindow& window);//рисуем в окно
+	void DrawMap(sf::RenderWindow& window);//рисуем в окно
+	void DrawGrid(sf::RenderWindow& window);//риусем объекты
 	sf::Vector2i GetTileSize();//получаем размер тайла
 	virtual bool handleEvent(const sf::Event& event) ;
 	virtual bool update(sf::Time dt);

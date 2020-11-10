@@ -49,8 +49,14 @@ const Tile& Grid::getTile(int i, int j)const
 	return tileMap[i][j];
 }
 
-void Grid::draw() {
-
+void Grid::draw(sf::RenderWindow &window) {
+	for (int i = 0; i < _height; i++)
+	{
+		for (int j = 0; j < _width; j++)
+		{
+			window.draw(tileMap[i][j].getSprite());
+		}
+	}
 }
 
 int Grid::findObjects(Objects* obj, sf::Sprite tile)
@@ -81,6 +87,7 @@ int Grid::setTextureTower(sf::Vector2i Position, sf::RenderWindow* window)
 		
 		int x = Position.x / tileWidth, y = Position.y / tileHeight;
 		tileMap[y][x].setTexture(texture,subRects[249]);
+		tileMap[y][x].setState(4);
 			return 1;
 	}
 	catch (...)

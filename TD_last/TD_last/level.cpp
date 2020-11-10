@@ -175,8 +175,11 @@ sf::Vector2i Level::GetTileSize()
 {
 	return sf::Vector2i(tileWidth, tileHeight);
 }
-
-void Level::Draw(sf::RenderWindow& window)
+void Level::DrawGrid(sf::RenderWindow& window)//риусем объекты
+{
+	logicalGrid.draw(window);
+}
+void Level::DrawMap(sf::RenderWindow& window)
 {
 	// рисуем все тайлы (объекты не рисуем!)
 	for (int layer = 0; layer < layers.size(); layer++)
@@ -201,14 +204,14 @@ int Level::findRoadID(int ID)const
 int Level::findCastleID(int ID)const
 {
 	for (int i = 0; i < Nc; ++i)
-		if (ID == roadID[i])
+		if (ID == castleID[i])
 			return ID;
 	return -1;
 }
 int Level::findLierID(int ID)const
 {
 	for (int i = 0; i < Nl; ++i)
-		if (ID == roadID[i])
+		if (ID == lierID[i])
 			return ID;
 	return -1;
 }
