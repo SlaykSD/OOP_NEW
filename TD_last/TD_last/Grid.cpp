@@ -3,17 +3,13 @@
 /**
  * Grid implementation
  */
-Grid::Grid()
+Grid::Grid():_height(10),_width(10),tileHeight(64),tileWidth(64)
 {
 }
-Grid::Grid(const Grid& grid)
+Grid::Grid(const Grid& grid): Grid()
 {
 	std::vector<std::vector<Tile>> copy = grid.getTiles();
 	this->setTiles(copy);
-}
-bool Grid::pushTile()
-{
-	return true;
 }
 bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 {
@@ -48,13 +44,19 @@ bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 	}
 	return true;
 }
-Tile Grid::getTile(int i, int j)
+const Tile& Grid::getTile(int i, int j)const
 {
 	return tileMap[i][j];
 }
 
-void Grid::draw() {
-
+void Grid::draw(sf::RenderWindow &window) {
+	for (int i = 0; i < _height; i++)
+	{
+		for (int j = 0; j < _width; j++)
+		{
+			window.draw(tileMap[i][j].getSprite());
+		}
+	}
 }
 
 int Grid::findObjects(Objects* obj, sf::Sprite tile)
@@ -62,20 +64,45 @@ int Grid::findObjects(Objects* obj, sf::Sprite tile)
 	int size = obj->roads.size();
 	for (int i = 0; i < size; i++)
 	{
-		if (obj->roads[i]->getPosition() == tile.getPosition())
+		if (obj->roads[i].getPosition() == tile.getPosition())
 			return 1;
 	}
 	size = obj->castles.size();
 	for (int i = 0; i < size; i++)
 	{
-		if (obj->castles[i]->getPosition() == tile.getPosition())
+		if (obj->castles[i].getPosition() == tile.getPosition())
 			return 2;
 	}
 	size = obj->liers.size();
 	for (int i = 0; i < size; i++)
 	{
-		if (obj->liers[i]->getPosition() == tile.getPosition())
+		if (obj->liers[i].getPosition() == tile.getPosition())
 			return 3;
 	}
 	return 0;
+}
+int Grid::setTextureTower(sf::Vector2i Position, sf::RenderWindow* window)
+{
+	try {
+		
+		int x = Position.x / tileWidth, y = Position.y / tileHeight;
+		tileMap[y][x].setTexture(texture,subRects[249]);
+		tileMap[y][x].setState(4);
+			return 1;
+	}
+	catch (...)
+	{
+		std::cout << "Probably need set tileWeight and tile Height" << std::endl;
+		return 0;
+	}
+}
+
+void Grid::setTexture(sf::Texture t)
+{
+	texture = t;
+}
+
+void Grid::setRectGrid(std::vector<sf::Rect<int>> rectG)
+{
+	this->subRects = rectG;
 }

@@ -26,6 +26,9 @@ void Tile::setState(int i) {
 	case(3):
 		state = Type::lier;
 		break;
+	case(4):
+		state = Type::tower;
+		break;
 	}
 }
 int Tile:: getTileNumber()const
@@ -36,10 +39,24 @@ void Tile::setTileNumber(int numb)
 {
 	tileNumber = numb;
 }
-
-int Tile::getState() {
+void Tile::setTexture(sf::Texture& t, sf::IntRect rect)
+{
+	this->sprite.setTexture(t);
+	this->sprite.setTextureRect(rect);
+}
+int Tile::getState() const
+{
 	return state;
+}
+const sf::Sprite& Tile::getSprite()const
+{
+	return sprite;
 }
 void Tile::draw() {
 	;
 }
+
+//const Tile& Tile::operator=(const Tile&)
+//{
+//	;
+//}
