@@ -16,10 +16,11 @@ struct TableStateTower
 class Bulding:public Entity
 {
 public:
-	Bulding(Tile* tile);
-	void setTile(Tile* tile);
+	Bulding(const Tile* tile);
+	void setTile(const Tile* tile);
+	const Tile * getTile();
 	virtual void update(sf::Time) = 0;
 private:
-	Tile* _tile;
+	Tile _tile;
 };
 

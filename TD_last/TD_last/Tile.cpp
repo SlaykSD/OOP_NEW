@@ -48,13 +48,19 @@ int Tile::getState() const
 {
 	return state;
 }
-const sf::Sprite& Tile::getSprite()const
+const sf::Sprite Tile::getSprite()const
 {
 	return sprite;
 }
-void Tile::draw() {
-	;
+int Tile::getDraw(sf::RenderWindow* window)const
+{
+	window->draw(sprite);
+	return 10;
 }
+//Tile& Tile::operator= (const Tile& t)
+//{
+//
+//}
 
 //const Tile& Tile::operator=(const Tile&)
 //{

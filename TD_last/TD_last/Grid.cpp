@@ -44,9 +44,9 @@ bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 	}
 	return true;
 }
-const Tile& Grid::getTile(int i, int j)const
+const Tile* Grid::getTile(int i, int j)const
 {
-	return tileMap[i][j];
+	return &tileMap[i][j];
 }
 
 void Grid::draw(sf::RenderWindow &window) {

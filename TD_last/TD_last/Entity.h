@@ -2,7 +2,6 @@
 //#include "EntityManager.h"
 #include <SFML/Graphics.hpp>
 
-class EntityManager;
 
 class Entity
 {

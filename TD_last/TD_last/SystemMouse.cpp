@@ -6,7 +6,7 @@ bool SystemMouse::handleEvent(const sf::Event& event)
 	{
 		if (event.key.code == Mouse::Right)
 		{
-			std::cout << "right" << std::endl;
+		/*	std::cout << "right" << std::endl;
 			sf::Vector2i vec = sf::Mouse::getPosition(*window);
 			if (lvl->getGrid().getTile(vec.y / lvl->GetTileSize().y, vec.x / lvl->GetTileSize().x).getState() == 0)
 			{
@@ -14,7 +14,7 @@ bool SystemMouse::handleEvent(const sf::Event& event)
 				this->curr = lvl->getGrid().getTile(vec.y / lvl->GetTileSize().y, vec.x / lvl->GetTileSize().x).getSprite();
 				std::cout << "right-click - succesfuly" << std::endl;
 			}
-			return true;
+			return true;*/
 		}
 		//Здесь должна быть обратока выбор постройки и выбор альтертатив для улучшения
 

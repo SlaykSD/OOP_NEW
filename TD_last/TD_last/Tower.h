@@ -4,8 +4,9 @@
 class Tower: public Bulding
 {
 public:
-	Tower(Tile* tile);
+	Tower(const Tile* tile);
 	virtual void update(sf::Time);
+	void draw(sf::RenderWindow* window);
 private:
 	void lvlUP();
 	int level;

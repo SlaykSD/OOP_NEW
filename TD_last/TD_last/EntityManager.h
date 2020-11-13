@@ -4,6 +4,7 @@
 #include "Castle.h"
 #include "Tower.h"
 #include "level.h"
+#include "Score.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
@@ -15,12 +16,17 @@ class Tower;
 class EntityManager
 {
 public:
-	EntityManager();
-	bool setParameters(Level* lvl);
+	
+	EntityManager(Level&);
+	bool setParameters(Level lvl);
 	bool update(sf::Time frameTime);
-
+	void draw(sf::RenderWindow* window);
+	void addTower(Tower tower);
+	//void addTrap(Tower tower);
 private:
-	int  sortSimpleRoad(std::vector <Tile>);
+	void addState(Entity* state);
+	Score score;
+	std::vector<Entity*> _entities;
 	std::vector<Trap> traps;
 	std::vector<Lier> liers;
 	std::vector <Castle> castles;

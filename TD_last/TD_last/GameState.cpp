@@ -1,9 +1,9 @@
 
 #include "GameState.h"
 
-GameState::GameState(sf::RenderWindow* window1): window(window1), eManager (), level("oneMapObject.tmx")
+GameState::GameState(sf::RenderWindow* window1): window(window1), level("oneMapObject.tmx") , eManager(level)
 {
-	eManager.setParameters(&level);
+//	eManager.setParameters(level);
 }
 
 bool GameState::handleEvent(const sf::Event& event)
@@ -14,9 +14,11 @@ bool GameState::handleEvent(const sf::Event& event)
 		{
 			std::cout << "right" << std::endl;
 			sf::Vector2i vec = sf::Mouse::getPosition(*window);
-			if (level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x).getState() == 0)
+			if (level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x)->getState() == 0)
 			{
+				Tower tower(level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x));
 				level.setTower(vec, window);
+				eManager.addTower(tower);
 				//this->curr = lvl->getGrid().getTile(vec.y / lvl->GetTileSize().y, vec.x / lvl->GetTileSize().x).getSprite();
 				std::cout << "right-click - succesfuly" << std::endl;
 			}
@@ -42,12 +44,13 @@ bool GameState::update(sf::Time dt)
 }
 void GameState::setEManager(Level* lvl)
 {
-	eManager.setParameters(lvl);
+	eManager.setParameters(*lvl);
 }
 void GameState::draw()
 {
 	level.DrawMap(*window);
 	level.DrawGrid(*window);
+	eManager.draw(window);
 }
 const Level& GameState::getLevel()const
 {

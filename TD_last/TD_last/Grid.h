@@ -26,7 +26,7 @@ Grid();
 
 Grid(const Grid&);
 
-const Tile& getTile(int i, int  j)const;
+const Tile* getTile(int i, int  j)const;
 
 void draw(sf::RenderWindow &window);
 
