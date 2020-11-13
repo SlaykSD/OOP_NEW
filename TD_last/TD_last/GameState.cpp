@@ -1,9 +1,8 @@
 
 #include "GameState.h"
 
-GameState::GameState(sf::RenderWindow* window1): window(window1), eManager (), sysMouse(window)
+GameState::GameState(sf::RenderWindow* window1): window(window1), eManager (), sysMouse(window), level("oneMapObject.tmx")
 {
-	level.LoadFromFile("realmap_forest.tmx");
 	eManager.setParameters(&level);
 	sysMouse.setLvl(&level);
 	this->addState(&sysMouse);

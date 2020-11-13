@@ -7,6 +7,13 @@
 #include "tinyxml/tinyxml.h"
 #include "State.h"
 #include "Grid.h"
+#include <list>
+#include <map>
+
+struct RoadOjects 
+{
+	std::map<std::string,std::list <sf::Vector2i>> roads;
+};
 
 class Level//главный класс - уровень
 {
@@ -19,6 +26,7 @@ public:
 	sf::Vector2i GetTileSize();//получаем размер тайла
 	bool setTower(sf::Vector2i Position, sf::RenderWindow* window);
 	const Grid& getGrid()const { return logicalGrid;}
+	std::map<std::string, std::list <sf::Vector2i>>* getRoad(){ return &roadList.roads; }
 private:
 	int findRoadID(int ID)const;
 	int findCastleID(int ID)const;
@@ -26,9 +34,11 @@ private:
 	int width, height, tileWidth, tileHeight;//в tmx файле width height в начале,затем размер тайла
 	int firstTileID;//получаем айди первого тайла
 	sf::Rect<float> drawingBounds;//размер части карты которую рисуем
+	RoadOjects roadList;
 	sf::Texture tilesetImage;//текстура карты
 	std::vector<Layer> layers;//Тайлы (карта сама)
 	Grid logicalGrid;
+	Objects obj;
 };
 
 const int roadID[]

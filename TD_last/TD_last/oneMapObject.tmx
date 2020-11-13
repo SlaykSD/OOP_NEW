@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="10" height="10" tilewidth="64" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="15">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="10" height="10" tilewidth="64" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="40">
  <tileset firstgid="1" name="towerDefense_tilesheet" tilewidth="64" tileheight="64" tilecount="299" columns="23">
   <image source="../../../../../Games_c/Tower_Defense/maps/view/Tilesheet/towerDefense_tilesheet.png" width="1472" height="832"/>
  </tileset>
@@ -108,13 +108,16 @@
   </data>
  </layer>
  <objectgroup id="2" name="ObjectLayer">
-  <object id="5" name="solid1" x="192" y="256" width="64" height="320"/>
-  <object id="6" name="solid1" x="64" y="256" width="128" height="64"/>
-  <object id="7" name="solid1" x="64" y="64" width="64" height="192"/>
-  <object id="8" name="solid2" x="64" y="384" width="192" height="64"/>
-  <object id="9" name="solid2" x="192" y="320" width="192" height="64"/>
-  <object id="10" name="solid2" x="320" y="128" width="64" height="192"/>
-  <object id="11" name="solid2" x="384" y="128" width="192" height="64"/>
-  <object id="12" name="solid2" x="512" y="192" width="64" height="384"/>
+  <object id="28" name="solid2" x="192" y="512" width="64" height="64"/>
+  <object id="29" name="solid2" x="192" y="320" width="64" height="64"/>
+  <object id="30" name="solid2" x="320" y="320" width="64" height="64"/>
+  <object id="31" name="solid2" x="320" y="128" width="64" height="64"/>
+  <object id="32" name="solid2" x="512" y="128" width="64" height="64"/>
+  <object id="33" name="solid2" x="512" y="512" width="64" height="64"/>
+  <object id="34" name="solid1" x="64" y="384" width="64" height="64"/>
+  <object id="35" name="solid1" x="192" y="384" width="64" height="64"/>
+  <object id="36" name="solid1" x="192" y="256" width="64" height="64"/>
+  <object id="38" name="solid1" x="64" y="256" width="64" height="64"/>
+  <object id="39" name="solid1" x="64" y="64" width="64" height="64"/>
  </objectgroup>
 </map>
