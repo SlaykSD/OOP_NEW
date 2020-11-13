@@ -1,16 +1,20 @@
 #pragma once
 #include "level.h"
 #include "StateSystem.h"
+#include "SystemMouse.h"
+#include "EntityManager.h"
 
 class GameState:public StateSystem {
 public:
-    GameState& setLevel(Level* lvl) 
-    { 
-        level = lvl;
-        return *this;
-    }
+    GameState(sf::RenderWindow* window);
+    void draw();
+    const Level& getLevel()const;
 private: 
-    Level *level;
+    void setEManager(Level* lvl);
+    sf::RenderWindow* window;
+    Level level;
     sf::Time time;
+    EntityManager eManager;
+    SystemMouse sysMouse;
   //  Building buildings;
 };

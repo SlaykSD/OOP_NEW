@@ -30,7 +30,7 @@ const Tile& getTile(int i, int  j)const;
 
 void draw(sf::RenderWindow &window);
 
-std::vector<std::vector<Tile>> getTiles() const { return tileMap; }
+const std::vector<std::vector<Tile>>& getTiles() const { return tileMap; }
 
 void setTiles(const std::vector<std::vector<Tile>> newMap) 
 {

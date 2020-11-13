@@ -29,6 +29,8 @@ bool SystemMouse::handleEvent(const sf::Event& event)
 		return false;
 	}
 }
+ SystemMouse::SystemMouse(sf::RenderWindow* window_):window(window_)
+{}
 bool SystemMouse::update(sf::Time dt)
 {
 	return true;

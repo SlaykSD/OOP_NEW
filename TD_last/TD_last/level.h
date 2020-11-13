@@ -8,7 +8,7 @@
 #include "State.h"
 #include "Grid.h"
 
-class Level:public State//главный класс - уровень
+class Level//главный класс - уровень
 {
 public:
 	Level();
@@ -17,8 +17,6 @@ public:
 	void DrawMap(sf::RenderWindow& window);//рисуем в окно
 	void DrawGrid(sf::RenderWindow& window);//риусем объекты
 	sf::Vector2i GetTileSize();//получаем размер тайла
-	virtual bool handleEvent(const sf::Event& event) ;
-	virtual bool update(sf::Time dt);
 	bool setTower(sf::Vector2i Position, sf::RenderWindow* window);
 	const Grid& getGrid()const { return logicalGrid;}
 private:

@@ -19,10 +19,8 @@ namespace Game_def {
         void processEvent();
         void draw();
         Texture textureMenadger;
-        SystemMouse sysMouse;
         int score;
         RenderWindow window;
-        Level lvl;
         GameState gState;
     };
 }

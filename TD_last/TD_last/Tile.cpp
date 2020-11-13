@@ -55,3 +55,8 @@ const sf::Sprite& Tile::getSprite()const
 void Tile::draw() {
 	;
 }
+
+//const Tile& Tile::operator=(const Tile&)
+//{
+//	;
+//}

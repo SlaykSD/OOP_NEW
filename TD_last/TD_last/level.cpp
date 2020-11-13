@@ -186,14 +186,6 @@ void Level::DrawMap(sf::RenderWindow& window)
 		for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
 			window.draw(layers[layer].tiles[tile]);
 }
-bool Level::handleEvent(const sf::Event& event)
-{
-	return true;
-}
-bool Level::update(sf::Time dt)
-{
-	return true;
-}
 int Level::findRoadID(int ID)const
 {
 	for(int i = 0; i < N; ++i)
