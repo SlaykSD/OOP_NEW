@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Grid.h"
 #include "level.h"
+
 class SystemMouse : public State
 {
 public:
@@ -15,6 +15,6 @@ private:
 	Level *lvl;
 	sf::Sprite curr;
 	sf::RenderWindow* window;
-	sf::Mouse cursor;
+
 };
 

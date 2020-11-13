@@ -38,11 +38,11 @@ namespace Game_def {
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-			gState.notifyProcessEvent(event);
+			manager.notifyProcessEvent(event);
 		}
 	}
 	void Game::update(Time frameTime) {
-		gState.notifyUpdate(frameTime);
+		manager.notifyUpdate(frameTime);
 	}
 
 	void Game::draw() {
@@ -53,5 +53,6 @@ namespace Game_def {
 		window(sf::VideoMode(640, 640), "TD_betta"),
 		gState(&window)
 	{
+		manager.addState(&gState);
 	}
 }

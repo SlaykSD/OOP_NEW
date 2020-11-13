@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "StateSystem.h"
 #include "SystemMouse.h"
 #include "GameState.h"
 #include "level.h"
@@ -21,6 +22,7 @@ namespace Game_def {
         Texture textureMenadger;
         int score;
         RenderWindow window;
+        StateManager manager;
         GameState gState;
     };
 }

@@ -1,12 +1,44 @@
 
 #include "GameState.h"
 
-GameState::GameState(sf::RenderWindow* window1): window(window1), eManager (), sysMouse(window), level("oneMapObject.tmx")
+GameState::GameState(sf::RenderWindow* window1): window(window1), eManager (), level("oneMapObject.tmx")
 {
 	eManager.setParameters(&level);
-	sysMouse.setLvl(&level);
-	this->addState(&sysMouse);
-	
+}
+
+bool GameState::handleEvent(const sf::Event& event)
+{
+	if (event.type == Event::MouseButtonPressed)
+	{
+		if (event.key.code == Mouse::Right)
+		{
+			std::cout << "right" << std::endl;
+			sf::Vector2i vec = sf::Mouse::getPosition(*window);
+			if (level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x).getState() == 0)
+			{
+				level.setTower(vec, window);
+				//this->curr = lvl->getGrid().getTile(vec.y / lvl->GetTileSize().y, vec.x / lvl->GetTileSize().x).getSprite();
+				std::cout << "right-click - succesfuly" << std::endl;
+			}
+			return true;
+		}
+		//Здесь должна быть обратока выбор постройки и выбор альтертатив для улучшения
+
+		if (event.key.code == Mouse::Left)
+		{
+			std::cout << "left" << std::endl;
+			return true;//Здесь должна быть обработка выделения строения
+		}
+	}
+	else
+	{
+		return false;
+	}
+
+}
+bool GameState::update(sf::Time dt)
+{
+	return true;
 }
 void GameState::setEManager(Level* lvl)
 {
