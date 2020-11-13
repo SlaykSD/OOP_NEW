@@ -38,23 +38,21 @@ namespace Game_def {
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-			gState.notifyProcessEvent(event);
+			manager.notifyProcessEvent(event);
 		}
 	}
 	void Game::update(Time frameTime) {
-		gState.notifyUpdate(frameTime);
+		manager.notifyUpdate(frameTime);
 	}
 
 	void Game::draw() {
-		lvl.Draw(window);
+		gState.draw();
 	}
 
-	Game::Game():window(sf::VideoMode(640, 640), "TD_betta")
+	Game::Game() :
+		window(sf::VideoMode(640, 640), "TD_betta"),
+		gState(&window)
 	{
-		lvl.LoadFromFile("realmap_forest.tmx");
-		sysMouse.setLvl(&lvl);
-		gState.setLevel(&lvl);
-		gState.addState(&sysMouse);
-		gState.addState(&lvl);
+		manager.addState(&gState);
 	}
 }

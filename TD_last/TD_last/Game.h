@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "StateSystem.h"
 #include "SystemMouse.h"
 #include "GameState.h"
 #include "level.h"
@@ -19,12 +20,9 @@ namespace Game_def {
         void processEvent();
         void draw();
         Texture textureMenadger;
-        SystemMouse sysMouse;
         int score;
         RenderWindow window;
-        Level lvl;
+        StateManager manager;
         GameState gState;
-     //   GameState gameState;
-        //Camera camera;
     };
 }

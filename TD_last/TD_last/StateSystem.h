@@ -1,7 +1,7 @@
 #pragma once
 #include "State.h"
 #include <iostream>
-class StateSystem
+class StateManager
 {
 public:
 	void notifyUpdate(sf::Time dt);

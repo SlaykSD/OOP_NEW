@@ -1,4 +1,5 @@
 #include "level.h"
+#include <map>
 ///////////////////////////////////////
 Level::Level():width(0),height(0),tileHeight(0),tileWidth(0),firstTileID(0)
 { }
@@ -72,11 +73,10 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 			subRects.push_back(rect);
 		}
 
+	this->logicalGrid.setRectGrid(subRects);
 	// работа со слоями
 	TiXmlElement* layerElement;
 	layerElement = map->FirstChildElement("layer");
-
-	Objects* obj = new Objects; // Структура с объектами сетки:D
 
 	while (layerElement)
 	{
@@ -139,11 +139,11 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 				sprite.setColor(sf::Color(255, 255, 255, layer.opacity));
 
 				if (roadIDentifcation > 0)
-					obj->roads.push_back(&sprite);
+					obj.roads.push_back(sprite);
 				if (lierIDentifcation > 0)
-					obj->liers.push_back(&sprite);
+					obj.liers.push_back(sprite);
 				if (castleIDentifcation > 0)
-					obj->castles.push_back(&sprite);
+					obj.castles.push_back(sprite);
 
 				layer.tiles.push_back(sprite);//закидываем в слой спрайты тайлов
 			}
@@ -163,8 +163,64 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 
 		layerElement = layerElement->NextSiblingElement("layer");
 	}
-	logicalGrid.setTiles(layers, width, height,obj);
-	delete obj;
+	// работа с объектами
+	TiXmlElement* objectGroupElement;
+	// если есть слои объектов
+	if (map->FirstChildElement("objectgroup") != NULL)
+	{
+		objectGroupElement = map->FirstChildElement("objectgroup");
+		while (objectGroupElement)
+		{
+			//  контейнер <object>
+			TiXmlElement* objectElement;
+			objectElement = objectGroupElement->FirstChildElement("object");
+			while (objectElement)
+			{
+				// получаем все данные - тип, имя, позиция, и тд
+				std::string objectName;
+				int id = atoi(objectElement->Attribute("id"));
+				if (objectElement->Attribute("name") != NULL)
+				{
+					objectName = objectElement->Attribute("name");
+				}
+				if (roadList.roads.find(objectName) == roadList.roads.end())
+				{
+					std::list<sf::Vector2i> ad;
+					roadList.roads[objectName] = ad;
+				}
+				int x = atoi(objectElement->Attribute("x"));
+				int y = atoi(objectElement->Attribute("y"));
+
+				int width, height;
+
+				if (objectElement->Attribute("width") != NULL)
+				{
+					width = atoi(objectElement->Attribute("width"));
+					height = atoi(objectElement->Attribute("height"));
+				}
+
+				// экземпляр объект
+				//hanlde object of road
+				sf::Vector2i point;
+				point.x = x + width / 2;
+				point.y = y + height / 2;
+			//	if (obj->liers[0].getPosition() == point)
+				std::map < std::string, std::list<sf::Vector2i> > ::iterator it;
+				it = roadList.roads.find(objectName);
+				(*it).second.push_back(point);
+				//убедиться , что координаты мышки высчитываются так же))
+				objectElement = objectElement->NextSiblingElement("object");
+			}
+			objectGroupElement = objectGroupElement->NextSiblingElement("objectgroup");
+		}
+	}
+	else
+	{
+		std::cout << "No ojecr layers found..." << std::endl;
+	}
+
+	logicalGrid.setTiles(layers, width, height,&obj);
+	logicalGrid.setTexture(this->tilesetImage);
 	return true;
 }
 
@@ -172,21 +228,16 @@ sf::Vector2i Level::GetTileSize()
 {
 	return sf::Vector2i(tileWidth, tileHeight);
 }
-
-void Level::Draw(sf::RenderWindow& window)
+void Level::DrawGrid(sf::RenderWindow& window)//риусем объекты
+{
+	logicalGrid.draw(window);
+}
+void Level::DrawMap(sf::RenderWindow& window)
 {
 	// рисуем все тайлы (объекты не рисуем!)
 	for (int layer = 0; layer < layers.size(); layer++)
 		for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
 			window.draw(layers[layer].tiles[tile]);
-}
-bool Level::handleEvent(const sf::Event& event)
-{
-	return true;
-}
-bool Level::update(sf::Time dt)
-{
-	return true;
 }
 int Level::findRoadID(int ID)const
 {
@@ -198,14 +249,20 @@ int Level::findRoadID(int ID)const
 int Level::findCastleID(int ID)const
 {
 	for (int i = 0; i < Nc; ++i)
-		if (ID == roadID[i])
+		if (ID == castleID[i])
 			return ID;
 	return -1;
 }
 int Level::findLierID(int ID)const
 {
 	for (int i = 0; i < Nl; ++i)
-		if (ID == roadID[i])
+		if (ID == lierID[i])
 			return ID;
 	return -1;
+}
+
+bool Level:: setTower(sf::Vector2i Position, sf::RenderWindow* window)
+{
+	this->logicalGrid.setTextureTower(Position, window);
+	return true;
 }

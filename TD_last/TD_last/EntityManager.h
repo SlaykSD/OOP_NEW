@@ -18,7 +18,7 @@ public:
 	EntityManager();
 	bool setParameters(Level* lvl);
 	bool update(sf::Time frameTime);
-	void draw();
+
 private:
 	int  sortSimpleRoad(std::vector <Tile>);
 	std::vector<Trap> traps;
@@ -26,4 +26,3 @@ private:
 	std::vector <Castle> castles;
 	std::vector<Tower> towers;
 };
-
