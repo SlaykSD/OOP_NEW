@@ -22,6 +22,7 @@ public:
 	bool update(sf::Time frameTime);
 	void draw(sf::RenderWindow* window);
 	void addTower(Tower tower);
+	int getGold()const;
 	//void addTrap(Tower tower);
 private:
 	void addState(Entity* state);

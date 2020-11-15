@@ -24,7 +24,7 @@ public:
 	void DrawMap(sf::RenderWindow& window);//рисуем в окно
 	void DrawGrid(sf::RenderWindow& window);//риусем объекты
 	sf::Vector2i GetTileSize();//получаем размер тайла
-	bool setTower(sf::Vector2i Position, sf::RenderWindow* window);
+	bool setTower(sf::Vector2i Position, int );
 	const Grid& getGrid()const { return logicalGrid;}
 	std::map<std::string, std::list <sf::Vector2i>>* getRoad(){ return &roadList.roads; }
 private:

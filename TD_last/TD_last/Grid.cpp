@@ -81,12 +81,18 @@ int Grid::findObjects(Objects* obj, sf::Sprite tile)
 	}
 	return 0;
 }
-int Grid::setTextureTower(sf::Vector2i Position, sf::RenderWindow* window)
+int Grid::setTextureTower(sf::Vector2i Position, int type)
 {
 	try {
-		
 		int x = Position.x / tileWidth, y = Position.y / tileHeight;
-		tileMap[y][x].setTexture(texture,subRects[249]);
+		if (type == 0)
+		{
+			tileMap[y][x].setTexture(texture, subRects[249]);
+		}
+		else
+		{
+			tileMap[y][x].setTexture(texture, subRects[205]);
+		}
 		tileMap[y][x].setState(4);
 			return 1;
 	}

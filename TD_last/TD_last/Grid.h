@@ -41,7 +41,7 @@ int findObjects(Objects* obj, sf::Sprite tile);
 
 bool setTiles(std::vector<Layer> tmp, int, int, Objects*);
 
-int setTextureTower(sf::Vector2i Position, sf::RenderWindow *window);
+int setTextureTower(sf::Vector2i Position, int);
 
 void setTexture(sf::Texture);
 

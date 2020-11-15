@@ -21,7 +21,10 @@ void Score::update(sf::Time)
 {
 
 }
-
+int  Score::getGold()const
+{
+	return gold;
+}
 void  Score::draw(sf::RenderWindow* window)
 {
 	std::string strGold = "Your money: "+std::to_string(gold);

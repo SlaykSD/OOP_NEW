@@ -120,6 +120,11 @@ void EntityManager::draw(sf::RenderWindow* window)
 	//this->towers.
 	
 }
+
+int EntityManager::getGold()const
+{
+	return score.getGold();
+}
 void EntityManager::addTower(Tower tower)
 {
 	this->towers.push_back(tower);
