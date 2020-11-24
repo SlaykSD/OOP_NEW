@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Grid.h"
 class Tile;
 /**
@@ -14,7 +14,7 @@ Grid::Grid(const Grid& grid) : Grid()
 }
 bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 {
-	//Копируем все кроме текстур
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	_width = width;
 	_height = height;
 	try {
@@ -105,12 +105,12 @@ int Grid::setTextureTower(sf::Vector2i Position, int type)
 }
 bool Grid::setSpriteMagic(int type, int x, int y)
 {
-	sf::Image widget; //создаем объект Image (изображение)
+	sf::Image widget; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ Image (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
 	sf::Sprite sprite;
 	sf::Texture textur;
 	if (type == 2)//frost
 	{
-		widget.loadFromFile("magic_tower_f.png");//загружаем в него файл
+		widget.loadFromFile("magic_tower_f.png");//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		textur.loadFromImage(widget);
 		sprite.setTexture(textur);
@@ -119,7 +119,7 @@ bool Grid::setSpriteMagic(int type, int x, int y)
 	}
 	if (type == 3)//frost
 	{
-		widget.loadFromFile("magic_tower_p.png");//загружаем в него файл
+		widget.loadFromFile("magic_tower_p.png");//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		textur.loadFromImage(widget);
 		sprite.setTexture(textur);
@@ -127,7 +127,7 @@ bool Grid::setSpriteMagic(int type, int x, int y)
 	}
 	if (type == 4)//frost
 	{
-		widget.loadFromFile("magic_tower_m.png");//загружаем в него файл
+		widget.loadFromFile("magic_tower_m.png");//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		textur.loadFromImage(widget);
 		sprite.setTexture(textur);
