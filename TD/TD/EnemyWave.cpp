@@ -35,17 +35,9 @@ void EnemyWave::update(sf::Time dt)
 			wave[curr]->setVisible(g);
 			curr++;
 		}
-		if (wave[1]->getVisible())
-		{
-			;
-		}
 	}
 	for (int i = 0; i < size; i++)
 	{
-		if (wave[1]->getVisible())
-		{
-			std::cout << "2-oq poshol" << std::endl;
-		}
 		wave[i]->update(dt);
 	}
 }
@@ -74,4 +66,31 @@ void EnemyWave::draw(sf::RenderWindow* window)
 			enemy->draw(window);
 		}
 	}
+}
+
+std::vector<Enemy*> EnemyWave::getEnemies()const
+{
+	return this->wave;
+}
+bool EnemyWave::removeEnemy(Enemy* enemy)
+{
+	curr--;
+	int size = wave.size();
+	//find enemy
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		if (enemy == wave[i])
+			break;
+	}
+	try {
+		delete wave[i];//Если не сработает можно попробовать умный указатель https://askdev.ru/q/kak-izbezhat-utechki-pamyati-pri-ispolzovanii-vektora-ukazateley-na-dinamicheski-vydelennye-obekty-v-c-41431/
+		wave.erase(wave.begin() + i);
+	}
+	catch (...)
+	{
+		std::cout << "Momore doesnot free (delete enemy)" << std::endl;
+		return false;
+	}
+	return true;
 }

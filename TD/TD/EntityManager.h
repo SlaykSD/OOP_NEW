@@ -60,7 +60,7 @@ public:
 	bool lvlUP(sf::Vector2i vec);
 	bool removeTower(sf::Vector2i vec);
 	//void addTrap(Tower tower);
-	void addSystem(System*);
+	void addSystem(System*, int);
 	std::vector<Lier*> getLiers();
 	std::vector<Castle*> getCastles();
 	std::vector<Trap*> getTraps();

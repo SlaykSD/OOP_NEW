@@ -63,11 +63,11 @@ namespace Game_def {
 		window(sf::VideoMode(640, 640), "TD_betta"),
 		gState(&window),
 		pause(false),
-		dSys(),
-		mSys()
+		dSys(gState.getEManager()),
+		mSys(gState.getEManager())
 	{
 		manager.addState(&gState);
-		gState.addSystem(&dSys);
-		gState.addSystem(&mSys);
+		gState.addSystem(&dSys, 1);
+		gState.addSystem(&mSys, 2);
 	}
 }

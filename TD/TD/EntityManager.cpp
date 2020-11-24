@@ -148,19 +148,24 @@ std::vector<Tower*> EntityManager::getTowers()
 	}
 	return tmp;
 }
-void  EntityManager::addSystem(System* sys)
+
+void  EntityManager::addSystem(System* sys, int id_s)
 {
+	//switch (id_s)
+	//{
+	//case(1):
+	//	sys.
+	//	break;
+	//default:
+	//	break;
+	//}
 	sys->setManager(this);
 	systems.push_back(sys);
 }
 void EntityManager::addSystems()
 {
-	//DamageSystem system_d;
-	//MoveSystem system_m;
-	////system_d.setManager(this);
-	////system_m.setManager(this);
-	//systems.push_back(system_d);
-	//systems.push_back(system_m);
+	Enemy f;
+	f.gethp();
 }
 bool EntityManager::setParameters(Level lvl)
 {
@@ -211,7 +216,7 @@ bool EntityManager::update(sf::Time frameTime)
 
 	for (auto &system : systems)
 	{
-		system->setManager(this);
+		//system->setManager(this);
 		system->update(frameTime);
 	}
 
@@ -255,10 +260,21 @@ int EntityManager::getGold()const
 void EntityManager::addTower(Tower& tower)
 {
 	int curr = this->getGold();
+	if (towers.size() + 1 == 2)
+	{
+		int i = 123;
+		i += 12;
+		i -= 123;
+		addSystems();
+	}
 	curr -= costTable.getInfo(tower.getTowerType(), 1);
 	if (score.setGold(curr))
 	{
 		this->towers.push_back(tower);
+		for (int i = 0; i < towers.size(); i++)
+		{
+			towers[i].setTarget(nullptr);
+		}
 		//_entities.push_back(&towers.back());
 		applyChanges();
 	}

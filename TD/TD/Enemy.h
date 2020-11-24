@@ -18,8 +18,15 @@ public:
 	//virtual  void draw(sf::RenderWindow *) = 0;
 	void setVisible(bool vis) { visible = vis; }
 	bool getVisible()const { return visible; }
+	const sf::Vector2f getPosition()const { return sprite.getPosition(); }
 	EnemyType getName()const { return name; }
+	float  gethp()const { return hp; }
+	const std::list <sf::Vector2i>* getPointsList()const { return &checkPoints; }
+	void setColor(sf::Color col) {
+		sprite.setColor(col);
+	}
 protected:
+
 	int points;
 	bool visible;
 	float speed;

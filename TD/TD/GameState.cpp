@@ -112,7 +112,7 @@ void GameState::setEManager(Level* lvl)
 }
 void GameState::addSystem(System* sys, int id_s)
 {
-	eManager.addSystem(sys);
+	eManager.addSystem(sys, id_s);
 }
 void GameState::draw()
 {

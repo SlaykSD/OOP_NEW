@@ -12,6 +12,7 @@ public:
     void draw();
     const Level& getLevel()const;
     void addSystem(System*, int);
+    EntityManager* getEManager() { return &eManager; }
 private: 
     void applyChanges(int );
     int widget_buy(sf::RenderWindow*);

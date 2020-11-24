@@ -1,21 +1,21 @@
 #pragma once
 #include "Bulding.h"
 #include "Effect.h"
-
+#include "Enemy.h"
 enum TowerType;
 
 struct TableStateTower
 {
 	float range;
 	float damage;
-	float attackSpeed;	
+	float attackSpeed;
 	EffectType type_ef;
 	TableStateTower() : range(100), damage(50), attackSpeed(1) { ; }
 	bool up();
 	//Не хватает эфекта
 };
 
-class Tower: public Bulding
+class Tower : public Bulding
 {
 public:
 	Tower(const Tower&);
@@ -26,7 +26,19 @@ public:
 	int getLevel()const { return level; }
 	const Tower& operator=(const Tower&);
 	void lvlUP();
+	void setTarget(Enemy* tmp) 
+	{
+		target = tmp;
+		if (target != nullptr)
+		{
+			target->setColor(sf::Color::Red);
+		}
+	}
+	void removeColor() { target->setColor(sf::Color::White); }
+	Enemy* getTarget()const { return target; }
+	float  getRange()const { return  table.range; }
 private:
+	Enemy* target;
 	void setTexture(int);
 	TowerType type;
 	int level;

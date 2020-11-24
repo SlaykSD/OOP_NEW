@@ -1,9 +1,9 @@
 #include "Tower.h"
 #include "EntityManager.h"
 
-Tower::Tower(const Tile* tile, TowerType typ):Bulding(tile),LEVEL_MAX(2), level(1),table(), type(typ)
+Tower::Tower(const Tile* tile, TowerType typ) :Bulding(tile), LEVEL_MAX(2), level(1), table(), type(typ), target(nullptr)
 {
-	int t = type;
+ 	int t = type;
 	setTexture(t);
 	sf::Rect <int> rect(0,0,64,64);
 	_tile.setTexture(texturpack[0], rect);

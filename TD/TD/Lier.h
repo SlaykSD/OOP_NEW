@@ -9,6 +9,7 @@ public:
 	Lier(const Tile* tile, std::list <sf::Vector2i>);
 	virtual void update(sf::Time);
 	void draw(sf::RenderWindow* window);
+	std::vector<EnemyWave*> getWaves();
 private:
 	EnemyWave generateWave();
 	sf::Font font;
