@@ -1,6 +1,16 @@
 #include "Enemy.h"
+#include "EntityManager.h"
 
 
+void Enemy::setEnemyWave(EnemyWave* wave)
+{
+	_wave = wave;
+}
+
+void Enemy::selfdestruction()
+{
+	_wave->removeEnemy(this);
+}
 void Enemy::update(sf::Time dt)
 {
 	if (visible)
@@ -22,6 +32,7 @@ void Enemy::update(sf::Time dt)
 					if (fluctuation_x > (*it).x)
 						fluctuation_x = (*it).x;
 					sprite.setPosition(fluctuation_x, sprite.getPosition().y);
+					rectHealthbar.setPosition(fluctuation_x +16, sprite.getPosition().y-10);
 				}
 				else
 				{
@@ -29,6 +40,7 @@ void Enemy::update(sf::Time dt)
 					if (fluctuation_x < (*it).x)
 						fluctuation_x = (*it).x;
 					sprite.setPosition(fluctuation_x, sprite.getPosition().y);
+					rectHealthbar.setPosition(fluctuation_x+16, sprite.getPosition().y-10);
 				}
 			}
 			if ((int)sprite.getPosition().y != (*it).y)
@@ -38,7 +50,9 @@ void Enemy::update(sf::Time dt)
 					float fluctuation_y = sprite.getPosition().y + dt.asSeconds() * this->speed;
 					if (fluctuation_y > (*it).y)
 						fluctuation_y = (*it).y;
-					sprite.setPosition(sprite.getPosition().x,fluctuation_y);
+					sprite.setPosition(sprite.getPosition().x, fluctuation_y);
+					rectHealthbar.setPosition(sprite.getPosition().x+16, fluctuation_y-10);
+
 				}
 				else
 				{
@@ -46,6 +60,7 @@ void Enemy::update(sf::Time dt)
 					if (fluctuation_y < (*it).y)
 						fluctuation_y = (*it).y;
 					sprite.setPosition(sprite.getPosition().x, fluctuation_y);
+					rectHealthbar.setPosition(sprite.getPosition().x+16, fluctuation_y-10);
 				}
 			}
 			if (((int)sprite.getPosition().y == (*it).y) && ((int)sprite.getPosition().x == (*it).x))
@@ -53,10 +68,37 @@ void Enemy::update(sf::Time dt)
 				checkPoints.erase(it);
 			}
 		}
+		float scale = hp / HP_MAX;
+		rectHealthbar.setSize({ 32.f * scale,10.f });
+		controlEffects(dt);
+
 	}
 }
-Enemy::Enemy() :HP_MAX(250), hp(250), money(40), speed(100.f), visible(false), points(0)
+bool Enemy::takeDamage(float damage, EffectType type)
 {
+	hp -= (damage + damage * increaseDamage);
+	if ((sprite.getColor() == sf::Color::Green) && (hp <= 50))
+	{
+		sprite.setColor(sf::Color::Cyan);
+	}
+	if (hp <= 0)
+	{
+		hp = 0;
+		return true;
+	}
+	addEffect(type);
+	return false;
+}
+Enemy::Enemy() :HP_MAX(250), hp(250), money(40), speed(100.f), visible(false), points(0), increaseDamage(0)
+{
+	//sf::Rect <int> rect(0, 0, 10, 32);
+	sf::Image widget; //создаем объект Image (изображение)
+	widget.loadFromFile("healthbar.png");//загружаем в него файл
+	widget.createMaskFromColor(sf::Color(255, 255, 255));
+	healthbar.loadFromImage(widget);
+	rectHealthbar.setTexture(&healthbar);
+	rectHealthbar.setSize({ 32.f,10.f });
+	//rectHealthbar.setTextureRect(rect);
 }
 Enemy::Enemy(std::list <sf::Vector2i> Points, EnemyType Type) : Enemy()
 {
@@ -67,4 +109,86 @@ Enemy::Enemy(std::list <sf::Vector2i> Points, EnemyType Type) : Enemy()
 	pos.x = (*it).x;
 	pos.y = (*it).y;
 	sprite.setPosition(pos);
+	pos.y -= 10;
+	pos.x += 32;
+	rectHealthbar.setPosition(pos);
+}
+void Enemy::setOrigin()
+{
+	//DANGER 32 = 64/2 64 -tile size 
+	sprite.setOrigin(WIDTH / 2, HEIGHT / 2);
+}
+void Enemy::reSetOrigin()
+{
+	//DANGER 32 = 64/2 64 -tile size 
+	sprite.setOrigin(0, 0);
+}
+
+bool Enemy::addEffect(EffectType type)
+{
+	if (type == EffectType::none)
+	{
+		//this->setColor(sf::Color::Red);
+		return false;
+	}
+	if (findEffect(type) >= 0)
+		return false;
+	if (type == EffectType::frost)
+		sprite.setColor(sf::Color::Blue);
+	if (type == EffectType::poison)
+		sprite.setColor(sf::Color::Green);
+	if (type == EffectType::m_weakness)
+		sprite.setColor(sf::Color::Yellow);
+	Effect ef(type,&hp,&speed,&increaseDamage);
+	//ef.setEnemy(this);
+	this->effects.push_back(ef);
+	return true;
+}
+
+int Enemy::controlEffects(sf::Time dt)
+{
+	if (effects.empty())
+		return 0;
+	updateEf(dt);
+	removeEffects();
+	if (hp <= 0)
+		this->selfdestruction();
+}
+void Enemy::updateEf(sf::Time dt)
+{
+	int size = effects.size();
+	for (int i = 0; i < size; i++)
+	{
+		//effects[i].setEnemy(this);
+		effects[i].update(dt, &hp);
+	}
+}
+
+void Enemy::removeEffects()
+{
+	int size = effects.size();
+	for (int i = 0; i < size; i++)
+	{
+		if (effects[i].checkTime())
+		{
+			//effects[i].setEnemy(this);
+			effects[i].returnState(&speed,&increaseDamage);
+			EraseFromUnorderedByIndex(effects, i);
+			if (effects.empty())
+				sprite.setColor(sf::Color::White);
+		}
+	}
+}
+int Enemy::findEffect(EffectType type)
+{
+	int size = effects.size();
+	for (int i = 0; i < size; i++)
+	{
+		if (effects[i].getType() == type)
+		{
+			effects[i].setTime(sf::Time::Zero);
+			return i;
+		}
+	}
+	return -1;
 }

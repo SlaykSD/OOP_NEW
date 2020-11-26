@@ -33,13 +33,18 @@ int DamageSystem::handleEnemies(Lier* lier)
 		{
 			for (int j = 0; j < size_en; j++)
 			{
+				//std::cout << "Enemy index " << j << "HP,Position, " << enemies[j]->getHP() << " {" << enemies[j]->getPosition().x << " | "<<enemies[j]->getPosition().y << "} " << std::endl;
 				sf::Vector2f pos_e = enemies[j]->getPosition();
+				pos_e.x = (int)pos_e.x;
+				pos_e.y = (int)pos_e.y;
 				int size_c = castles.size();
 				for (int i_c = 0; i_c < size_c; i_c++)
 				{
 					sf::Vector2f pos = castles[i_c]->getTile()->getSprite().getPosition();
+					//std::cout << "Position castles {" << pos.x << " | " << pos.y <<"} "<< std::endl;
 					if (pos == pos_e)
 					{
+						
 						dealDamage(waves[i],enemies[j], castles[i_c]);
 					}
 				}

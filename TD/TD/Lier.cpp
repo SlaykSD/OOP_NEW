@@ -5,14 +5,20 @@ Lier::Lier(const Tile* tile, std::list <sf::Vector2i> list) :Bulding(tile), numb
 {
 	generateWave();
 }
-
-EnemyWave Lier::generateWave()
+void Lier::removeEn(Enemy* enemy)
+{
+	int size = waves.size();
+	for (int i = 0; i < size; i++)
+	{
+		waves[i].removeEnemy(enemy);
+	}
+}
+void Lier::generateWave()
 {
 	if (numberWave < numberWaves)
 	{
 		EnemyWave wave(checkPoints, 1);
 		waves.push_back(wave);
-		return wave;
 	}
 }
 void Lier::draw(sf::RenderWindow* window)

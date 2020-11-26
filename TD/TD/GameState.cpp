@@ -40,6 +40,7 @@ bool GameState::handleEvent(const sf::Event& event)
 						level.setTower(vec, choise);//Set state of tile
 
 						Tower tower(level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x), type);
+						tower.setEManager(&eManager);
 						eManager.addTower(tower);
 
 					}
@@ -51,18 +52,18 @@ bool GameState::handleEvent(const sf::Event& event)
 			if (state == 4)//lvlUP
 			{
 				choise = widget_up(window);
-				if (choise > 0)
+				if (choise > 4)
 				{
 					if (choise == 5)
 					{
 						TowerType type;
-						if (choise == TowerType::SimpleTower)
+						if (choise-4 == TowerType::SimpleTower)
 							type = TowerType::SimpleTower;
 						else
-							if (choise == TowerType::MagicTowerF)
+							if (choise-4 == TowerType::MagicTowerF)
 								type = TowerType::MagicTowerF;
 							else
-								if (choise == TowerType::MagicTowerM)
+								if (choise-4 == TowerType::MagicTowerM)
 									type = TowerType::MagicTowerM;
 								else
 									type = MagicTowerP;

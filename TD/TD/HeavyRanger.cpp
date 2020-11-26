@@ -16,5 +16,6 @@ void HeavyRanger::draw(sf::RenderWindow* window)
 	{
 		sprite.setTexture(texture);
 		window->draw(sprite);
+		window->draw(rectHealthbar);
 	}
 }

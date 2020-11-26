@@ -10,8 +10,9 @@ public:
 	virtual void update(sf::Time);
 	void draw(sf::RenderWindow* window);
 	std::vector<EnemyWave*> getWaves();
+	void removeEn(Enemy*);
 private:
-	EnemyWave generateWave();
+	void generateWave();
 	sf::Font font;
 	sf::Text textLier;
 	std::list <sf::Vector2i> checkPoints;//way from lier to castle. Mass of coordinate

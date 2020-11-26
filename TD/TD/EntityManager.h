@@ -34,11 +34,11 @@ struct TableCostTower
 	const enum MagicTowerCost
 	{
 		M_TOWER_1_F = 150,
-		M_TOWER_2_F = 250,
+		M_TOWER_2_F = 170,
 		M_TOWER_1_P = 130,
-		M_TOWER_2_P = 200,
-		M_TOWER_1_M = 140,
-		M_TOWER_2_M = 220
+		M_TOWER_2_P = 150,
+		M_TOWER_1_M = 120,
+		M_TOWER_2_M = 150
 	};
 	const int costKillEnemy; //Возможно поменятеся
 	TableCostTower() :costKillEnemy(20) { ; }
@@ -47,7 +47,7 @@ struct TableCostTower
 class EntityManager
 {
 public:
-	
+	void destroyEnemy(Enemy*);
 	EntityManager(Level&);
 	bool setParameters(Level lvl);
 	bool update(sf::Time frameTime);
@@ -56,7 +56,6 @@ public:
 	int getGold()const;
 	int setGold(int);
 	bool checkGold(TowerType, int);
-	int getCostTower(TowerType, int);
 	bool lvlUP(sf::Vector2i vec);
 	bool removeTower(sf::Vector2i vec);
 	//void addTrap(Tower tower);

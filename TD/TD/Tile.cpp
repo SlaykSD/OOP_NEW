@@ -84,10 +84,24 @@ bool Tile::setMagicTower(int type)
 	}
 
 }
-
+void Tile::setOrigin(float w, float h)
+{
+	sprite.setOrigin(w, h);
+}
 const sf::Sprite* Tile::getSpriteV()
 {
 	return &sprite;
+}
+void Tile::setRotation(float angle)
+{
+	sprite.setRotation(angle);
+}
+void Tile::setPositionToCenter()
+{
+	sf::Vector2f pos = sprite.getPosition();
+	sf::Vector2f center(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
+	pos = pos + center;
+	sprite.setPosition(pos);
 }
 //Tile& Tile::operator= (const Tile& t)
 //{

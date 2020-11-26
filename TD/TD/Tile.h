@@ -18,7 +18,9 @@ void setTexture(sf::Texture& t) { sprite.setTexture(t); }
 int getDraw(sf::RenderWindow* window)const;
 bool setMagicTower(int);
 const sf::Sprite* getSpriteV();
-
+void setOrigin(float, float);
+void setRotation(float);
+void setPositionToCenter();
 protected: 
     Type state;
     int tileNumber;

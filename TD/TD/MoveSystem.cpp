@@ -10,15 +10,6 @@ Targets::Targets(std::vector<Enemy*> enemies, std::vector<float>distance, std::v
 	targets = enemies;
 	distances_t = distance;
 	distances_c = distance2;
-	//int size = enemies.size();
-	//for (int i = 0; i < size; i++)
-	//{
-	//	Target tar;
-	//	tar.en = enemies[i];
-	//	tar.distance_t = distance[i];
-	//	tar.distance_c = distance2[i];
-	//	targets.push_back(tar);
-	//}
 }
 void MoveSystem::update(sf::Time)
 {
@@ -54,7 +45,7 @@ void MoveSystem::update(sf::Time)
 			else
 			{
 
-				towers[i]->removeColor();
+				//towers[i]->removeColor();
 				towers[i]->setTarget(goalTarget);
 			}
 		}
@@ -79,7 +70,10 @@ Targets MoveSystem::detectTargets(Lier* lier, Tower* tower)
 				if (enemies[j]->getVisible())
 				{
 					Enemy* tmp = enemies[j];
+					tmp->setEnemyWave(waves[i]);
+					sf::Vector2f Origin(WIDTH/2, HEIGHT/2);
 					sf::Vector2f pos_e = enemies[j]->getPosition();
+					pos_e = pos_e + Origin;
 					sf::Vector2f pos_t = tower->getTile()->getSprite().getPosition();
 					sf::Vector2f vector_range = pos_t - pos_e;
 					float dist = getDistance(vector_range);

@@ -66,6 +66,7 @@ namespace Game_def {
 		dSys(gState.getEManager()),
 		mSys(gState.getEManager())
 	{
+		
 		manager.addState(&gState);
 		gState.addSystem(&dSys, 1);
 		gState.addSystem(&mSys, 2);

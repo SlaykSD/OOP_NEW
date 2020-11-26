@@ -107,7 +107,14 @@ void EntityManager::addStates()
 		addState(&castles[i]);
 	}
 }
+void EntityManager::destroyEnemy(Enemy* en)
+{
+	//int size = liers.size();
+	//for (int i = 0; i < length; i++)
+	//{
 
+	//}
+}
 std::vector<Lier*> EntityManager::getLiers()
 {
 	std::vector<Lier*> tmp;
@@ -289,15 +296,21 @@ void EntityManager::applyChanges()
 	int size_castles = castles.size();
 	int size_liers = liers.size();
 	int size_towers = towers.size();
-	for (int i = size-1; i >= size_liers + size_castles; -- i)
-	{
-		_entities.erase(_entities.begin() + i);
-	}
+	_entities.clear();
 	for (int i = 0; i < size_towers; i++)
 	{
 		_entities.push_back(&towers[i]);
 	}
+	for (int i = 0; i < size_castles; i++)
+	{
+		_entities.push_back(&castles[i]);
+	}
+	for (int i = 0; i < size_liers; i++)
+	{
+		_entities.push_back(&liers[i]);
+	}
 }
+
 int EntityManager::setGold(int gold)
 {
 	if (score.setGold(gold))
@@ -309,6 +322,7 @@ bool EntityManager::checkGold(TowerType type, int level)
 	const int cost = costTable.getInfo(type, level);
 	if (score.getGold() - cost > 0)
 		return false;
+	std::cout << " YOU HAVE NOT MONEY" << std::endl;
 	return true;
 }
 bool EntityManager::lvlUP(sf::Vector2i vec)
@@ -336,9 +350,11 @@ int EntityManager::findTower(sf::Vector2i vec)
 {
 	int size = towers.size();
 	const int hight = 64, wight = 64;
+
 	for (int i = 0; i < size; i++)
 	{
-		if ((vec.x / hight == towers[i].getTile()->getSprite().getPosition().x / hight) && (vec.y / wight == towers[i].getTile()->getSprite().getPosition().y / wight))
+		std::cout << vec.x / hight << "  " << vec.y / wight << "|" << (int)towers[i].getTile()->getSprite().getPosition().x / hight << " " << (int)towers[i].getTile()->getSprite().getPosition().y / wight;
+		if (((vec.x / hight) == (int)towers[i].getTile()->getSprite().getPosition().x / hight) && ((vec.y / wight  ) == (int)towers[i].getTile()->getSprite().getPosition().y / wight))
 			return i;
 	}
 	return -1;
@@ -356,6 +372,6 @@ bool EntityManager::removeTower(sf::Vector2i vec)
 	cost /= 2;
 	score.setGold(score.getGold() + cost);
 	//dellete
-	_entities.erase(_entities.begin() + number + castles.size()  + liers.size());
 	EraseFromUnorderedByIndex(towers,number);
+	applyChanges();
 }

@@ -9,9 +9,13 @@ EnemyWave::EnemyWave(std::list <sf::Vector2i> list, int type) :cooldown(sf::seco
 	if (type == 1)
 	{
 		auto light1 = new LightInfantry(list);
+		light1->setEnemyWave(this);
 		auto light2 = new LightInfantry(list);
+		light2->setEnemyWave(this);
 		auto light3 = new LightInfantry(list);
+		light3->setEnemyWave(this);
 		auto heavy1 = new HeavyInfantry(list);
+		heavy1->setEnemyWave(this);
 		wave.push_back(light1);
 		wave.push_back(light2);
 		wave.push_back(light3);
@@ -39,6 +43,7 @@ void EnemyWave::update(sf::Time dt)
 	for (int i = 0; i < size; i++)
 	{
 		wave[i]->update(dt);
+		size = wave.size();
 	}
 }
 void EnemyWave::draw(sf::RenderWindow* window)
@@ -48,10 +53,6 @@ void EnemyWave::draw(sf::RenderWindow* window)
 	{
 		if (wave[i]->getName() == 1)
 		{
-			//B objB;
-			////objB.g(&App);                     //Вызовется g() из объекта типа A, как и должно быть
-			//A* ptrA = (A*)(&objB); //берём адрес objB, приводим его к типу указателя на A и                         //записываем в ptrA
-			//B* ptrB = (B*)(ptrA);
 			LightInfantry* enemy = (LightInfantry*)(wave[i]);
 			enemy->draw(window);
 		}
@@ -84,7 +85,7 @@ bool EnemyWave::removeEnemy(Enemy* enemy)
 			break;
 	}
 	try {
-		delete wave[i];//Если не сработает можно попробовать умный указатель https://askdev.ru/q/kak-izbezhat-utechki-pamyati-pri-ispolzovanii-vektora-ukazateley-na-dinamicheski-vydelennye-obekty-v-c-41431/
+		delete wave[i];//If it doesn't work you can use an unsign pointer https://askdev.ru/q/kak-izbezhat-utechki-pamyati-pri-ispolzovanii-vektora-ukazateley-na-dinamicheski-vydelennye-obekty-v-c-41431/
 		wave.erase(wave.begin() + i);
 	}
 	catch (...)

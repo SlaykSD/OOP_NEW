@@ -9,13 +9,13 @@ protected:
 	A();
 	void foo()
 	{
-		cout << "foo() called\n";
+		//cout << "foo() called\n";
 	};
 	sf::Sprite sprite;
 public:
 	virtual void g(sf::RenderWindow* window) //обратите внимание на ключевое слово virtual
 	{
-		cout << "original g() called\n";
+		//cout << "original g() called\n";
 	};
 };
 
@@ -25,12 +25,79 @@ public:
 	B();
 	virtual void g(sf::RenderWindow* window) //обратите внимание на ключевое слово virtual
 	{
-		cout << "g() called\n\t";
+		//cout << "g() called\n\t";
 		foo();
 		sprite.setTexture(texture);
 		window->draw(sprite);
 	};
+	void Rotation(sf::Time frametime)
+	{
+		Vector2f pos(60,300);
+		float dX = pos.x - sprite.getPosition().x;//вектор , колинеарный прямой, которая пересекает спрайт и курсор
+		float dY = pos.y - sprite.getPosition().y;//он же, координата y
+		float rotation = 90+ (atan2(dY, dX)) * 180 / 3.14159265;//получаем угол в радианах и переводим его в градусы
+		/*sf::Vector2f vec; 
+		vec.x  = */
+		float speed = 3.14159265;
+		float relrotation = 180 / 3.14159265;
+		if (rotation < 270 && rotation >180)
+			rotation = -90 + rotation - 270;
+		if (!((rotor < (rotation + 3)) && ((rotation - 3) < rotor)))
+		{
+			if (abs(rotor - rotation) > 180)
+			{
+				if (rotor > 0)
+				{
+					rotor += relrotation * speed * frametime.asSeconds();
+				}
+				else
+				{
+					rotor -= relrotation * speed * frametime.asSeconds();
+				}
+				if (rotor < -180)
+				{
+					rotor = 360 + rotor;
+				}
+				if (rotor > 180)
+				{
+					rotor = rotor- 360;
+				}
+			}
+			else
+			{
+				if (rotor > rotation)
+				{
+					rotor -= relrotation * speed * frametime.asSeconds();
+				}
+				else
+				{
+					rotor += relrotation * speed * frametime.asSeconds();
+				}
+			}
+		}
+		else
+		{
+			rotor = rotation;
+		}
+		//if()
+		/*if ((int)rotor!= (int)rotation)
+		{
+
+			if (rotor < rotation)
+			{
+				rotor += relrotation * speed * frametime.asSeconds();
+			}
+			else
+			{
+				rotor -= relrotation * speed * frametime.asSeconds();
+			}
+		}*/
+		sprite.setRotation(rotor);//поворачиваем спрайт на эти градусы	
+		std::cout << rotation << "\n";//смотрим на градусы в консольке
+		std::cout << rotor << "\n";//смотрим на градусы в консольке
+	}
 private:
+	float rotor;
 	sf::Texture texture;
 };
 int fun(sf::RenderWindow& window);
@@ -141,43 +208,78 @@ A::A():sprite()
 {
 	sprite.setTextureRect(sf::Rect<int>(0, 0, 64, 64));
 }
-B::B()
+B::B():A()
 {
+	rotor = 0;
 	sf::Rect <int> rect(0, 0, 64, 64);
 	sf::Image widget; //создаем объект Image (изображение)
-	widget.loadFromFile("heavy_infantry.png");//загружаем в него файл
+	widget.loadFromFile("simple_tower_2.png");//загружаем в него файл
 	widget.createMaskFromColor(sf::Color(255, 255, 255));
+
 	texture.loadFromImage(widget);
+	Vector2f vec;
+	vec.x = 100;
+	vec.y = 100;
+	sprite.setPosition(vec);
+	sprite.setOrigin(32, 32);
+	rotor = 178;
 }
-/*int main()
+void processEvent(RenderWindow *);
+
+void update(Time frametime, B*);
+//int main()
+//{
+//	sf::RenderWindow window(sf::VideoMode(640, 640), "SFML works!");
+//	//window.setVerticalSyncEnabled(true);
+//	const sf::Time frameTime = sf::seconds(1.f / 60.f);
+//	sf::Clock clock;
+//	sf::Time passedTime = sf::Time::Zero;
+//	B cannot;
+//	while (window.isOpen())
+//	{
+//
+//		sf::Time elapsedTime = clock.restart();
+//		passedTime += elapsedTime;
+//
+//		// Physics, logics etc
+//		while (passedTime > frameTime)
+//		{
+//			passedTime -= frameTime;
+//
+//			processEvent(&window);
+//			update(frameTime, &cannot);
+//
+//		}
+//		RectangleShape  rectangle;
+//		rectangle.setFillColor(sf::Color(24, 255, 23, 150));
+//		rectangle.setSize({ 10.f, 10.f });
+//		Vector2f pos( 60, 300);
+//		rectangle.setPosition(pos);
+//		window.clear();
+//		window.draw(rectangle);
+//		cannot.g(&window);
+//		window.display();
+//
+//	}
+//
+//
+//	return 1;
+//}
+
+void processEvent(RenderWindow* window)
 {
-	sf::RenderWindow window(sf::VideoMode(640, 640), "SFML works!");
-	screen_1 scr;
-
-	scr.Run(window);
-	//fun2(window);
-	fun3(window);
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
-	while (window.isOpen())
+	Event event;
+	while (window->pollEvent(event))
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-		window.draw(shape);
-		window.display();
+		if (event.type == sf::Event::Closed)
+			window->close();
 	}
-
-
-	return 1;
 }
-*/
+
+void update(Time frametime,B* cannot)
+{
+	cannot->Rotation(frametime);
+}
 int fun(sf::RenderWindow& window)
 {
 	int choise;

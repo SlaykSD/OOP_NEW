@@ -1,20 +1,29 @@
 #pragma once
-#include "Entity.h"
-enum EffectType 
-{
-	none = 0,
-	frost ,
-	poison,
-	m_weakness
-};
-class Effect:public Entity
+#include <SFML/Graphics.hpp>
+#include "EffectType.h"
+class Enemy;
+
+class Effect
 {
 public:
-	virtual void update(sf::Time);
+	Effect() = default;
+	Effect(EffectType, float* hp, float* speed, float* incDamage);
+	Effect(const Effect& c);
+	const Effect& operator=(const Effect& c);
+	void update(sf::Time, float*);
+	//void setEnemy(Enemy* );
+	//Enemy* getEnemy() { return target; }
+	void returnState(float*, float*);
+	EffectType getType()const { return type; }
+	void setTime(sf::Time newTime) { time = newTime; }
+	bool checkTime();
 private:
 	EffectType type;
 	int quantity;
-	int	time;
-	const int TIME_MAX = 10;
+	sf::Time time;
+	const sf::Time TIME_MAX = sf::seconds(2.f);
+	//Enemy* target;
+	float real_speed;
+	sf::Time coldown;
 };
 

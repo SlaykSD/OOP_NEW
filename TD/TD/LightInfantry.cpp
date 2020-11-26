@@ -10,13 +10,14 @@ LightInfantry::LightInfantry(std::list<sf::Vector2i> l) :Enemy(l,EnemyType::Ligh
 	texture.loadFromImage(widget);
 	sprite.setTexture(texture);
 	sprite.setTextureRect(rect);
-	n = 20;
 }
 void LightInfantry::draw(sf::RenderWindow* window)
 {
 	if (visible)
 	{
+		//rectHealthbar.setTexture(&healthbar);
 		sprite.setTexture(texture);
 		window->draw(sprite);
+		window->draw(rectHealthbar);
 	}
 }

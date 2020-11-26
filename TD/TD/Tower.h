@@ -1,6 +1,6 @@
 #pragma once
 #include "Bulding.h"
-#include "Effect.h"
+#include "EffectType.h"
 #include "Enemy.h"
 enum TowerType;
 
@@ -10,8 +10,9 @@ struct TableStateTower
 	float damage;
 	float attackSpeed;
 	EffectType type_ef;
-	TableStateTower() : range(100), damage(50), attackSpeed(1) { ; }
+	TableStateTower() : range(100), damage(50), attackSpeed(1.5) { ; }
 	bool up();
+	void setEffect(TowerType type_t);
 	//Не хватает эфекта
 };
 
@@ -29,15 +30,20 @@ public:
 	void setTarget(Enemy* tmp) 
 	{
 		target = tmp;
-		if (target != nullptr)
+	/*	if (target != nullptr)
 		{
 			target->setColor(sf::Color::Red);
-		}
+		}*/
 	}
 	void removeColor() { target->setColor(sf::Color::White); }
 	Enemy* getTarget()const { return target; }
 	float  getRange()const { return  table.range; }
+	void setOrigin();
+	void setAngle(float angle) { angleOfRotation = angle; }
+	float getAngle()const { return angleOfRotation; }
 private:
+	sf::Time elapsedTime;
+	float angleOfRotation;
 	Enemy* target;
 	void setTexture(int);
 	TowerType type;
