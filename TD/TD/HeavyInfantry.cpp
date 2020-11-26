@@ -9,7 +9,6 @@ HeavyInfantry::HeavyInfantry(std::list<sf::Vector2i> l) :Enemy(l, EnemyType::Lig
 	texture.loadFromImage(widget);
 	sprite.setTexture(texture);
 	sprite.setTextureRect(rect);
-
 }
 void HeavyInfantry::draw(sf::RenderWindow * window)
 {

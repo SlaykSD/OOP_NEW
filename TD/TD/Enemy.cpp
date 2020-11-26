@@ -176,6 +176,7 @@ void Enemy::removeEffects()
 			EraseFromUnorderedByIndex(effects, i);
 			if (effects.empty())
 				sprite.setColor(sf::Color::White);
+			size = effects.size();
 		}
 	}
 }
