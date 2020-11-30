@@ -19,6 +19,7 @@ namespace Game_def {
 
     private:
         bool pause;
+        bool error;
         void update(Time frameTime);
         void processEvent();
         void draw();

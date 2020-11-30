@@ -8,7 +8,7 @@ Castle::Castle(const Tile* tile):HP_MAX (1000), hp (1000), Bulding(tile)
 }
 void Castle::draw(sf::RenderWindow* window)
 {
-	if (!font.loadFromFile("CyrilicOld.ttf"))
+	if (!font.loadFromFile("data/CyrilicOld.ttf"))
 	{
 		std::cout << "Error of downdload FONT of the text" << std::endl;
 	}

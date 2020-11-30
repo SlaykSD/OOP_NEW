@@ -12,7 +12,7 @@
 
 const int WIDTH = 64,
 HEIGHT = 64;
-
+class GameState;
 class Trap;
 class Lier;
 class Castle;
@@ -64,19 +64,22 @@ public:
 	std::vector<Castle*> getCastles();
 	std::vector<Trap*> getTraps();
 	std::vector<Tower*> getTowers();
+	//
+	void setGState(GameState*);
 private:
 	void addSystems();
 	void applyChanges();
 	void addStates();
 	int findTower(sf::Vector2i);
 	void addState(Entity* state);
+	GameState* gState;
 	TableCostTower costTable;
 	Score score;
 	std::vector <System*> systems;
 	std::vector<Entity*> _entities;
 	std::vector<Trap> traps;
 	std::vector<Lier> liers;
-	std::vector <Castle> castles;
+	std::vector<Castle> castles;
 	std::vector<Tower> towers;
 };
 

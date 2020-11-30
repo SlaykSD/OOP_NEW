@@ -13,6 +13,7 @@ void Lier::removeEn(Enemy* enemy)
 		waves[i].removeEnemy(enemy);
 	}
 }
+
 void Lier::generateWave()
 {
 	if (numberWave < numberWaves)

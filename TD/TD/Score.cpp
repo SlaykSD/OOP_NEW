@@ -4,7 +4,7 @@
 
 Score::Score():score(0),gold(300)
 {
-	if (!font.loadFromFile("CyrilicOld.ttf"))
+	if (!font.loadFromFile("data/CyrilicOld.ttf"))
 	{
 		std::cout << "Error of downdload FONT of the text" << std::endl;
 	}

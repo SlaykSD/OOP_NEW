@@ -4,6 +4,9 @@
 namespace Game_def {
 
 	void Game::run() {
+		if (error)
+			exit;
+
 		const sf::Time frameTime = sf::seconds(1.f / 60.f);
 		sf::Clock clock;
 		sf::Time passedTime = sf::Time::Zero;
@@ -63,12 +66,14 @@ namespace Game_def {
 		window(sf::VideoMode(640, 640), "TD_betta"),
 		gState(&window),
 		pause(false),
+		error(false),
 		dSys(gState.getEManager()),
 		mSys(gState.getEManager())
 	{
-		
+
 		manager.addState(&gState);
 		gState.addSystem(&dSys, 1);
 		gState.addSystem(&mSys, 2);
+
 	}
 }

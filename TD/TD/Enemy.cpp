@@ -93,7 +93,7 @@ Enemy::Enemy() :HP_MAX(250), hp(250), money(40), speed(100.f), visible(false), p
 {
 	//sf::Rect <int> rect(0, 0, 10, 32);
 	sf::Image widget; //создаем объект Image (изображение)
-	widget.loadFromFile("healthbar.png");//загружаем в него файл
+	widget.loadFromFile("data/healthbar.png");//загружаем в него файл
 	widget.createMaskFromColor(sf::Color(255, 255, 255));
 	healthbar.loadFromImage(widget);
 	rectHealthbar.setTexture(&healthbar);

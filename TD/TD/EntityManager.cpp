@@ -1,10 +1,12 @@
 #include "EntityManager.h"
+#include "GameState.h"
 #include "Tile.h"
 #include "Grid.h"
 #include <math.h>
 #include <string>
 #include "DamageSystem.h"
 #include "MoveSystem.h"
+
 
 const int TableCostTower::getInfo(TowerType type, int level)const
 {
@@ -55,6 +57,8 @@ const int TableCostTower::getInfo(TowerType type, int level)const
 		}
 	}
 }
+
+
 EntityManager::EntityManager(Level& lvl) :score(), costTable()
 {
 	std::vector<std::vector<Tile>> tileMap = lvl.getGrid().getTiles();
@@ -79,7 +83,7 @@ EntityManager::EntityManager(Level& lvl) :score(), costTable()
 					std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = lierRoads->find(key);
 					std::list <sf::Vector2i> tmp = (*it_m).second;
 					std::list <sf::Vector2i>::iterator it = tmp.begin();
-					if ((((*it).x ) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y) == (int)tileMap[i][j].getSprite().getPosition().y))
+					if ((((*it).x) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y) == (int)tileMap[i][j].getSprite().getPosition().y))
 					{
 						Lier lier(&tileMap[i][j], tmp);
 						this->liers.push_back(lier);
@@ -92,6 +96,7 @@ EntityManager::EntityManager(Level& lvl) :score(), costTable()
 	}
 	addStates();
 }
+
 void EntityManager::addStates()
 {
 	//Liers
@@ -200,7 +205,7 @@ bool EntityManager::setParameters(Level lvl)
 					std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = lierRoads->find(key);
 					std::list <sf::Vector2i> tmp = (*it_m).second;
 					std::list <sf::Vector2i>::iterator it = tmp.begin();
-					if ((((*it).x - 32) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y - 32 )== (int)tileMap[i][j].getSprite().getPosition().y))
+					if ((((*it).x - 32) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y - 32) == (int)tileMap[i][j].getSprite().getPosition().y))
 					{
 						Lier lier(&tileMap[i][j], tmp);
 						this->liers.push_back(lier);
@@ -221,7 +226,7 @@ bool EntityManager::setParameters(Level lvl)
 bool EntityManager::update(sf::Time frameTime)
 {
 
-	for (auto &system : systems)
+	for (auto& system : systems)
 	{
 		//system->setManager(this);
 		system->update(frameTime);
@@ -240,8 +245,8 @@ void EntityManager::addState(Entity* enty)
 void EntityManager::draw(sf::RenderWindow* window)
 {
 	score.draw(window);
-	std::vector<Tower>::iterator it= towers.begin();
-	for (it; it!=towers.end(); ++it)
+	std::vector<Tower>::iterator it = towers.begin();
+	for (it; it != towers.end(); ++it)
 	{
 
 		(*it).draw(window);
@@ -354,7 +359,7 @@ int EntityManager::findTower(sf::Vector2i vec)
 	for (int i = 0; i < size; i++)
 	{
 		std::cout << vec.x / hight << "  " << vec.y / wight << "|" << (int)towers[i].getTile()->getSprite().getPosition().x / hight << " " << (int)towers[i].getTile()->getSprite().getPosition().y / wight;
-		if (((vec.x / hight) == (int)towers[i].getTile()->getSprite().getPosition().x / hight) && ((vec.y / wight  ) == (int)towers[i].getTile()->getSprite().getPosition().y / wight))
+		if (((vec.x / hight) == (int)towers[i].getTile()->getSprite().getPosition().x / hight) && ((vec.y / wight) == (int)towers[i].getTile()->getSprite().getPosition().y / wight))
 			return i;
 	}
 	return -1;
@@ -372,6 +377,6 @@ bool EntityManager::removeTower(sf::Vector2i vec)
 	cost /= 2;
 	score.setGold(score.getGold() + cost);
 	//dellete
-	EraseFromUnorderedByIndex(towers,number);
+	EraseFromUnorderedByIndex(towers, number);
 	applyChanges();
 }

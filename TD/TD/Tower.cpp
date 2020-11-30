@@ -107,12 +107,12 @@ void Tower::setTexture(int type)
 	if (type == 1)
 	{
 		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("simple_tower.png");//загружаем в него файл
+		widget.loadFromFile("data/simple_tower.png");//загружаем в него файл
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur;
 		textur.loadFromImage(widget);
 		sf::Image widget2; //создаем объект Image (изображение)
-		widget2.loadFromFile("simple_tower_2.png");//загружаем в него файл
+		widget2.loadFromFile("data/simple_tower_2.png");//загружаем в него файл
 		widget2.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur2;
 		textur2.loadFromImage(widget2);
@@ -124,12 +124,12 @@ void Tower::setTexture(int type)
 	if (type == 2)//frost
 	{
 		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("magic_tower_f.png");//загружаем в него файл
+		widget.loadFromFile("data/magic_tower_f.png");//загружаем в него файл
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur;
 		textur.loadFromImage(widget);
 		sf::Image widget2; //создаем объект Image (изображение)
-		widget2.loadFromFile("magic_tower_f_2.jpg");//загружаем в него файл
+		widget2.loadFromFile("data/magic_tower_f_2.jpg");//загружаем в него файл
 		widget2.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur2;
 		textur2.loadFromImage(widget2);
@@ -141,12 +141,12 @@ void Tower::setTexture(int type)
 	if (type == 3)//frost
 	{
 		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("magic_tower_p.png");//загружаем в него файл
+		widget.loadFromFile("data/magic_tower_p.png");//загружаем в него файл
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur;
 		textur.loadFromImage(widget);
 		sf::Image widget2; //создаем объект Image (изображение)
-		widget2.loadFromFile("magic_tower_p_2.jpg");//загружаем в него файл
+		widget2.loadFromFile("data/magic_tower_p_2.jpg");//загружаем в него файл
 		widget2.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur2;
 		textur2.loadFromImage(widget2);
@@ -158,12 +158,12 @@ void Tower::setTexture(int type)
 	if (type == 4)//frost
 	{
 		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("magic_tower_m.png");//загружаем в него файл
+		widget.loadFromFile("data/magic_tower_m.png");//загружаем в него файл
 		widget.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur;
 		textur.loadFromImage(widget);
 		sf::Image widget2; //создаем объект Image (изображение)
-		widget2.loadFromFile("magic_tower_m_2.jpg");//загружаем в него файл
+		widget2.loadFromFile("data/magic_tower_m_2.jpg");//загружаем в него файл
 		widget2.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur2;
 		textur2.loadFromImage(widget2);

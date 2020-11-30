@@ -3,11 +3,10 @@
 #include "Tile.h"
 #include "Tower.h"
 
-GameState::GameState(sf::RenderWindow* window1) : window(window1), level("NewMapPC.tmx"), eManager(level)
+GameState::GameState(sf::RenderWindow* window1) : window(window1), level("data/maps/NewMapPC.tmx"), eManager(level)
 {
 	//	eManager.setParameters(level);
 }
-
 bool GameState::handleEvent(const sf::Event& event)
 {
 	int choise = 0;
@@ -130,7 +129,11 @@ int GameState::widget_buy(sf::RenderWindow* window)
 	int choise;
 	sf::Vector2i vec = sf::Mouse::getPosition(*window);
 	sf::Texture widget_buy;
-	widget_buy.loadFromFile("widget_buy_effect.jpg");
+	if (!widget_buy.loadFromFile("data/widget/widget_buy_effect.jpg"))
+	{
+		std::cout << "Widget buy doesn't load" << std::endl;
+	//	exit(0);
+	}
 	sf::Sprite menu1(widget_buy);
 	menu1.setTextureRect(sf::IntRect(0, 0, 64, 64));
 
@@ -242,7 +245,11 @@ int GameState::widget_up(sf::RenderWindow* window)
 	int choise;
 	sf::Vector2i vec = sf::Mouse::getPosition(*window);
 	sf::Texture widget_buy;
-	widget_buy.loadFromFile("widget_lvlup.jpg");
+	if(!widget_buy.loadFromFile("data/widget/widget_lvlup.jpg"))
+	{
+		std::cout << "Widget lvlup doesn't load" << std::endl;
+	//	exit(0);
+	}
 	sf::Sprite menu1(widget_buy);
 	menu1.setTextureRect(sf::IntRect(0, 0, 64, 64));
 

@@ -9,7 +9,7 @@
 #include "Grid.h"
 #include <list>
 #include <map>
-
+class GameState;
 struct RoadOjects 
 {
 	std::map<std::string,std::list <sf::Vector2i>> roads;
@@ -27,7 +27,12 @@ public:
 	bool setTower(sf::Vector2i Position, int );
 	const Grid& getGrid()const { return logicalGrid;}
 	std::map<std::string, std::list <sf::Vector2i>>* getRoad(){ return &roadList.roads; }
+	bool getErrors()const { return constructError; }
 private:
+	bool constructError;
+	bool countinuityRoad();
+	bool checkEntityErrors();
+	bool checkCorrectRoadEnd(sf::Sprite*, sf::Sprite* , std::list <sf::Vector2i>*);
 	int findRoadID(int ID)const;
 	int findCastleID(int ID)const;
 	int findLierID(int ID)const;

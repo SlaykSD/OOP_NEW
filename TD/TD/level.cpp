@@ -1,11 +1,18 @@
 #include "level.h"
+#include "GameState.h"
 #include <map>
+#include <cstdlib>
 ///////////////////////////////////////
-Level::Level():width(0),height(0),tileHeight(0),tileWidth(0),firstTileID(0),logicalGrid()
+
+Level::Level() :width(0), height(0), tileHeight(0), tileWidth(0), firstTileID(0), logicalGrid(), constructError(false)
 { }
-Level::Level(std::string filename):Level()
+Level::Level(std::string filename) : Level()
 {
 	this->LoadFromFile(filename);
+	if (constructError)
+	{
+		exit(0);
+	}
 }
 bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам класса вне класса 
 {
@@ -16,6 +23,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 	if (!levelFile.LoadFile())//если не удалось загрузить карту
 	{
 		std::cout << "Loading level \"" << filename << "\" failed." << std::endl;//выдаем ошибку
+		constructError = true;
 		return false;
 	}
 
@@ -46,6 +54,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 	if (!img.loadFromFile(imagepath))
 	{
 		std::cout << "Failed to load tile sheet." << std::endl;//если не удалось загрузить тайлсет-выводим ошибку в консоль
+		constructError = true;
 		return false;
 	}
 
@@ -101,6 +110,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 		if (layerDataElement == NULL)
 		{
 			std::cout << "Bad map. No layer information found." << std::endl;
+			constructError = true;
 		}
 
 		//  контейнер <tile> - описание тайлов каждого сло€
@@ -110,6 +120,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 		if (tileElement == NULL)
 		{
 			std::cout << "Bad map. No tile information found." << std::endl;
+			constructError = true;
 			return false;
 		}
 
@@ -121,7 +132,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 			int tileGID = atoi(tileElement->Attribute("gid"));
 			int subRectToUse = tileGID - firstTileID;
 			//»щем ID объектов
-			int roadIDentifcation = findRoadID(subRectToUse), lierIDentifcation = -1, castleIDentifcation=-1;
+			int roadIDentifcation = findRoadID(subRectToUse), lierIDentifcation = -1, castleIDentifcation = -1;
 			if (roadIDentifcation < 0)
 			{
 				lierIDentifcation = findLierID(subRectToUse);
@@ -164,6 +175,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 
 		layerElement = layerElement->NextSiblingElement("layer");
 	}
+
 	// работа с объектами
 	TiXmlElement* objectGroupElement;
 	// если есть слои объектов
@@ -203,9 +215,9 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 				// экземпл€р объект
 				//hanlde object of road
 				sf::Vector2i point;
-				point.x = x ;
-				point.y = y ;
-			//	if (obj->liers[0].getPosition() == point)
+				point.x = x;
+				point.y = y;
+				//	if (obj->liers[0].getPosition() == point)
 				std::map < std::string, std::list<sf::Vector2i> > ::iterator it;
 				it = roadList.roads.find(objectName);
 				(*it).second.push_back(point);
@@ -219,8 +231,20 @@ bool Level::LoadFromFile(std::string filename)//двоеточи€-обращение к методам кл
 	{
 		std::cout << "No ojecr layers found..." << std::endl;
 	}
+	if (obj.liers.size() < 1 || obj.castles.size() < 1)
+	{
+		std::cout << " You have incorrect map(quantity of castles or liers<1)" << std::endl;
+		constructError = true;
+		return false;
+	}
+
+	//Check correct  Roads!
+	this->constructError = countinuityRoad();
+	if (constructError)
+		return false;
+
 	logicalGrid.setTexture(this->tilesetImage);
-	logicalGrid.setTiles(layers, width, height,&obj);
+	logicalGrid.setTiles(layers, width, height, &obj);
 
 	return true;
 }
@@ -242,8 +266,8 @@ void Level::DrawMap(sf::RenderWindow& window)
 }
 int Level::findRoadID(int ID)const
 {
-	for(int i = 0; i < N; ++i)
-		if(ID == roadID[i])
+	for (int i = 0; i < N; ++i)
+		if (ID == roadID[i])
 			return ID;
 	return -1;
 }
@@ -262,8 +286,107 @@ int Level::findLierID(int ID)const
 	return -1;
 }
 
-bool Level:: setTower(sf::Vector2i Position, int type)
+bool Level::setTower(sf::Vector2i Position, int type)
 {
 	this->logicalGrid.setTextureTower(Position, type);
 	return true;
+}
+
+bool Level::countinuityRoad()
+{
+	if (this->roadList.roads.empty())
+	{
+		std::cout << " You have not any roads" << std::endl;
+		return true;
+	}
+	bool  er_entity;
+	er_entity = checkEntityErrors();
+	if (er_entity)
+	{
+		std::cout << "Tile of Catsle or Lier doesn't coincides with check Points" << std::endl;
+		return true;
+	}
+	//auto it_roads = obj.roads.begin();
+	int size_r = obj.roads.size();
+	int summary = 0;
+	for (auto road : obj.roads)
+	{
+		for (int k = 1; k <= roadList.roads.size(); k++)
+		{
+			std::string key = "solid" + std::to_string(k);
+			std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = roadList.roads.find(key);
+			std::list <sf::Vector2i> tmp = (*it_m).second;
+			std::list <sf::Vector2i>::iterator it = tmp.begin();
+			if (tmp.size() < 2)
+			{
+				std::cout << "You need at least 2 checkpoints " << std::endl;
+				return true;
+			}
+			auto it_next = ++it;
+			it = tmp.begin();
+			int old = summary;
+			for (it_next; it_next != tmp.end(); ++it_next)
+			{
+				if ((((int)road.getPosition().x <= it_next->x)&&
+					((int)road.getPosition().x >= it->x))||
+					(((int)road.getPosition().y <= it_next->y) &&
+					((int)road.getPosition().y >= it->y)))
+				{
+					summary++;
+					break;
+				}
+			}
+			if (old< summary)
+			{
+				break;
+			}
+		}
+	}
+	if (summary == size_r)
+		return false;
+	else
+	{
+		std::cout << "Road of object doesn't coincides with tile of road" << std::endl;
+		return true;
+	}
+}
+bool Level::checkEntityErrors()
+{
+	bool error = false;
+	int size = obj.castles.size();
+	int size_l = obj.liers.size();
+	int counter = 0;
+	for (int k = 1; k <= roadList.roads.size(); k++)
+	{
+		std::string key = "solid" + std::to_string(k);
+		std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = roadList.roads.find(key);
+		std::list <sf::Vector2i> tmp = (*it_m).second;
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size_l; j++)
+			{
+				bool flag;
+				flag = checkCorrectRoadEnd(&obj.liers[j], &obj.castles[i],&tmp);
+				if (flag)
+					counter++;
+			}
+		}
+	}
+	if (counter != roadList.roads.size())
+		error = true;
+	return error;
+}
+bool Level::checkCorrectRoadEnd(sf::Sprite *lier, sf::Sprite* castle, std::list <sf::Vector2i>* checkPoints)
+{
+	auto it = checkPoints->begin();
+	if (((*it).x == (int)lier->getPosition().x) && ((*it).y == (int)lier->getPosition().y))
+	{
+		for (int i = 0; i < checkPoints->size()-1; i++)
+		{
+			++it;
+		}
+		if (((*it).x == (int)castle->getPosition().x) && ((*it).y == (int)castle->getPosition().y))
+			return true;
+	}
+	return false;
 }
