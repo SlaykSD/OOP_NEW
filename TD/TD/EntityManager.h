@@ -44,10 +44,10 @@ struct TableCostTower
 	TableCostTower() :costKillEnemy(20) { ; }
 	const int getInfo(TowerType type, int)const;
 };
+
 class EntityManager
 {
 public:
-	void destroyEnemy(Enemy*);
 	EntityManager(Level&);
 	bool setParameters(Level lvl);
 	bool update(sf::Time frameTime);
@@ -55,6 +55,7 @@ public:
 	void addTower(Tower& tower);
 	int getGold()const;
 	int setGold(int);
+	void addGold(int);
 	bool checkGold(TowerType, int);
 	bool lvlUP(sf::Vector2i vec);
 	bool removeTower(sf::Vector2i vec);
@@ -64,13 +65,15 @@ public:
 	std::vector<Castle*> getCastles();
 	std::vector<Trap*> getTraps();
 	std::vector<Tower*> getTowers();
-	//
-	void setGState(GameState*);
+	void addTrap(Trap& trap);
+	bool removeTrap(sf::Vector2i vec);
+	void setGameState(GameState* gS);
+	void applyChanges();
 private:
 	void addSystems();
-	void applyChanges();
+	
 	void addStates();
-	int findTower(sf::Vector2i);
+	int findObject(sf::Vector2i vec, bool trap = false);
 	void addState(Entity* state);
 	GameState* gState;
 	TableCostTower costTable;

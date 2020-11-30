@@ -13,14 +13,12 @@ public:
     const Level& getLevel()const;
     void addSystem(System*, int);
     EntityManager* getEManager() { return &eManager; }
+    Level* getLevel() { return  &level; }
 private: 
-    void applyChanges(int );
-    int widget_buy(sf::RenderWindow*);
+    int widget_buy(sf::RenderWindow*, bool trap = false);
     int widget_up(sf::RenderWindow*);
     void setEManager(Level* lvl);
     sf::RenderWindow* window;
     Level level;
-    sf::Time time;
     EntityManager eManager;
-  //  Building buildings;
 };

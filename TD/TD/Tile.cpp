@@ -20,6 +20,9 @@ void Tile::setState(int i) {
 	case(4):
 		state = Type::tower;
 		break;
+	case(5):
+		state = Type::trap;
+		break;
 	}
 }
 int Tile:: getTileNumber()const

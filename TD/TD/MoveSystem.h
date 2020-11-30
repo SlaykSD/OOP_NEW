@@ -3,7 +3,7 @@
 #include "Tower.h"
 #include "Lier.h"
 #include "Castle.h"
-
+#include "Trap.h"
 
 
 //struct Target
@@ -34,7 +34,7 @@ private:
 	//functions
 	Targets detectTargets(Lier*, Tower*);
 	Enemy* choosePriorityTarget(Targets*);
-
+	void setModeTraps();
 	Targets firstPriority(Targets*);
 	Targets secondPriority(Targets*);
 	Targets thirdPriority(Targets*);
@@ -45,5 +45,6 @@ private:
 	std::vector<Tower*> towers;
 	std::vector<Lier*> liers;
 	std::vector<Castle*>castles;
+	std::vector<Trap*>traps;
 };
 

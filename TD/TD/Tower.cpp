@@ -85,12 +85,8 @@ void Tower::update(sf::Time frametime)
 			elapsedTime = sf::Time::Zero;
 			if (target->takeDamage(table.damage, table.type_ef))
 			{
-				/*if (type == SimpleTower)
-					target->setColor(sf::Color::White);*/
-				int curr = _manager->getGold();
-				curr += target->getGold();
-				_manager->setGold(curr);
-				target->selfdestruction();
+				_manager->addGold(target->getGold());
+				//target->selfdestruction();
 			}
 		}
 	}

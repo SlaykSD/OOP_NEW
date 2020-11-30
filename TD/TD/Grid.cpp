@@ -83,17 +83,29 @@ int Grid::findObjects(Objects* obj, sf::Sprite tile)
 	}
 	return 0;
 }
-int Grid::setTextureTower(sf::Vector2i Position, int type)
+int Grid::setStateObject(sf::Vector2i Position, int type)
 {
 	try {
 		int x = Position.x / tileWidth, y = Position.y / tileHeight;
-		if (type > 0)
+		if (type == 2)
 		{
+			//add trap
+			tileMap[y][x].setState(5);
+		}
+		if (type == 1)
+		{
+			//add tower
 			tileMap[y][x].setState(4);
 		}
-		else
+		if(type == -1)
 		{
+			//remove tower, do state - forest
 			tileMap[y][x].setState(0);
+		}
+		if (type == -2)
+		{
+			//remove trap, do state - road
+			tileMap[y][x].setState(1);
 		}
 		return 1;
 	}

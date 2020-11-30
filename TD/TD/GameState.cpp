@@ -2,10 +2,10 @@
 #include "GameState.h"
 #include "Tile.h"
 #include "Tower.h"
-
+#include "EffectType.h"
 GameState::GameState(sf::RenderWindow* window1) : window(window1), level("data/maps/NewMapPC.tmx"), eManager(level)
 {
-	//	eManager.setParameters(level);
+	eManager.setGameState(this);
 }
 bool GameState::handleEvent(const sf::Event& event)
 {
@@ -36,7 +36,7 @@ bool GameState::handleEvent(const sf::Event& event)
 
 					if (!eManager.checkGold(type, 1))
 					{
-						level.setTower(vec, choise);//Set state of tile
+						level.setObject(vec,1);//Set state of tile
 
 						Tower tower(level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x), type);
 						tower.setEManager(&eManager);
@@ -73,11 +73,45 @@ bool GameState::handleEvent(const sf::Event& event)
 					}
 					else
 					{
-						level.setTower(vec, -1);
+						level.setObject(vec, -1);
 						eManager.removeTower(vec);
 					}
 				}
 
+				if (choise == -1)
+					return false;
+			}
+
+			if (state == 1)
+			{
+				choise = widget_buy(window,true);
+				if (choise > 0)
+				{
+					EffectType type;
+					choise--;
+					if (choise == EffectType::none)
+						return false;
+					else
+						if (choise == EffectType::frost)
+							type = EffectType::frost;
+						else
+							if (choise == EffectType::m_weakness)
+								type = EffectType::m_weakness;
+							else
+								type = EffectType::poison;
+
+					if (!eManager.checkGold(TowerType::SimpleTower, 1))
+					{
+						level.setObject(vec, 2);//Set state of tile/// 2== traps/// <0 == delete
+
+						Trap trap(level.getGrid().getTile(vec.y / level.GetTileSize().y, vec.x / level.GetTileSize().x), type);
+						trap.setEManager(&eManager);
+						eManager.addTrap(trap);
+
+					}
+				}
+
+				std::cout << "right-click - succesfuly" << std::endl;
 				if (choise == -1)
 					return false;
 			}
@@ -90,15 +124,7 @@ bool GameState::handleEvent(const sf::Event& event)
 		}
 	}
 
-	applyChanges(choise);
 	return true;
-}
-void GameState::applyChanges(int choise)
-{
-	if (choise > 0)
-	{
-		;
-	}
 }
 
 bool GameState::update(sf::Time dt)
@@ -124,15 +150,26 @@ const Level& GameState::getLevel()const
 {
 	return level;
 }
-int GameState::widget_buy(sf::RenderWindow* window)
+int GameState::widget_buy(sf::RenderWindow* window, bool trap)
 {
 	int choise;
 	sf::Vector2i vec = sf::Mouse::getPosition(*window);
 	sf::Texture widget_buy;
-	if (!widget_buy.loadFromFile("data/widget/widget_buy_effect.jpg"))
+	if (trap)
 	{
-		std::cout << "Widget buy doesn't load" << std::endl;
-	//	exit(0);
+		if (!widget_buy.loadFromFile("data/widget/widget_buy_effect_trap.jpg"))
+		{
+			std::cout << "Widget buy doesn't load" << std::endl;
+			//	exit(0);
+		}
+	}
+	else
+	{
+		if (!widget_buy.loadFromFile("data/widget/widget_buy_effect.jpg"))
+		{
+			std::cout << "Widget buy doesn't load" << std::endl;
+			//	exit(0);
+		}
 	}
 	sf::Sprite menu1(widget_buy);
 	menu1.setTextureRect(sf::IntRect(0, 0, 64, 64));
@@ -163,8 +200,8 @@ int GameState::widget_buy(sf::RenderWindow* window)
 		tmp = sf::Mouse::getPosition(*window);
 		fluctuation_x = (int)(tmp.x - vec.x);
 		fluctuation_y = (int)(tmp.y - vec.y);
-		std::cout << "x: " << tmp.x << " y: " << tmp.y;
-		std::cout << "\nf1 x: " << fluctuation_x << " f1 y: " << fluctuation_y;
+		//std::cout << "x: " << tmp.x << " y: " << tmp.y;
+	//	std::cout << "\nf1 x: " << fluctuation_x << " f1 y: " << fluctuation_y;
 		if ((abs(fluctuation_x) <= 64 && fluctuation_x < 0) && (abs(fluctuation_y) <= 64 && fluctuation_y < 0))
 		{
 			menu1.setColor(sf::Color::Red); menuNumb = 1;
@@ -230,7 +267,7 @@ int GameState::widget_buy(sf::RenderWindow* window)
 			//Key pressed
 
 		}
-		system("cls");
+		//system("cls");
 		window->draw(menu1);
 		window->draw(menu2);
 		window->draw(menu3);

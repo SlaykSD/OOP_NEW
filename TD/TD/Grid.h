@@ -42,7 +42,7 @@ public:
 
 	bool setTiles(std::vector<Layer> tmp, int, int, Objects*);
 
-	int setTextureTower(sf::Vector2i Position, int);
+	int setStateObject(sf::Vector2i Position, int);
 
 	void setTexture(sf::Texture);
 

@@ -6,7 +6,7 @@
 #include <string>
 #include "DamageSystem.h"
 #include "MoveSystem.h"
-
+#include "GameState.h"
 
 const int TableCostTower::getInfo(TowerType type, int level)const
 {
@@ -58,7 +58,10 @@ const int TableCostTower::getInfo(TowerType type, int level)const
 	}
 }
 
-
+void EntityManager::setGameState(GameState* gS)
+{
+	this->gState = gS;
+}
 EntityManager::EntityManager(Level& lvl) :score(), costTable()
 {
 	std::vector<std::vector<Tile>> tileMap = lvl.getGrid().getTiles();
@@ -96,7 +99,13 @@ EntityManager::EntityManager(Level& lvl) :score(), costTable()
 	}
 	addStates();
 }
+void EntityManager::addGold(int gold)
+{
 
+	int curr = getGold();
+	curr += gold;
+	setGold(curr);
+}
 void EntityManager::addStates()
 {
 	//Liers
@@ -112,14 +121,7 @@ void EntityManager::addStates()
 		addState(&castles[i]);
 	}
 }
-void EntityManager::destroyEnemy(Enemy* en)
-{
-	//int size = liers.size();
-	//for (int i = 0; i < length; i++)
-	//{
 
-	//}
-}
 std::vector<Lier*> EntityManager::getLiers()
 {
 	std::vector<Lier*> tmp;
@@ -163,14 +165,6 @@ std::vector<Tower*> EntityManager::getTowers()
 
 void  EntityManager::addSystem(System* sys, int id_s)
 {
-	//switch (id_s)
-	//{
-	//case(1):
-	//	sys.
-	//	break;
-	//default:
-	//	break;
-	//}
 	sys->setManager(this);
 	systems.push_back(sys);
 }
@@ -214,11 +208,6 @@ bool EntityManager::setParameters(Level lvl)
 					}
 				}
 			}
-			//if (tileMap[i][j].getState() == 4)
-			//{
-			//	Tower tower(&tileMap[i][j]);
-			//	this->towers.push_back(tower);
-			//}
 		}
 	}
 	return true;
@@ -262,7 +251,12 @@ void EntityManager::draw(sf::RenderWindow* window)
 	{
 		(*it2).draw(window);
 	}
-	//this->towers.
+
+	auto it3 = traps.begin();
+	for (it3; it3 != traps.end(); ++it3)
+	{
+		(*it3).draw(window);
+	}
 }
 
 int EntityManager::getGold()const
@@ -272,13 +266,6 @@ int EntityManager::getGold()const
 void EntityManager::addTower(Tower& tower)
 {
 	int curr = this->getGold();
-	if (towers.size() + 1 == 2)
-	{
-		int i = 123;
-		i += 12;
-		i -= 123;
-		addSystems();
-	}
 	curr -= costTable.getInfo(tower.getTowerType(), 1);
 	if (score.setGold(curr))
 	{
@@ -295,12 +282,34 @@ void EntityManager::addTower(Tower& tower)
 		std::cout << " YOU HAVE NOT MONEY" << std::endl;
 	}
 }
+void EntityManager::addTrap(Trap& trap)
+{
+	int curr = getGold();
+	curr -= costTable.getInfo(TowerType::SimpleTower, 1);//cost trap equal cost simple tower 1 level
+	if (score.setGold(curr))
+	{
+		this->traps.push_back(trap);
+	}
+	else
+	{
+		std::cout << " YOU HAVE NOT MONEY" << std::endl;
+	}
+}
+bool EntityManager::removeTrap(sf::Vector2i vec)
+{
+	int number = findObject(vec,true);
+	gState->getLevel()->setObject(vec, -2);
+	EraseFromUnorderedByIndex(traps, number);
+	applyChanges();
+	return true;
+}
 void EntityManager::applyChanges()
 {
-	int size = _entities.size();
 	int size_castles = castles.size();
 	int size_liers = liers.size();
 	int size_towers = towers.size();
+	int size_traps = traps.size();
+
 	_entities.clear();
 	for (int i = 0; i < size_towers; i++)
 	{
@@ -313,6 +322,13 @@ void EntityManager::applyChanges()
 	for (int i = 0; i < size_liers; i++)
 	{
 		_entities.push_back(&liers[i]);
+	}
+	for (int i = 0; i < size_traps; i++)
+	{
+		if (traps[i].getMode())
+		{
+			_entities.push_back(&traps[i]);
+		}
 	}
 }
 
@@ -332,7 +348,7 @@ bool EntityManager::checkGold(TowerType type, int level)
 }
 bool EntityManager::lvlUP(sf::Vector2i vec)
 {
-	int number = findTower(vec);
+	int number = findObject(vec);
 	if (number == -1)
 	{
 		std::cout << "not find this tower" << std::endl;
@@ -351,23 +367,36 @@ bool EntityManager::lvlUP(sf::Vector2i vec)
 
 }
 
-int EntityManager::findTower(sf::Vector2i vec)
+int EntityManager::findObject(sf::Vector2i vec, bool trap)
 {
-	int size = towers.size();
 	const int hight = 64, wight = 64;
-
-	for (int i = 0; i < size; i++)
+	if (trap)
 	{
-		std::cout << vec.x / hight << "  " << vec.y / wight << "|" << (int)towers[i].getTile()->getSprite().getPosition().x / hight << " " << (int)towers[i].getTile()->getSprite().getPosition().y / wight;
-		if (((vec.x / hight) == (int)towers[i].getTile()->getSprite().getPosition().x / hight) && ((vec.y / wight) == (int)towers[i].getTile()->getSprite().getPosition().y / wight))
-			return i;
+		int size = traps.size();
+		for (int i = 0; i < size; i++)
+		{
+			std::cout << vec.x / hight << "  " << vec.y / wight << "|" << (int)traps[i].getTile()->getSprite().getPosition().x / hight << " " << (int)traps[i].getTile()->getSprite().getPosition().y / wight;
+			if (((vec.x / hight) == (int)traps[i].getTile()->getSprite().getPosition().x / hight) && ((vec.y / wight) == (int)traps[i].getTile()->getSprite().getPosition().y / wight))
+				return i;
+		}
+	}
+	else
+	{
+		int size = towers.size();
+
+		for (int i = 0; i < size; i++)
+		{
+			std::cout << vec.x / hight << "  " << vec.y / wight << "|" << (int)towers[i].getTile()->getSprite().getPosition().x / hight << " " << (int)towers[i].getTile()->getSprite().getPosition().y / wight;
+			if (((vec.x / hight) == (int)towers[i].getTile()->getSprite().getPosition().x / hight) && ((vec.y / wight) == (int)towers[i].getTile()->getSprite().getPosition().y / wight))
+				return i;
+		}
 	}
 	return -1;
 }
 
 bool EntityManager::removeTower(sf::Vector2i vec)
 {
-	int number = findTower(vec);
+	int number = findObject(vec);
 	if (number == -1)
 	{
 		std::cout << "not find this tower" << std::endl;

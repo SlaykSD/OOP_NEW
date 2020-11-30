@@ -4,7 +4,7 @@
 #include "HeavyRanger.h"
 #include <iostream>
 
-EnemyWave::EnemyWave(std::list <sf::Vector2i> list, int type) :cooldown(sf::seconds(3.f)),curr(0)
+EnemyWave::EnemyWave(std::list <sf::Vector2i> list, int type) :cooldown(sf::seconds(3.f)), curr(0)
 {
 	if (type == 1)
 	{
@@ -31,10 +31,6 @@ void EnemyWave::update(sf::Time dt)
 		elapsedTime = sf::Time::Zero;
 		if (size > curr)
 		{
-			if (curr == 2)
-			{
-				std::cout << "2-oq poshol"<<std::endl;
-			}
 			bool g = true;
 			wave[curr]->setVisible(g);
 			curr++;
@@ -42,7 +38,10 @@ void EnemyWave::update(sf::Time dt)
 	}
 	for (int i = 0; i < size; i++)
 	{
-		wave[i]->update(dt);
+		if (wave[i]->getHP() == 0)
+			removeEnemy(wave[i]);
+		else
+			wave[i]->update(dt);
 		size = wave.size();
 	}
 }

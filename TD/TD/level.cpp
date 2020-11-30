@@ -286,9 +286,9 @@ int Level::findLierID(int ID)const
 	return -1;
 }
 
-bool Level::setTower(sf::Vector2i Position, int type)
+bool Level::setObject(sf::Vector2i Position, int type)
 {
-	this->logicalGrid.setTextureTower(Position, type);
+	this->logicalGrid.setStateObject(Position, type);
 	return true;
 }
 

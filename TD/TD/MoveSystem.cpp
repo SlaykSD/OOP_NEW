@@ -14,6 +14,7 @@ Targets::Targets(std::vector<Enemy*> enemies, std::vector<float>distance, std::v
 void MoveSystem::update(sf::Time)
 {
 	towers = this->_manager->getTowers();
+	traps = this->_manager->getTraps();
 	int size_t = towers.size();
 	Enemy* goalTarget;
 	for (int i = 0; i < size_t; i++)
@@ -39,17 +40,17 @@ void MoveSystem::update(sf::Time)
 		{
 			if (towers[i]->getTarget() == nullptr)
 			{
-
 				towers[i]->setTarget(goalTarget);
 			}
 			else
 			{
-
-				//towers[i]->removeColor();
 				towers[i]->setTarget(goalTarget);
 			}
 		}
 	}
+
+	//handle Towers
+	setModeTraps();
 }
 Targets MoveSystem::detectTargets(Lier* lier, Tower* tower)
 {
@@ -69,6 +70,7 @@ Targets MoveSystem::detectTargets(Lier* lier, Tower* tower)
 			{
 				if (enemies[j]->getVisible())
 				{
+					//handle towers
 					Enemy* tmp = enemies[j];
 					tmp->setEnemyWave(waves[i]);
 					sf::Vector2f Origin(WIDTH/2, HEIGHT/2);
@@ -90,6 +92,45 @@ Targets MoveSystem::detectTargets(Lier* lier, Tower* tower)
 	}
 	Targets _targets(targets, distance, distanceToCastle);
 	return _targets;
+}
+void MoveSystem::setModeTraps()
+{
+
+	int size_t = traps.size();
+	bool change = false;
+	for (int i = 0; i < size_t; i++)
+	{
+		std::vector<Enemy* >targets;
+		for (auto lier : liers)
+		{
+			for (auto wave : lier->getWaves())
+			{
+				for (auto enemy : wave->getEnemies())
+				{
+					if (enemy->getVisible())
+					{
+						sf::Vector2f pos = traps[i]->getTile()->getSprite().getPosition();
+						sf::Vector2f pos_e = enemy->getPosition();
+						pos_e.x += 32;
+						pos_e.y += 32;
+						pos = pos - pos_e;
+						if (getDistance(pos) <= traps[i]->getRange())
+						{
+							if (!traps[i]->getMode())
+							{
+								traps[i]->setMode(true);
+								change = true;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	if (change)
+	{
+		_manager->applyChanges();
+	}
 }
 Enemy* MoveSystem::choosePriorityTarget(Targets* targets)
 {

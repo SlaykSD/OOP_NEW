@@ -12,7 +12,8 @@ enum Type
     road,
     castle,
     lier,
-    tower
+    tower,
+    trap
 };
 
 #endif //_TYPE_H
