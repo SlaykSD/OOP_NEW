@@ -10,7 +10,7 @@
 #include <list>
 #include <map>
 class GameState;
-struct RoadOjects 
+struct RoadObjects 
 {
 	std::map<std::string,std::list <sf::Vector2i>> roads;
 };
@@ -21,7 +21,6 @@ public:
 	Level();
 	Level(std::string filename);
 	bool LoadFromFile(std::string filename);//возвращает false если не получилось загрузить
-	void DrawMap(sf::RenderWindow& window);//рисуем в окно
 	void DrawGrid(sf::RenderWindow& window);//риусем объекты
 	sf::Vector2i GetTileSize();//получаем размер тайла
 	bool setObject(sf::Vector2i Position, int );
@@ -39,9 +38,8 @@ private:
 	int width, height, tileWidth, tileHeight;//в tmx файле width height в начале,затем размер тайла
 	int firstTileID;//получаем айди первого тайла
 	sf::Rect<float> drawingBounds;//размер части карты которую рисуем
-	RoadOjects roadList;
+	RoadObjects roadList;
 	sf::Texture tilesetImage;//текстура карты
-	//std::vector<Layer> layers;//Тайлы (карта сама)
 	Grid logicalGrid;
 	Objects obj;
 };

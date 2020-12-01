@@ -13,7 +13,6 @@ struct TableStateTower
 	TableStateTower() : range(100), damage(50), attackSpeed(1.5) { ; }
 	bool up();
 	void setEffect(TowerType type_t);
-	//Не хватает эфекта
 };
 
 class Tower : public Bulding
@@ -30,10 +29,6 @@ public:
 	void setTarget(Enemy* tmp) 
 	{
 		target = tmp;
-	/*	if (target != nullptr)
-		{
-			target->setColor(sf::Color::Red);
-		}*/
 	}
 	void removeColor() { target->setColor(sf::Color::White); }
 	Enemy* getTarget()const { return target; }

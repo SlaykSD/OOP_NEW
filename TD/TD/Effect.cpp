@@ -40,18 +40,10 @@ Effect::Effect(EffectType typ, float* hp, float* speed, float* incDamage) : quan
 	switch (t)
 	{
 	case(1):
-		//target->setColor(sf::Color::Blue);
 		real_speed = *speed;
 		(*speed) = ((real_speed) * (1 - ((float)quantity / 100)));
 		break;
-	case(2):
-		//target->setColor(sf::Color::Green);
-		//*hp -= quantity / 100;
-		//target->setHP(real_hp);
-		break;
-
 	case(3):
-		//target->setColor(sf::Color::Yellow);
 		*incDamage = ((float)quantity / 100);
 		break;
 	default:

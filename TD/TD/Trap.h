@@ -22,6 +22,6 @@ private:
 	bool explosion;
 	const sf::Time timeDetonation = sf::seconds(1.f /2);
 	float damage;
-	double range;
+	float range;
 };
 

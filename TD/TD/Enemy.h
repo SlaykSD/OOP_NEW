@@ -15,17 +15,27 @@ class Enemy : public Entity
 public:
 	Enemy();
 	Enemy(std::list <sf::Vector2i>, EnemyType);
-
 	void setEnemyWave(EnemyWave* wave);
 
-	void update(sf::Time);
+	//Work with effects
+
 	int controlEffects(sf::Time);
+	bool addEffect(EffectType);
+	int findEffect(EffectType);
 	void updateEf(sf::Time);
 	void removeEffects();
-	//virtual  void draw(sf::RenderWindow *) = 0;
+
+	void setSpeed(float ef_speed) { speed = ef_speed; }
+	float getSpeed() { return speed; }
+	void setIncreaseDamage(float tmp) { increaseDamage = tmp; }
+
+	//work with moving	
+	void update(sf::Time);
 	void setVisible(bool vis) { visible = vis; }
 	bool getVisible()const { return visible; }
 	const sf::Vector2f getPosition()const { return sprite.getPosition(); }
+	
+	//Interaction with tower
 	EnemyType getName()const { return name; }
 	float  gethp()const { return hp; }
 	const std::list <sf::Vector2i>* getPointsList()const { return &checkPoints; }
@@ -34,16 +44,14 @@ public:
 	}
 	void setOrigin();
 	void reSetOrigin();
+
+	//main functions (work with hp)
 	void selfdestruction();
 	bool takeDamage(float damage, EffectType type);
 	int getGold()const { return money; }
-	bool addEffect(EffectType);
-	int findEffect(EffectType);
 	void setHP(float ef_hp) { hp = ef_hp; }
 	float getHP() { return hp; }
-	void setSpeed(float ef_speed) { speed = ef_speed; }
-	float getSpeed() { return speed; }
-	void setIncreaseDamage(float tmp) { increaseDamage = tmp; }
+	
 protected:
 
 	int points;

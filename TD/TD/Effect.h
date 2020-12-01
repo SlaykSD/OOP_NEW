@@ -11,8 +11,6 @@ public:
 	Effect(const Effect& c);
 	const Effect& operator=(const Effect& c);
 	void update(sf::Time, float*);
-	//void setEnemy(Enemy* );
-	//Enemy* getEnemy() { return target; }
 	void returnState(float*, float*);
 	EffectType getType()const { return type; }
 	void setTime(sf::Time newTime) { time = newTime; }
@@ -22,7 +20,6 @@ private:
 	int quantity;
 	sf::Time time;
 	const sf::Time TIME_MAX = sf::seconds(2.f);
-	//Enemy* target;
 	float real_speed;
 	sf::Time coldown;
 };

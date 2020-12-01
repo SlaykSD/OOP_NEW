@@ -46,47 +46,7 @@ const sf::Sprite Tile::getSprite()const
 {
 	return sprite;
 }
-int Tile::getDraw(sf::RenderWindow* window)const
-{
-	window->draw(sprite);
-	return 10;
-}
 
-bool Tile::setMagicTower(int type)
-{
-	if (type == 2)//frost
-	{
-		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("magic_tower_f.png");//загружаем в него файл
-		widget.createMaskFromColor(sf::Color(255, 255, 255));
-		sf:: Texture textur;
-		textur.loadFromImage(widget);
-		sprite.setTexture(textur);
-		sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-		return true;
-	}
-	if (type == 3)//frost
-	{
-		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("magic_tower_p.png");//загружаем в него файл
-		widget.createMaskFromColor(sf::Color(255, 255, 255));
-		sf::Texture textur;
-		textur.loadFromImage(widget);
-		sprite.setTexture(textur);
-		sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-	}
-	if (type == 4)//frost
-	{
-		sf::Image widget; //создаем объект Image (изображение)
-		widget.loadFromFile("magic_tower_m.png");//загружаем в него файл
-		widget.createMaskFromColor(sf::Color(255, 255, 255));
-		sf::Texture textur;
-		textur.loadFromImage(widget);
-		sprite.setTexture(textur);
-		sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-	}
-
-}
 void Tile::setOrigin(float w, float h)
 {
 	sprite.setOrigin(w, h);
@@ -106,12 +66,3 @@ void Tile::setPositionToCenter()
 	pos = pos + center;
 	sprite.setPosition(pos);
 }
-//Tile& Tile::operator= (const Tile& t)
-//{
-//
-//}
-
-//const Tile& Tile::operator=(const Tile&)
-//{
-//	;
-//}

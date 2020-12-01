@@ -257,13 +257,6 @@ void Level::DrawGrid(sf::RenderWindow& window)//риусем объекты
 {
 	logicalGrid.draw(window);
 }
-void Level::DrawMap(sf::RenderWindow& window)
-{
-	// рисуем все тайлы (объекты не рисуем!)
-	//for (int layer = 0; layer < layers.size(); layer++)
-	//	for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
-	//		window.draw(layers[layer].tiles[tile]);
-}
 int Level::findRoadID(int ID)const
 {
 	for (int i = 0; i < N; ++i)

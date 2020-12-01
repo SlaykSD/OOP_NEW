@@ -7,14 +7,8 @@ class Tile;
 Grid::Grid() :_height(10), _width(10), tileHeight(64), tileWidth(64)
 {
 }
-Grid::Grid(const Grid& grid) : Grid()
-{
-	std::vector<std::vector<Tile>> copy = grid.getTiles();
-	this->setTiles(copy);
-}
 bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 {
-	//�������� ��� ����� �������
 	_width = width;
 	_height = height;
 	try {
@@ -25,14 +19,10 @@ bool Grid::setTiles(std::vector<Layer> tmp, int width, int height, Objects* obj)
 			for (int j = 0; j < width; j++)
 			{
 				sf::Sprite newTile(tmp[0].tiles[n]);
-				/*newTile.setPosition(tmp[0].tiles[n].getPosition());
-				newTile.setColor(tmp[0].tiles[n].getColor());*/
-
 				Tile tile;
 				tile.setTileNumber(n);
 				tile.setState(findObjects(obj, tmp[0].tiles[n]));
 				tile.setSprite(newTile);
-				//tile.setTexture(texture, subRects[n]);
 				newTileList.push_back(tile);
 				++n;
 			}
@@ -115,39 +105,7 @@ int Grid::setStateObject(sf::Vector2i Position, int type)
 		return 0;
 	}
 }
-bool Grid::setSpriteMagic(int type, int x, int y)
-{
-	sf::Image widget; //������� ������ Image (�����������)
-	sf::Sprite sprite;
-	sf::Texture textur;
-	if (type == 2)//frost
-	{
-		widget.loadFromFile("magic_tower_f.png");//��������� � ���� ����
-		widget.createMaskFromColor(sf::Color(255, 255, 255));
-		textur.loadFromImage(widget);
-		sprite.setTexture(textur);
-		sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-		return true;
-	}
-	if (type == 3)//frost
-	{
-		widget.loadFromFile("magic_tower_p.png");//��������� � ���� ����
-		widget.createMaskFromColor(sf::Color(255, 255, 255));
-		textur.loadFromImage(widget);
-		sprite.setTexture(textur);
-		sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-	}
-	if (type == 4)//frost
-	{
-		widget.loadFromFile("magic_tower_m.png");//��������� � ���� ����
-		widget.createMaskFromColor(sf::Color(255, 255, 255));
-		textur.loadFromImage(widget);
-		sprite.setTexture(textur);
-		sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-	}
-	tileMap[y][x].setTexture(textur, sprite.getTextureRect());
-	return true;
-}
+
 void Grid::setTexture(sf::Texture t)
 {
 	texture = t;

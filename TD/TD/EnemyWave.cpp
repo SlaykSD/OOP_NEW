@@ -4,7 +4,7 @@
 #include "HeavyRanger.h"
 #include <iostream>
 
-EnemyWave::EnemyWave(std::list <sf::Vector2i> list, int type) :cooldown(sf::seconds(3.f)), curr(0)
+EnemyWave::EnemyWave(std::list <sf::Vector2i> list, int type) : curr(0)
 {
 	if (type == 1)
 	{

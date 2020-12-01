@@ -58,11 +58,10 @@ public:
 	void addGold(int);
 	bool checkGold(TowerType, int);
 	bool lvlUP(sf::Vector2i vec);
-	bool removeTower(sf::Vector2i vec);
-	//void addTrap(Tower tower);
 	void addSystem(System*, int);
 	std::vector<Lier*> getLiers();
 	std::vector<Castle*> getCastles();
+	bool removeTower(sf::Vector2i vec);
 	std::vector<Trap*> getTraps();
 	std::vector<Tower*> getTowers();
 	void addTrap(Trap& trap);

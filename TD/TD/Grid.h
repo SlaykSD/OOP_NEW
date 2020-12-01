@@ -25,8 +25,6 @@ public:
 
 	Grid();
 
-	Grid(const Grid&);
-
 	const Tile* getTile(int i, int  j)const;
 
 	void draw(sf::RenderWindow& window);
@@ -49,7 +47,6 @@ public:
 	void setRectGrid(std::vector<sf::Rect<int>> rectG);
 
 private:
-	bool setSpriteMagic(int type, int, int);
 	int _width;
 	int _height;
 	int tileWidth, tileHeight;
