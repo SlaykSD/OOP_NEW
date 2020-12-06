@@ -142,8 +142,8 @@ void Tower::setTexture(int type)
 		sf::Texture textur;
 		textur.loadFromImage(widget);
 		sf::Image widget2; //создаем объект Image (изображение)
-		widget2.loadFromFile("data/magic_tower_p_2.jpg");//загружаем в него файл
-		widget2.createMaskFromColor(sf::Color(255, 255, 255));
+		widget2.loadFromFile("data/magic_tower_p_2.png");//загружаем в него файл
+		//widget2.createMaskFromColor(sf::Color(255, 255, 255));
 		sf::Texture textur2;
 		textur2.loadFromImage(widget2);
 

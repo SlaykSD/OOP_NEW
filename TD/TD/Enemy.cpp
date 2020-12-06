@@ -15,7 +15,7 @@ void Enemy::update(sf::Time dt)
 {
 	if (visible)
 	{
-		std::list <sf::Vector2i>::iterator it = checkPoints.begin();
+		auto it = checkPoints.begin();
 		if (points == 0)
 		{
 			checkPoints.erase(it);

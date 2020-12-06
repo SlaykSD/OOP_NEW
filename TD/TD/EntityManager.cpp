@@ -84,7 +84,7 @@ EntityManager::EntityManager(Level& lvl) :score(), costTable()
 				{
 					std::string key = "solid" + std::to_string(k);
 					std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = lierRoads->find(key);
-					std::list <sf::Vector2i> tmp = (*it_m).second;
+					std::list <sf::Vector2i> tmp = (*it_m).second; 
 					std::list <sf::Vector2i>::iterator it = tmp.begin();
 					if ((((*it).x) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y) == (int)tileMap[i][j].getSprite().getPosition().y))
 					{

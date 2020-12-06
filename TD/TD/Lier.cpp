@@ -4,6 +4,7 @@
 Lier::Lier(const Tile* tile, std::list <sf::Vector2i> list) :Bulding(tile), numberWaves(3), beginTime(sf::Time::Zero), checkPoints(list), numberWave(0), cooldownWave(sf::seconds(1.f))
 {
 	generateWave();
+	/*checkPoints.po*/
 }
 void Lier::removeEn(Enemy* enemy)
 {
