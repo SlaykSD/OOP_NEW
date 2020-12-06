@@ -1,11 +1,20 @@
 #pragma once
 #include "Entity.h"
+
+/*!
+\brief Illustrates the player's game score and balance
+\warning kills doesn't add score
+\todo add points  from kills enemy
+*/
 class Score:public Entity
 {
 public:
 	Score();
 	virtual void update(sf::Time);
 	int  getGold()const;
+
+	/*!
+	\brief Draws the game account and balance*/
 	void draw(sf::RenderWindow* window);
 	bool setGold(int);
 private:

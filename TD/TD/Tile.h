@@ -3,10 +3,21 @@
 #include <SFML/Graphics.hpp>
 #include "Type.h"
 
+/*!
+\brief It is a class that describes a landscape element.
+
+It is necessary to implement the logic of building towers and traps, and also contains the texture of the map square.
+*/
 class Tile {
 public: 
-    
+
+    /*!
+    \Method of the class that sets the state of the cell
+
+    All cell States are described in the Type.h file
+    */
 void setState(int );
+
 void setSprite(const sf::Sprite& tmp) { sprite = tmp;}
 void setTileNumber(int);
 void setColor(sf::Color col) { sprite.setColor(col); }

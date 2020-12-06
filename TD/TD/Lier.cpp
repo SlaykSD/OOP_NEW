@@ -6,14 +6,6 @@ Lier::Lier(const Tile* tile, std::list <sf::Vector2i> list) :Bulding(tile), numb
 	generateWave();
 	/*checkPoints.po*/
 }
-void Lier::removeEn(Enemy* enemy)
-{
-	int size = waves.size();
-	for (int i = 0; i < size; i++)
-	{
-		waves[i].removeEnemy(enemy);
-	}
-}
 
 void Lier::generateWave()
 {
@@ -65,3 +57,12 @@ std::vector<EnemyWave*> Lier::getWaves()
 	return tmp;
 
 }
+
+//void Lier::removeEn(Enemy* enemy)
+//{
+//	int size = waves.size();
+//	for (int i = 0; i < size; i++)
+//	{
+//		waves[i].removeEnemy(enemy);
+//	}
+//}

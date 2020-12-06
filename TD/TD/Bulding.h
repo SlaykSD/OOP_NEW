@@ -4,6 +4,8 @@
 
 class Tile;
 
+/*!
+\brief It is a descriptor of a logical structure that occupies a single tile*/
 class Bulding:public Entity
 {
 public:

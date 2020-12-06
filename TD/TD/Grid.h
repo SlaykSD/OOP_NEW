@@ -7,19 +7,26 @@
 #include "Tile.h"
 #include <SFML/Graphics.hpp>
 
-
+ /*!
+ \brief Structure required for temporary storage of changing all objects on the map */
 struct Objects {
 	std::vector<sf::Sprite> roads;
 	std::vector<sf::Sprite> castles;
 	std::vector<sf::Sprite> liers;
 };
 
+/*!
+\brief Structure required for the temporary storage of all tiles of a layer
+*/
 struct Layer//слои
 {
 	int opacity;//непрозрачность слоя
 	std::vector<sf::Sprite> tiles;//закидываем в вектор тайлы
 };
 
+/*!
+\brief A class that describes interaction with map tiles
+*/
 class Grid {
 public:
 
@@ -40,6 +47,15 @@ public:
 
 	bool setTiles(std::vector<Layer> tmp, int, int, Objects*);
 
+	/*!
+\brief Method of the class required to change the tile state.
+
+All States are described in the Type.h file
+\param position - the vector describing the coordinates of the tile
+\param type - type of change 2 -> add Trap, 1-> add tower , -1 - remove Tower, -2 ->remove trap
+\return int 1 if succes and 0 if fail
+\warning Tiles must be 64 by 64 pixels
+*/
 	int setStateObject(sf::Vector2i Position, int);
 
 	void setTexture(sf::Texture);

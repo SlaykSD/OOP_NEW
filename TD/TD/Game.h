@@ -8,12 +8,28 @@
 #include "MoveSystem.h"
 //#include "GameState.h"
 
+
 using namespace sf;
+
+/*!
+\brief Game namespace
+*/
 namespace Game_def {
 
+    /*!
+\brief A class that implements the application program*/
     class Game : sf::NonCopyable {
     public:
+
+        /*!
+        \brief An empty constructor that loads all systems and the map itself.
+
+        Actually it construct the entire game
+        */
         Game();
+
+        /*!
+\brief Starts the application program*/
         void run();
 
 

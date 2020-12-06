@@ -24,6 +24,10 @@ enum TowerType
 	MagicTowerP,
 	MagicTowerM
 };
+
+/*!
+\brief Structure consisting of constant values for the cost of towers
+*/
 struct TableCostTower
 {
 	const enum SimpleTowerCost
@@ -45,11 +49,20 @@ struct TableCostTower
 	const int getInfo(TowerType type, int)const;
 };
 
+/*!
+\brief The main game class that provides control over all entities*/
 class EntityManager
 {
 public:
 	EntityManager(Level&);
 	bool setParameters(Level lvl);
+
+	/*!
+	\brief A main method of the class that handles the time tick
+	\param
+	\return bool error  -Ideally it should fix errors. But so far the breakdowns are not fixed
+	\todo Think about "return"
+	*/
 	bool update(sf::Time frameTime);
 	void draw(sf::RenderWindow* window);
 	void addTower(Tower& tower);
@@ -67,6 +80,12 @@ public:
 	void addTrap(Trap& trap);
 	bool removeTrap(sf::Vector2i vec);
 	void setGameState(GameState* gS);
+
+	/*!
+\brief Class method required for changing a dynamic array of entities
+
+The bottom line: Loads all of the active elements in the array
+*/
 	void applyChanges();
 private:
 	void addSystems();

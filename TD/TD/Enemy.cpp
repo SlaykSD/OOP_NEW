@@ -153,42 +153,47 @@ int Enemy::controlEffects(sf::Time dt)
 	removeEffects();
 	if (hp <= 0)
 		this->selfdestruction();
+	return 1;
 }
 void Enemy::updateEf(sf::Time dt)
 {
-	int size = effects.size();
-	for (int i = 0; i < size; i++)
+	auto it = effects.begin();
+	for (it; it!=effects.end(); ++it)
 	{
-		//effects[i].setEnemy(this);
-		effects[i].update(dt, &hp);
+		(*it).update(dt, &hp);
 	}
 }
 
 void Enemy::removeEffects()
 {
-	int size = effects.size();
-	for (int i = 0; i < size; i++)
+	auto it = effects.begin();
+	//best_list::List<Effect>::IterList del = nullptr;
+	bool del = false;
+	for (it; it != effects.end();del = false)
 	{
-		if (effects[i].checkTime())
+		if ((*it).checkTime())
 		{
-			//effects[i].setEnemy(this);
-			effects[i].returnState(&speed,&increaseDamage);
-			EraseFromUnorderedByIndex(effects, i);
+			(*it).returnState(&speed, &increaseDamage);
+			auto tmp = it;
+			++it;
+			effects.erase(tmp);
+			del = true;
 			if (effects.empty())
 				sprite.setColor(sf::Color::White);
-			size = effects.size();
 		}
+		if (!del)
+			++it;
 	}
 }
 int Enemy::findEffect(EffectType type)
 {
-	int size = effects.size();
-	for (int i = 0; i < size; i++)
+	auto it = effects.begin();
+	for (it; it != effects.end(); ++it)
 	{
-		if (effects[i].getType() == type)
+		if ((*it).getType() == type)
 		{
-			effects[i].setTime(sf::Time::Zero);
-			return i;
+			(*it).setTime(sf::Time::Zero);
+			return 1;
 		}
 	}
 	return -1;

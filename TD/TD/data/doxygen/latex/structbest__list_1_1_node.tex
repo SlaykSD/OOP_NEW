@@ -1,0 +1,71 @@
+\doxysection{best\+\_\+list\+::Node$<$ T $>$ Struct Template Reference}
+\label{structbest__list_1_1_node}\index{best\_list::Node$<$ T $>$@{best\_list::Node$<$ T $>$}}
+
+
+Actually an element of the container class.  
+
+
+
+
+{\ttfamily \#include $<$List.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Node} ()
+\begin{DoxyCompactList}\small\item\em Just the pointer to previous node. \end{DoxyCompactList}\item 
+\mbox{\label{structbest__list_1_1_node_a7ffcedbc1a3d6fbddd3564e8d141e945}} 
+{\bfseries Node} (T val)
+\item 
+\textbf{ $\sim$\+Node} ()=default
+\begin{DoxyCompactList}\small\item\em Defualt destructor. Why? See in detail -\/$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structbest__list_1_1_node_ab1e08e144cdbec0b54969e4fcdd55b0c}} 
+T {\bfseries val\+\_\+}
+\item 
+\mbox{\label{structbest__list_1_1_node_a621c133cf976edaebaea267be8457a5f}} 
+\textbf{ Node} $\ast$ \textbf{ next}
+\begin{DoxyCompactList}\small\item\em data \end{DoxyCompactList}\item 
+\mbox{\label{structbest__list_1_1_node_aabe74da1ad84ba01121923d2d9341422}} 
+\textbf{ Node} $\ast$ \textbf{ prev}
+\begin{DoxyCompactList}\small\item\em Just the pointer to next node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+struct best\+\_\+list\+::\+Node$<$ T $>$}
+
+Actually an element of the container class. 
+
+\doxyref{A}{p.}{class_a} regular node template that is used to create a doubly linked list . 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{structbest__list_1_1_node_ac85b02c269bf9768ab288252253f8cb7}} 
+\index{best\_list::Node$<$ T $>$@{best\_list::Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!best\_list::Node$<$ T $>$@{best\_list::Node$<$ T $>$}}
+\doxysubsubsection{Node()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ best\+\_\+list\+::\+Node}$<$ T $>$\+::\textbf{ Node} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Just the pointer to previous node. 
+
+Default constructor for \doxyref{Node}{p.}{structbest__list_1_1_node} \mbox{\label{structbest__list_1_1_node_a6d811f234d9ebc1986832d78ac41b8db}} 
+\index{best\_list::Node$<$ T $>$@{best\_list::Node$<$ T $>$}!````~Node@{$\sim$Node}}
+\index{````~Node@{$\sim$Node}!best\_list::Node$<$ T $>$@{best\_list::Node$<$ T $>$}}
+\doxysubsubsection{$\sim$Node()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ best\+\_\+list\+::\+Node}$<$ T $>$\+::$\sim$\textbf{ Node} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Defualt destructor. Why? See in detail -\/$>$ 
+
+We store a static memory element and pointers that are cleared when the container class itself is cleared. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+List.\+h\end{DoxyCompactItemize}

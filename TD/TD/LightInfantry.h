@@ -1,6 +1,10 @@
 #pragma once
 #include "Enemy.h"
-
+/*!
+\brief Represents a subtype of the enemy class - an ordinary man in uniform
+\bug default perameters
+\todo fix defualt parameters and fix balance of game
+*/
 class LightInfantry:public Enemy
 {
 public:

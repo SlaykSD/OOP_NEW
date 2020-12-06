@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <iterator>
 
+
+/*!
+\brief Hoare sorting to quickly find a priority goal*/
 template< typename BidirectionalIterator, typename Compare >
 void quick_sort(BidirectionalIterator first, BidirectionalIterator last, Compare cmp) {
     if (first != last) {

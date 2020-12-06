@@ -1,11 +1,23 @@
 #pragma once
 #include "Bulding.h"
 
+/*!
+\brief It is castle descriptor
+*/
 class Castle : public Bulding
 {
 public:
 	Castle(const Tile *tile);
-	virtual void update(sf::Time);
+
+
+	virtual void update(sf::Time);//!Empty function
+
+	/*!
+	\brief Output information about the hp lock status
+	\bug It may break due to frequent font loading
+	\warning It may break due to frequent font loading
+	\todo fix font
+	*/
 	void draw(sf::RenderWindow* window);
 	bool takeDamage(float damage) 
 	{

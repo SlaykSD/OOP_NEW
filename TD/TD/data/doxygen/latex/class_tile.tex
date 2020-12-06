@@ -1,0 +1,74 @@
+\doxysection{Tile Class Reference}
+\label{class_tile}\index{Tile@{Tile}}
+
+
+It is a class that describes a landscape element.  
+
+
+
+
+{\ttfamily \#include $<$Tile.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+State} (int)
+\item 
+\mbox{\label{class_tile_a29dce83bcfb502b032e0e20270e4a1c0}} 
+void {\bfseries set\+Sprite} (const sf\+::\+Sprite \&tmp)
+\item 
+\mbox{\label{class_tile_a88ab17b6b2943a1e7ac54e6e3aa4b1d9}} 
+void {\bfseries set\+Tile\+Number} (int)
+\item 
+\mbox{\label{class_tile_aa7dd1de8a99cc63634ef637c751c636e}} 
+void {\bfseries set\+Color} (sf\+::\+Color col)
+\item 
+\mbox{\label{class_tile_ab7bc31d2449800d4d59472eee6f747f9}} 
+const sf\+::\+Sprite {\bfseries get\+Sprite} () const
+\item 
+\mbox{\label{class_tile_a3a3ab5f8157d845e8dcb8d701ec5f05f}} 
+int {\bfseries get\+State} () const
+\item 
+\mbox{\label{class_tile_a82d427f2de97aa1ddeb842203f84c796}} 
+int {\bfseries get\+Tile\+Number} () const
+\item 
+\mbox{\label{class_tile_a837ad77a9634487bf7101c6f03e9b029}} 
+void {\bfseries set\+Texture} (sf\+::\+Texture \&, sf\+::\+Int\+Rect)
+\item 
+\mbox{\label{class_tile_aeb2c973aebe3c54a08aec6a1fed3ee46}} 
+void {\bfseries set\+Texture} (sf\+::\+Texture \&t)
+\item 
+\mbox{\label{class_tile_a27a18a2f73c9f24341f920315fa9c977}} 
+const sf\+::\+Sprite $\ast$ {\bfseries get\+SpriteV} ()
+\item 
+\mbox{\label{class_tile_ac03e5e61504d6af44bf5c0e089696066}} 
+void {\bfseries set\+Origin} (float, float)
+\item 
+\mbox{\label{class_tile_a6510abf0e3966523766ff8bed1edce12}} 
+void {\bfseries set\+Rotation} (float)
+\item 
+\mbox{\label{class_tile_a438e0e6043cfb05548a358a5bc1740a6}} 
+void {\bfseries set\+Position\+To\+Center} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is a class that describes a landscape element. 
+
+It is necessary to implement the logic of building towers and traps, and also contains the texture of the map square. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_tile_a319cf900ed11f0e6affadcaa144eb91e}} 
+\index{Tile@{Tile}!setState@{setState}}
+\index{setState@{setState}!Tile@{Tile}}
+\doxysubsubsection{setState()}
+{\footnotesize\ttfamily void Tile\+::set\+State (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+\textbackslash{}\+Method of the class that sets the state of the cell
+
+All cell States are described in the \doxyref{Type.\+h}{p.}{_type_8h_source} file 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Tile.\+h\item 
+Tile.\+cpp\end{DoxyCompactItemize}

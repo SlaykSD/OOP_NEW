@@ -6,6 +6,11 @@
 #include "Trap.h"
 //#include "EntityManager.h"
 
+	/*!
+	\brief One of the core system classes that are required to trace changes in the movement of enemies
+
+	Implemented for dealing damage to enemies and the castle
+	*/
 class DamageSystem : public System
 {
 public:

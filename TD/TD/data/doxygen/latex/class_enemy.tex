@@ -1,0 +1,225 @@
+\doxysection{Enemy Class Reference}
+\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+Is the specifier of the enemy.  
+
+
+
+
+{\ttfamily \#include $<$Enemy.\+h$>$}
+
+Inheritance diagram for Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_enemy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_enemy_a39821ea6caa5c1971a5d5f29f8f4ebe1}} 
+{\bfseries Enemy} (std\+::list$<$ sf\+::\+Vector2i $>$, Enemy\+Type)
+\item 
+\mbox{\label{class_enemy_a9dd1709fee77da44cda2414bedc84bbb}} 
+void {\bfseries set\+Enemy\+Wave} (\textbf{ Enemy\+Wave} $\ast$wave)
+\item 
+int \textbf{ control\+Effects} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em Method of the class intended for processing effects in void \doxyref{update()}{p.}{class_enemy_a67109c84a4ce39fcc7144ab5a39e004c} \end{DoxyCompactList}\item 
+\mbox{\label{class_enemy_a67f792dfd61d7faea57d0d569100a181}} 
+bool {\bfseries add\+Effect} (Effect\+Type)
+\item 
+int \textbf{ find\+Effect} (Effect\+Type)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} method that searches for identical effects and updates the effect. \end{DoxyCompactList}\item 
+\mbox{\label{class_enemy_a3d1241d94466f86fc651590516447acb}} 
+void {\bfseries update\+Ef} (sf\+::\+Time)
+\item 
+\mbox{\label{class_enemy_abed63b77ea68e4d267603398f5758ee7}} 
+void {\bfseries remove\+Effects} ()
+\item 
+\mbox{\label{class_enemy_aa0b831fcf893aafcc7a4f58f9882eb51}} 
+void {\bfseries set\+Speed} (float ef\+\_\+speed)
+\item 
+\mbox{\label{class_enemy_acd43fc5766bf7ef886691244e1b66566}} 
+float {\bfseries get\+Speed} ()
+\item 
+\mbox{\label{class_enemy_a5a352a7035371c1a122919aa471271b0}} 
+void {\bfseries set\+Increase\+Damage} (float tmp)
+\item 
+\mbox{\label{class_enemy_a67109c84a4ce39fcc7144ab5a39e004c}} 
+void \textbf{ update} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} virtual method of the class that handles the time tick. \end{DoxyCompactList}\item 
+\mbox{\label{class_enemy_a2a225fbc50c65be768bec6df9197093b}} 
+void {\bfseries set\+Visible} (bool vis)
+\item 
+\mbox{\label{class_enemy_afea2d245be2a2458314a177e7e47bf21}} 
+bool {\bfseries get\+Visible} () const
+\item 
+\mbox{\label{class_enemy_ab1c790dbe3927eca499f24c5fdc4b7c6}} 
+const sf\+::\+Vector2f {\bfseries get\+Position} () const
+\item 
+\mbox{\label{class_enemy_a13c699bdbdcd2b52dc05a1a88d71743c}} 
+Enemy\+Type {\bfseries get\+Name} () const
+\item 
+\mbox{\label{class_enemy_a835cb5761da543c76fd347d3a31f964a}} 
+float {\bfseries gethp} () const
+\item 
+\mbox{\label{class_enemy_aa196e857c70bfb70e911992d9ad144b7}} 
+const std\+::list$<$ sf\+::\+Vector2i $>$ $\ast$ {\bfseries get\+Points\+List} () const
+\item 
+\mbox{\label{class_enemy_a710864e50aeb9aff3b36dc2ffa98685d}} 
+void {\bfseries set\+Color} (sf\+::\+Color col)
+\item 
+\mbox{\label{class_enemy_a9049a3a2461bf26d494db76f3a76fb26}} 
+void {\bfseries set\+Origin} ()
+\item 
+\mbox{\label{class_enemy_a696fa9b71571bd433fb4e13c20ac85d4}} 
+void {\bfseries re\+Set\+Origin} ()
+\item 
+void \textbf{ selfdestruction} ()
+\begin{DoxyCompactList}\small\item\em The method is designed to destroy itself due to lack of hp. \end{DoxyCompactList}\item 
+bool \textbf{ take\+Damage} (float damage, Effect\+Type type)
+\begin{DoxyCompactList}\small\item\em Method of the class that is intended for dealing damage and adding an effect to the table. \end{DoxyCompactList}\item 
+\mbox{\label{class_enemy_a3e35e82a20ff2af8653279e59b27c7b4}} 
+int {\bfseries get\+Gold} () const
+\item 
+\mbox{\label{class_enemy_aa54e6b31db35316c52d0dc43344362ee}} 
+void {\bfseries set\+HP} (float ef\+\_\+hp)
+\item 
+\mbox{\label{class_enemy_aee67540b7829ac135775ec541eca7547}} 
+float {\bfseries get\+HP} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_enemy_a8054412388502282148e954b0ba1f423}} 
+int {\bfseries points}
+\item 
+\mbox{\label{class_enemy_afde56a4af8167d0add3730134db509a4}} 
+bool {\bfseries visible}
+\item 
+\mbox{\label{class_enemy_a98766d083fc49e746a37d0dc69be09e0}} 
+float {\bfseries speed}
+\item 
+\mbox{\label{class_enemy_a64049230ae39663dd5ccfd0a27b25474}} 
+float {\bfseries hp}
+\item 
+\mbox{\label{class_enemy_a951cbf0bd8b693ed5bf8b3a2a53b7b0d}} 
+const int {\bfseries H\+P\+\_\+\+M\+AX}
+\item 
+\mbox{\label{class_enemy_a7795b5daada3baa01316e732b6e82149}} 
+float {\bfseries increase\+Damage}
+\item 
+\mbox{\label{class_enemy_a51e27a0380282eb56fb83f3c4e1b2b8a}} 
+\textbf{ best\+\_\+list\+::\+List}$<$ \textbf{ Effect} $>$ {\bfseries effects}
+\item 
+\mbox{\label{class_enemy_a5c6e27a2fad96ee938e478f584f09486}} 
+int {\bfseries money}
+\item 
+\mbox{\label{class_enemy_a58f0472dce634e0e04d42c3ffe3dda6f}} 
+sf\+::\+Sprite {\bfseries sprite}
+\item 
+\mbox{\label{class_enemy_a046103bb112868b787577806a2cc01ca}} 
+sf\+::\+Rectangle\+Shape {\bfseries rect\+Healthbar}
+\item 
+\mbox{\label{class_enemy_a565b0023c23b482b0716c091fba05040}} 
+std\+::list$<$ sf\+::\+Vector2i $>$ {\bfseries check\+Points}
+\item 
+\mbox{\label{class_enemy_aac66dd0a6b426e3ed78a064c3e08cc53}} 
+Enemy\+Type {\bfseries name}
+\item 
+\mbox{\label{class_enemy_a14bc103e842b22d1051dd1d7b54c4dce}} 
+sf\+::\+Texture {\bfseries healthbar}
+\item 
+\mbox{\label{class_enemy_a1d59202909b7b467dc02e8fce46ce99b}} 
+\textbf{ Enemy\+Wave} $\ast$ {\bfseries \+\_\+wave}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Is the specifier of the enemy. 
+
+Contains a mountain of functions for interacting with class parameters, including attributes such as $\vert$\+Speed$\vert$ , $\vert$hp$\vert$ , $\vert$\+Money$\vert$ and other. Also functions for interacting with the effects table 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_enemy_a959297cb70649140721b8adbe77bf773}} 
+\index{Enemy@{Enemy}!controlEffects@{controlEffects}}
+\index{controlEffects@{controlEffects}!Enemy@{Enemy}}
+\doxysubsubsection{controlEffects()}
+{\footnotesize\ttfamily int Enemy\+::control\+Effects (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{dt }\end{DoxyParamCaption})}
+
+
+
+Method of the class intended for processing effects in void \doxyref{update()}{p.}{class_enemy_a67109c84a4ce39fcc7144ab5a39e004c} 
+
+Checks the time of all effects and adds the time to the counter for all effects. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dt} & -\/ time tick \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if table of effects -\/ empty and 1 if else 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+method can kill enemy and don\textquotesingle{}t give money player 
+\end{DoxyWarning}
+\mbox{\label{class_enemy_a48a08ae65652d7a04011e5768124c73a}} 
+\index{Enemy@{Enemy}!findEffect@{findEffect}}
+\index{findEffect@{findEffect}!Enemy@{Enemy}}
+\doxysubsubsection{findEffect()}
+{\footnotesize\ttfamily int Enemy\+::find\+Effect (\begin{DoxyParamCaption}\item[{Effect\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+\doxyref{A}{p.}{class_a} method that searches for identical effects and updates the effect. 
+
+This method is designed to eliminate the collision of 2 identical effects. if the same type of effect is found, the timer will simply update 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & -\/ Effect\+Type -\/ type effect, which enemy get from traps or tower \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if table of effects -\/ empty and 1 if else 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+method can kill enemy and don\textquotesingle{}t give money player 
+\end{DoxyWarning}
+\mbox{\label{class_enemy_a5bc66950b2cb6b9c027e751db0b76f3d}} 
+\index{Enemy@{Enemy}!selfdestruction@{selfdestruction}}
+\index{selfdestruction@{selfdestruction}!Enemy@{Enemy}}
+\doxysubsubsection{selfdestruction()}
+{\footnotesize\ttfamily void Enemy\+::selfdestruction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The method is designed to destroy itself due to lack of hp. 
+
+If you remove this feature, the enemy will die in a loop, after dying from the effect, which is not good \begin{DoxyWarning}{Warning}
+method can kill enemy and don\textquotesingle{}t give money player 
+\end{DoxyWarning}
+\mbox{\label{class_enemy_aa0701afec570376ae71c9d4632d7154c}} 
+\index{Enemy@{Enemy}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Enemy@{Enemy}}
+\doxysubsubsection{takeDamage()}
+{\footnotesize\ttfamily bool Enemy\+::take\+Damage (\begin{DoxyParamCaption}\item[{float}]{damage,  }\item[{Effect\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Method of the class that is intended for dealing damage and adding an effect to the table. 
+
+Checks the time of all effects and adds the time to the counter for all effects. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em damage} & -\/ Obviously the damage the poor guy will take \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & -\/ Effect\+Type -\/ type effect, which enemy get from traps or tower \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if enemy is dead and false if else 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Enemy.\+h\item 
+Enemy.\+cpp\end{DoxyCompactItemize}

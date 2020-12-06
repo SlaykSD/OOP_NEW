@@ -10,16 +10,34 @@
 #include <list>
 #include <map>
 class GameState;
+
+/*!
+\brief Auxiliary structure that represents an associative array of map roads
+*/
 struct RoadObjects 
 {
 	std::map<std::string,std::list <sf::Vector2i>> roads;
 };
 
+/*!
+\brief It is a landscape descriptor
+
+Contains a logical grid of tiles. Required for loading data into the grid.
+\warning Checks do not provide full verification of the card. There may be breakdowns due to the continuity of the road
+\warning The size is 10 by 10 tiles, but this can be changed, Tiles must be 64 by 64 pixels
+*/
 class Level//главный класс - уровень
 {
 public:
 	Level();
 	Level(std::string filename);
+
+	/*!
+	\brief The main function of the class that implements loading a map from a file
+
+	Need to download and parse the xml of the map.
+	\warning Possibility of crash due to inaccuracy of the map
+	*/
 	bool LoadFromFile(std::string filename);//возвращает false если не получилось загрузить
 	void DrawGrid(sf::RenderWindow& window);//риусем объекты
 	sf::Vector2i GetTileSize();//получаем размер тайла
@@ -29,9 +47,27 @@ public:
 	bool getErrors()const { return constructError; }
 private:
 	bool constructError;
+
+	/*!
+	\brief General function of checking the card for logical
+
+	Contain checkEntityErrors() and checkCorrectRoadEnd()
+	\return constructError - Class instance-fixes an error(bool)
+	*/
 	bool countinuityRoad();
+
+	/*!
+	\brief Checks the relationship between road objects and road tiles
+	\return constructError - Class instance-fixes an error(bool)
+	*/
 	bool checkEntityErrors();
+
+	/*!
+	\brief Checks the ends of road objects
+	\return constructError - Class instance-fixes an error (bool)
+	*/
 	bool checkCorrectRoadEnd(sf::Sprite*, sf::Sprite* , std::list <sf::Vector2i>*);
+
 	int findRoadID(int ID)const;
 	int findCastleID(int ID)const;
 	int findLierID(int ID)const;

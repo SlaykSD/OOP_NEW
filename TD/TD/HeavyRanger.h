@@ -1,6 +1,10 @@
 #pragma once
 #include "Enemy.h"
-
+/*!
+\brief It is a subtype of the enemy class-a fast and heavily armed soldier in uniform
+\bug default perameters
+\todo fix defualt parameters and fix balance of game
+*/
 class HeavyRanger:public Enemy
 {
 public:

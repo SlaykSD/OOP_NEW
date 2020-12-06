@@ -5,7 +5,9 @@
 
 #ifndef _TYPE_H
 #define _TYPE_H
-
+ /*!
+ \brief Type of tile
+ */
 enum Type 
 {
     forest = 0,
