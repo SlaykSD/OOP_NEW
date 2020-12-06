@@ -1,7 +1,7 @@
 #pragma once
 #include "Effect.h"
 #include "Entity.h"
-#include <list>
+#include "List.h"
 class EnemyWave;
 
 enum EnemyType
@@ -14,7 +14,7 @@ class Enemy : public Entity
 {
 public:
 	Enemy();
-	Enemy(std::list <sf::Vector2i>, EnemyType);
+	Enemy(best_list::List <sf::Vector2i>, EnemyType);
 	void setEnemyWave(EnemyWave* wave);
 
 	//Work with effects
@@ -38,7 +38,7 @@ public:
 	//Interaction with tower
 	EnemyType getName()const { return name; }
 	float  gethp()const { return hp; }
-	const std::list <sf::Vector2i>* getPointsList()const { return &checkPoints; }
+	const best_list::List <sf::Vector2i>* getPointsList()const { return &checkPoints; }
 	void setColor(sf::Color col) {
 		sprite.setColor(col);
 	}
@@ -64,7 +64,7 @@ protected:
 	int money;
 	sf::Sprite sprite;
 	sf::RectangleShape rectHealthbar;
-	std::list <sf::Vector2i> checkPoints;
+	best_list::List <sf::Vector2i> checkPoints;
 	EnemyType name;
 	sf::Texture healthbar;
 	EnemyWave* _wave;

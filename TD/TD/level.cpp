@@ -198,7 +198,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 				}
 				if (roadList.roads.find(objectName) == roadList.roads.end())
 				{
-					std::list<sf::Vector2i> ad;
+					best_list::List<sf::Vector2i> ad;
 					roadList.roads[objectName] = ad;
 				}
 				int x = atoi(objectElement->Attribute("x"));
@@ -218,8 +218,7 @@ bool Level::LoadFromFile(std::string filename)//двоеточия-обращение к методам кл
 				point.x = x;
 				point.y = y;
 				//	if (obj->liers[0].getPosition() == point)
-				std::map < std::string, std::list<sf::Vector2i> > ::iterator it;
-				it = roadList.roads.find(objectName);
+				auto it = roadList.roads.find(objectName);
 				(*it).second.push_back(point);
 				//убедиться , что координаты мышки высчитываются так же))
 				objectElement = objectElement->NextSiblingElement("object");
@@ -307,9 +306,9 @@ bool Level::countinuityRoad()
 		for (int k = 1; k <= roadList.roads.size(); k++)
 		{
 			std::string key = "solid" + std::to_string(k);
-			std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = roadList.roads.find(key);
-			std::list <sf::Vector2i> tmp = (*it_m).second;
-			std::list <sf::Vector2i>::iterator it = tmp.begin();
+			std::map<std::string, best_list::List<sf::Vector2i>>::iterator it_m = roadList.roads.find(key);
+			auto tmp = (*it_m).second;
+			auto it = tmp.begin();
 			if (tmp.size() < 2)
 			{
 				std::cout << "You need at least 2 checkpoints " << std::endl;
@@ -352,8 +351,8 @@ bool Level::checkEntityErrors()
 	for (int k = 1; k <= roadList.roads.size(); k++)
 	{
 		std::string key = "solid" + std::to_string(k);
-		std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = roadList.roads.find(key);
-		std::list <sf::Vector2i> tmp = (*it_m).second;
+		auto it_m = roadList.roads.find(key);
+		auto tmp = (*it_m).second;
 		for (int i = 0; i < size; i++)
 		{
 			for (int j = 0; j < size_l; j++)
@@ -369,7 +368,7 @@ bool Level::checkEntityErrors()
 		error = true;
 	return error;
 }
-bool Level::checkCorrectRoadEnd(sf::Sprite *lier, sf::Sprite* castle, std::list <sf::Vector2i>* checkPoints)
+bool Level::checkCorrectRoadEnd(sf::Sprite *lier, sf::Sprite* castle, best_list::List<sf::Vector2i>* checkPoints)
 {
 	auto it = checkPoints->begin();
 	if (((*it).x == (int)lier->getPosition().x) && ((*it).y == (int)lier->getPosition().y))

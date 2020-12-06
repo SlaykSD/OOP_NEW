@@ -1,7 +1,7 @@
 #pragma warning(disable : 4996)
 #include "Lier.h"
 #include <iostream>
-Lier::Lier(const Tile* tile, std::list <sf::Vector2i> list) :Bulding(tile), numberWaves(3), beginTime(sf::Time::Zero), checkPoints(list), numberWave(0), cooldownWave(sf::seconds(1.f))
+Lier::Lier(const Tile* tile, best_list::List <sf::Vector2i> list) :Bulding(tile), numberWaves(3), beginTime(sf::Time::Zero), checkPoints(list), numberWave(0), cooldownWave(sf::seconds(1.f))
 {
 	generateWave();
 	/*checkPoints.po*/

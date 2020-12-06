@@ -7,12 +7,12 @@
 #include "tinyxml/tinyxml.h"
 #include "State.h"
 #include "Grid.h"
-#include <list>
+#include "List.h"
 #include <map>
 class GameState;
 struct RoadObjects 
 {
-	std::map<std::string,std::list <sf::Vector2i>> roads;
+	std::map<std::string,best_list::List<sf::Vector2i>> roads;
 };
 
 class Level//главный класс - уровень
@@ -25,13 +25,13 @@ public:
 	sf::Vector2i GetTileSize();//получаем размер тайла
 	bool setObject(sf::Vector2i Position, int );
 	const Grid& getGrid()const { return logicalGrid;}
-	std::map<std::string, std::list <sf::Vector2i>>* getRoad(){ return &roadList.roads; }
+	std::map<std::string, best_list::List <sf::Vector2i>>* getRoad(){ return &roadList.roads; }
 	bool getErrors()const { return constructError; }
 private:
 	bool constructError;
 	bool countinuityRoad();
 	bool checkEntityErrors();
-	bool checkCorrectRoadEnd(sf::Sprite*, sf::Sprite* , std::list <sf::Vector2i>*);
+	bool checkCorrectRoadEnd(sf::Sprite*, sf::Sprite* , best_list::List<sf::Vector2i>*);
 	int findRoadID(int ID)const;
 	int findCastleID(int ID)const;
 	int findLierID(int ID)const;

@@ -265,8 +265,8 @@ MoveSystem::MoveSystem(EntityManager* manager)
 }
 float MoveSystem::getDistanceToCastle(Enemy* target)
 {
-	const std::list<sf::Vector2i>* list = target->getPointsList();
-	std::list<sf::Vector2i>::const_iterator it = list->begin();
+	const best_list::List <sf::Vector2i>* list = target->getPointsList();
+	auto it = list->begin();
 	float distanceToCastle = 0;
 	sf::Vector2f old;
 	for (it; it != list->end(); ++it)

@@ -1,9 +1,11 @@
 #pragma once
 #include "Enemy.h"
+#include "List.h"
+
 class EnemyWave :public Entity
 {
 public:
-	EnemyWave(std::list <sf::Vector2i>,int);//Create wave
+	EnemyWave(best_list::List <sf::Vector2i>,int);//Create wave
 	void draw(sf::RenderWindow* window);
 	virtual void update(sf::Time);//update all of enemy in wave
 	std::vector<Enemy*> getEnemies()const;
