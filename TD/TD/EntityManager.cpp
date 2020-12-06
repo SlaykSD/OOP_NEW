@@ -67,7 +67,7 @@ EntityManager::EntityManager(Level& lvl) :score(), costTable()
 	std::vector<std::vector<Tile>> tileMap = lvl.getGrid().getTiles();
 	int size_y = tileMap.size();
 	int size_x = tileMap[0].size();
-	auto * lierRoads = lvl.getRoad();
+	std::map<std::string, std::list <sf::Vector2i>>* lierRoads = lvl.getRoad();
 	for (int i = 0; i < size_y; i++)
 	{
 		for (int j = 0; j < size_x; j++)
@@ -83,9 +83,9 @@ EntityManager::EntityManager(Level& lvl) :score(), costTable()
 				for (int k = 1; k <= lierRoads->size(); k++)
 				{
 					std::string key = "solid" + std::to_string(k);
-					auto it_m = lierRoads->find(key);
-					auto tmp = (*it_m).second; 
-					auto it = tmp.begin();
+					std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = lierRoads->find(key);
+					std::list <sf::Vector2i> tmp = (*it_m).second; 
+					std::list <sf::Vector2i>::iterator it = tmp.begin();
 					if ((((*it).x) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y) == (int)tileMap[i][j].getSprite().getPosition().y))
 					{
 						Lier lier(&tileMap[i][j], tmp);
@@ -179,7 +179,7 @@ bool EntityManager::setParameters(Level lvl)
 	std::vector<std::vector<Tile>> tileMap = lvl.getGrid().getTiles();
 	int size_y = tileMap.size();
 	int size_x = tileMap[0].size();
-	auto * lierRoads = lvl.getRoad();
+	std::map<std::string, std::list <sf::Vector2i>>* lierRoads = lvl.getRoad();
 	for (int i = 0; i < size_y; i++)
 	{
 		for (int j = 0; j < size_x; j++)
@@ -196,14 +196,14 @@ bool EntityManager::setParameters(Level lvl)
 				for (int k = 1; k <= lierRoads->size(); k++)
 				{
 					std::string key = "solid" + std::to_string(k);
-					auto it_m = lierRoads->find(key);
-					auto tmp = (*it_m).second;
-					auto it = tmp.begin();
-					if ((((*it).x) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y) == (int)tileMap[i][j].getSprite().getPosition().y))
+					std::map<std::string, std::list <sf::Vector2i>>::iterator it_m = lierRoads->find(key);
+					std::list <sf::Vector2i> tmp = (*it_m).second;
+					std::list <sf::Vector2i>::iterator it = tmp.begin();
+					if ((((*it).x - 32) == (int)tileMap[i][j].getSprite().getPosition().x) && (((*it).y - 32) == (int)tileMap[i][j].getSprite().getPosition().y))
 					{
 						Lier lier(&tileMap[i][j], tmp);
 						this->liers.push_back(lier);
-
+						addState(&this->liers.back());
 						break;
 					}
 				}

@@ -1,6 +1,6 @@
 #include "HeavyRanger.h"
 
-HeavyRanger::HeavyRanger(best_list::List <sf::Vector2i> l) :Enemy(l,EnemyType::Heavy_Ranhger)
+HeavyRanger::HeavyRanger(std::list<sf::Vector2i> l) :Enemy(l,EnemyType::Heavy_Ranhger)
 {
 	sf::Rect <int> rect(0, 0, 64, 64);
 	sf::Image widget; //создаем объект Image (изображение)

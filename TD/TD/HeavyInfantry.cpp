@@ -1,6 +1,6 @@
 #include "HeavyInfantry.h"
 
-HeavyInfantry::HeavyInfantry(best_list::List <sf::Vector2i> l) :Enemy(l, EnemyType::Light_Infantry)
+HeavyInfantry::HeavyInfantry(std::list<sf::Vector2i> l) :Enemy(l, EnemyType::Light_Infantry)
 {
 	sf::Rect <int> rect(0, 0, 64, 64);
 	sf::Image widget; //создаем объект Image (изображение)

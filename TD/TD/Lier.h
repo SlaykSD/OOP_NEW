@@ -1,12 +1,12 @@
 #pragma once
 #include "Bulding.h"
 #include"EnemyWave.h"
-#include "List.h"
+#include <list>
 
 class Lier :public Bulding
 {
 public:
-	Lier(const Tile* tile, best_list::List <sf::Vector2i>);
+	Lier(const Tile* tile, std::list <sf::Vector2i>);
 	virtual void update(sf::Time);
 	void draw(sf::RenderWindow* window);
 	std::vector<EnemyWave*> getWaves();
@@ -15,7 +15,7 @@ private:
 	void generateWave();
 	sf::Font font;
 	sf::Text textLier;
-	best_list::List <sf::Vector2i> checkPoints;//way from lier to castle. Mass of coordinate
+	std::list <sf::Vector2i> checkPoints;//way from lier to castle. Mass of coordinate
 	std::vector<EnemyWave> waves;
 	sf::Time beginTime;
 	const sf::Time cooldownWave;

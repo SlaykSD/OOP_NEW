@@ -100,12 +100,12 @@ Enemy::Enemy() :HP_MAX(250), hp(250), money(40), speed(100.f), visible(false), p
 	rectHealthbar.setSize({ 32.f,10.f });
 	//rectHealthbar.setTextureRect(rect);
 }
-Enemy::Enemy(best_list::List <sf::Vector2i> Points, EnemyType Type) : Enemy()
+Enemy::Enemy(std::list <sf::Vector2i> Points, EnemyType Type) : Enemy()
 {
 	name = Type;
 	checkPoints = Points;
 	sf::Vector2f pos;
-	auto it = Points.begin();
+	std::list <sf::Vector2i>::iterator it = Points.begin();
 	pos.x = (*it).x;
 	pos.y = (*it).y;
 	sprite.setPosition(pos);

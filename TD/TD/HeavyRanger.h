@@ -4,7 +4,7 @@
 class HeavyRanger:public Enemy
 {
 public:
-	HeavyRanger(best_list::List <sf::Vector2i>);
+	HeavyRanger(std::list<sf::Vector2i>);
 	void draw(sf::RenderWindow* window);
 private:
 	sf::Texture texture;
