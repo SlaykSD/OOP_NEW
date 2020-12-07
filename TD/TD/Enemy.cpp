@@ -103,6 +103,8 @@ Enemy::Enemy() :HP_MAX(250), hp(250), money(40), speed(100.f), visible(false), p
 Enemy::Enemy(std::list <sf::Vector2i> Points, EnemyType Type) : Enemy()
 {
 	name = Type;
+	if (Points.empty())
+		throw "Bad points";
 	checkPoints = Points;
 	sf::Vector2f pos;
 	std::list <sf::Vector2i>::iterator it = Points.begin();

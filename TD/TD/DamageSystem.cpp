@@ -129,7 +129,7 @@ void DamageSystem::dealDamageEnemy( std::vector<Enemy*> enemies, Trap* trap)
 			_manager->addGold(enemy->getGold());
 		}
 		enemy->takeDamage(trap->getDamage(), trap->getEffectType());
-		std::cout << "HP unit " << enemy->getHP()<<std::endl;
+		std::cout << "HP unit " << enemy->gethp()<<std::endl;
 	}
 	sf::Vector2i pos;
 	pos.x = (int)trap->getTile()->getSprite().getPosition().x;

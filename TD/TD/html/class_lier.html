@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Lier Class Reference</title>
+<title>Tower Defense for chosen: Lier Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -68,14 +70,19 @@ $(function() {
 <div class="title">Lier Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>It is a lair descriptor Controls the launch of waves.  
+ <a href="class_lier.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_lier_8h_source.html">Lier.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Lier:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_lier.png" usemap="#Lier_map" alt=""/>
   <map id="Lier_map" name="Lier_map">
-<area href="class_bulding.html" alt="Bulding" shape="rect" coords="0,56,54,80"/>
-<area href="class_entity.html" alt="Entity" shape="rect" coords="0,0,54,24"/>
+<area href="class_bulding.html" title="It is a descriptor of a logical structure that occupies a single tile." alt="Bulding" shape="rect" coords="0,56,54,80"/>
+<area href="class_entity.html" title="The general abstract entity class." alt="Entity" shape="rect" coords="0,0,54,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -84,8 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61ac9a4d55d0504b6195a9c6aa16c073"><td class="memItemLeft" align="right" valign="top"><a id="a61ac9a4d55d0504b6195a9c6aa16c073"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Lier</b> (const <a class="el" href="class_tile.html">Tile</a> *tile, std::list&lt; sf::Vector2i &gt;)</td></tr>
 <tr class="separator:a61ac9a4d55d0504b6195a9c6aa16c073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d661af58894405bb50e608dd57dc3bf"><td class="memItemLeft" align="right" valign="top"><a id="a4d661af58894405bb50e608dd57dc3bf"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time)</td></tr>
+<tr class="memitem:a4d661af58894405bb50e608dd57dc3bf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lier.html#a4d661af58894405bb50e608dd57dc3bf">update</a> (sf::Time)</td></tr>
+<tr class="memdesc:a4d661af58894405bb50e608dd57dc3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a.html">A</a> virtual overloaded method of the class that handles the time tick.  <a href="class_lier.html#a4d661af58894405bb50e608dd57dc3bf">More...</a><br /></td></tr>
 <tr class="separator:a4d661af58894405bb50e608dd57dc3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23c3212de9397c020fcbf5621a4b5b4f"><td class="memItemLeft" align="right" valign="top"><a id="a23c3212de9397c020fcbf5621a4b5b4f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (sf::RenderWindow *window)</td></tr>
@@ -93,9 +100,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (sf::RenderW
 <tr class="memitem:a01dd1901d13a43d6b1619a1da7d126ab"><td class="memItemLeft" align="right" valign="top"><a id="a01dd1901d13a43d6b1619a1da7d126ab"></a>
 std::vector&lt; <a class="el" href="class_enemy_wave.html">EnemyWave</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getWaves</b> ()</td></tr>
 <tr class="separator:a01dd1901d13a43d6b1619a1da7d126ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e71d766b735e8a1eda324c451624431"><td class="memItemLeft" align="right" valign="top"><a id="a0e71d766b735e8a1eda324c451624431"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeEn</b> (<a class="el" href="class_enemy.html">Enemy</a> *)</td></tr>
-<tr class="separator:a0e71d766b735e8a1eda324c451624431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_bulding"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_bulding')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_bulding.html">Bulding</a></td></tr>
 <tr class="memitem:a06f9ab76184f521799fb4c67773c16b2 inherit pub_methods_class_bulding"><td class="memItemLeft" align="right" valign="top"><a id="a06f9ab76184f521799fb4c67773c16b2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Bulding</b> (const <a class="el" href="class_tile.html">Tile</a> *tile)</td></tr>
@@ -122,9 +126,47 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab3b8110646513b661582fbdfd431095c inherit pro_attribs_class_bulding"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afedb461476e4c1689b8ceb1841425b58"></a>
-<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_manager</b></td></tr>
+<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afedb461476e4c1689b8ceb1841425b58">_manager</a></td></tr>
+<tr class="memdesc:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safety pointer to the entity controller. <br /></td></tr>
 <tr class="separator:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>It is a lair descriptor Controls the launch of waves. </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000009">Bug:</a></b></dt><dd>lier == lair (English) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>fix engl </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4d661af58894405bb50e608dd57dc3bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d661af58894405bb50e608dd57dc3bf">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lier::update </td>
+          <td>(</td>
+          <td class="paramtype">sf::Time&#160;</td>
+          <td class="paramname"><em>frameTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_a.html">A</a> virtual overloaded method of the class that handles the time tick. </p>
+<dl class="section warning"><dt>Warning</dt><dd>There may be breakdowns due to frequent font loading: unknow bug </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>fix load texture </dd></dl>
+
+<p>Implements <a class="el" href="class_bulding.html#adbffc217eae1b2fc21c25ec3fee87f0d">Bulding</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_lier_8h_source.html">Lier.h</a></li>
 <li>Lier.cpp</li>

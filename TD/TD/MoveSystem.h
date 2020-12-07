@@ -32,6 +32,7 @@ public:
 	MoveSystem(EntityManager*);
 	~MoveSystem() = default;
 	virtual void update(sf::Time);
+	float static getDistance(sf::Vector2f);
 private:
 	//functions
 
@@ -69,7 +70,7 @@ private:
 	The third priority is HP. There is a selection of enemies with the highest HP
 	*/
 	Targets thirdPriority(Targets*);
-	float getDistance(sf::Vector2f);
+
 	float getDistanceToCastle(Enemy*);
 	//attribute
 

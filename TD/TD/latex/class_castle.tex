@@ -1,5 +1,14 @@
-\hypertarget{class_castle}{}\doxysection{Castle Class Reference}
+\doxysection{Castle Class Reference}
 \label{class_castle}\index{Castle@{Castle}}
+
+
+It is castle descriptor.  
+
+
+
+
+{\ttfamily \#include $<$Castle.\+h$>$}
+
 Inheritance diagram for Castle\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,19 +18,41 @@ Inheritance diagram for Castle\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_castle_ab66cdfbfdd1aa57c4e20a309a9e10052}\label{class_castle_ab66cdfbfdd1aa57c4e20a309a9e10052}} 
-{\bfseries Castle} (const \mbox{\hyperlink{class_tile}{Tile}} $\ast$tile)
+\mbox{\label{class_castle_ab66cdfbfdd1aa57c4e20a309a9e10052}} 
+{\bfseries Castle} (const \textbf{ Tile} $\ast$tile)
 \item 
-\mbox{\Hypertarget{class_castle_a0b3431d035feb6ca5064e3e4f0845469}\label{class_castle_a0b3431d035feb6ca5064e3e4f0845469}} 
-virtual void {\bfseries update} (sf\+::\+Time)
-\item 
-\mbox{\Hypertarget{class_castle_a40652d14377d615fd3b9dba4c6c490d4}\label{class_castle_a40652d14377d615fd3b9dba4c6c490d4}} 
-void {\bfseries draw} (sf\+::\+Render\+Window $\ast$window)
-\item 
-\mbox{\Hypertarget{class_castle_a023bf3ccafb369e2c0a3ab17af664ecd}\label{class_castle_a023bf3ccafb369e2c0a3ab17af664ecd}} 
+\mbox{\label{class_castle_a0b3431d035feb6ca5064e3e4f0845469}} 
+virtual void \textbf{ update} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} virtual method of the class that handles the time tick. \end{DoxyCompactList}\item 
+void \textbf{ draw} (sf\+::\+Render\+Window $\ast$window)
+\begin{DoxyCompactList}\small\item\em Empty function. \end{DoxyCompactList}\item 
+\mbox{\label{class_castle_a023bf3ccafb369e2c0a3ab17af664ecd}} 
 bool {\bfseries take\+Damage} (float damage)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+It is castle descriptor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_castle_a40652d14377d615fd3b9dba4c6c490d4}} 
+\index{Castle@{Castle}!draw@{draw}}
+\index{draw@{draw}!Castle@{Castle}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Castle\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Empty function. 
+
+Output information about the hp lock status \begin{DoxyRefDesc}{Bug}
+\item[\textbf{ Bug}]It may break due to frequent font loading \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+It may break due to frequent font loading 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\textbf{ Todo}]fix font \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

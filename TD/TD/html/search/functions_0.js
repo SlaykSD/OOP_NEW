@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['grid_78',['Grid',['../class_grid.html#a4ac9ff4f63552b4c61ff90fcb35ad66c',1,'Grid']]]
+  ['applychanges_120',['applyChanges',['../class_entity_manager.html#a669bba5605d756c0458723413088725d',1,'EntityManager']]]
 ];

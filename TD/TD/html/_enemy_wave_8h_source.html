@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: EnemyWave.h Source File</title>
+<title>Tower Defense for chosen: EnemyWave.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -67,25 +69,29 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Enemy.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_enemy_wave.html">    3</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_enemy_wave.html">EnemyWave</a> :<span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_enemy_wave.html">EnemyWave</a>(std::list &lt;sf::Vector2i&gt;,<span class="keywordtype">int</span>);<span class="comment">//Create wave</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">void</span> draw(sf::RenderWindow* window);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(sf::Time);<span class="comment">//update all of enemy in wave</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::vector&lt;Enemy*&gt; getEnemies()<span class="keyword">const</span>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">bool</span> removeEnemy(<a class="code" href="class_enemy.html">Enemy</a>*);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> curr;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">const</span> sf::Time cooldown = sf::seconds(3.f);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    sf::Time elapsedTime;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::vector&lt;Enemy*&gt; wave;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_enemy_wave.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_enemy_wave.html">EnemyWave</a> :<span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;     <a class="code" href="class_enemy_wave.html">EnemyWave</a>(std::list &lt;sf::Vector2i&gt;,<span class="keywordtype">int</span>);<span class="comment">//Create wave</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;     <span class="keywordtype">void</span> draw(sf::RenderWindow* window);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_enemy_wave.html#a6b4821f8e937586749437e294f796063">update</a>(sf::Time);<span class="comment">//update all of enemy in wave</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;     std::vector&lt;Enemy*&gt; getEnemies()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;     <span class="keywordtype">bool</span> <a class="code" href="class_enemy_wave.html#a2767b85f0d60a5844538152aa32a69a2">removeEnemy</a>(<a class="code" href="class_enemy.html">Enemy</a>*);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;     <span class="keywordtype">int</span> curr; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;     <span class="keyword">const</span> sf::Time cooldown = sf::seconds(3.f);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;     sf::Time elapsedTime;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;     std::vector&lt;Enemy*&gt; wave;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.h:15</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:6</div></div>
-<div class="ttc" id="aclass_enemy_wave_html"><div class="ttname"><a href="class_enemy_wave.html">EnemyWave</a></div><div class="ttdef"><b>Definition:</b> EnemyWave.h:4</div></div>
+<div class="ttc" id="aclass_enemy_wave_html_a2767b85f0d60a5844538152aa32a69a2"><div class="ttname"><a href="class_enemy_wave.html#a2767b85f0d60a5844538152aa32a69a2">EnemyWave::removeEnemy</a></div><div class="ttdeci">bool removeEnemy(Enemy *)</div><div class="ttdoc">remove Enemy from vector</div><div class="ttdef"><b>Definition:</b> EnemyWave.cpp:75</div></div>
+<div class="ttc" id="aclass_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdoc">Is the specifier of the enemy.</div><div class="ttdef"><b>Definition:</b> Enemy.h:25</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">The general abstract entity class.</div><div class="ttdef"><b>Definition:</b> Entity.h:8</div></div>
+<div class="ttc" id="aclass_enemy_wave_html"><div class="ttname"><a href="class_enemy_wave.html">EnemyWave</a></div><div class="ttdoc">Class describing the enemy wave controller.</div><div class="ttdef"><b>Definition:</b> EnemyWave.h:10</div></div>
+<div class="ttc" id="aclass_enemy_wave_html_a6b4821f8e937586749437e294f796063"><div class="ttname"><a href="class_enemy_wave.html#a6b4821f8e937586749437e294f796063">EnemyWave::update</a></div><div class="ttdeci">virtual void update(sf::Time)</div><div class="ttdoc">A virtual overloaded method of the class that handles the time tick.</div><div class="ttdef"><b>Definition:</b> EnemyWave.cpp:25</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

@@ -58,6 +58,7 @@ public:
 	void setSpeed(float ef_speed) { speed = ef_speed; }
 	float getSpeed() { return speed; }
 	void setIncreaseDamage(float tmp) { increaseDamage = tmp; }
+	float getIncreaseDamage() { return increaseDamage; }
 
 	//work with moving	
 	void update(sf::Time);
@@ -96,7 +97,6 @@ public:
 	bool takeDamage(float damage, EffectType type);
 	int getGold()const { return money; }
 	void setHP(float ef_hp) { hp = ef_hp; }
-	float getHP() { return hp; }
 	
 protected:
 

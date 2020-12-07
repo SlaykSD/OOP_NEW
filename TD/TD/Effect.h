@@ -40,7 +40,7 @@ public:
 	*/
 	void returnState(float*, float*);
 	EffectType getType()const { return type; }
-	void setTime(sf::Time newTime) { time = newTime; }
+	void setTime(sf::Time newTime);
 	bool checkTime();
 private:
 	EffectType type;

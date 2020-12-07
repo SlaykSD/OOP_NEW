@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: System Class Reference</title>
+<title>Tower Defense for chosen: System Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -69,14 +71,19 @@ $(function() {
 <div class="title">System Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract class for the implementation of the system of interaction between entities.  
+ <a href="class_system.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_system_8h_source.html">System.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for System:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_system.png" usemap="#System_map" alt=""/>
   <map id="System_map" name="System_map">
-<area href="class_damage_system.html" alt="DamageSystem" shape="rect" coords="0,56,98,80"/>
-<area href="class_move_system.html" alt="MoveSystem" shape="rect" coords="108,56,206,80"/>
+<area href="class_damage_system.html" title="One of the core system classes that are required to trace changes in the movement of enemies." alt="DamageSystem" shape="rect" coords="0,56,98,80"/>
+<area href="class_move_system.html" title="One of the core system classes that are required to trace changes in the movement of enemies." alt="MoveSystem" shape="rect" coords="108,56,206,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -86,7 +93,8 @@ Public Member Functions</h2></td></tr>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time)=0</td></tr>
 <tr class="separator:aa410f84763bf15c1bc88b90336dc2f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a479d2ea52499897f316cccc7ae5cc33a"><td class="memItemLeft" align="right" valign="top"><a id="a479d2ea52499897f316cccc7ae5cc33a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setManager</b> (<a class="el" href="class_entity_manager.html">EntityManager</a> *manager)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system.html#a479d2ea52499897f316cccc7ae5cc33a">setManager</a> (<a class="el" href="class_entity_manager.html">EntityManager</a> *manager)</td></tr>
+<tr class="memdesc:a479d2ea52499897f316cccc7ae5cc33a"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual function for handle every tick of time <br /></td></tr>
 <tr class="separator:a479d2ea52499897f316cccc7ae5cc33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -95,7 +103,9 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_manager</b></td></tr>
 <tr class="separator:a0e7514246b75b23a4cd2304818abeaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract class for the implementation of the system of interaction between entities. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_system_8h_source.html">System.h</a></li>
 <li>System.cpp</li>
 </ul>

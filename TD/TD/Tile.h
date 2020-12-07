@@ -18,7 +18,7 @@ public:
     */
 void setState(int );
 
-void setSprite(const sf::Sprite& tmp) { sprite = tmp;}
+void setSprite(const sf::Sprite& tmp) { sprite = tmp; sprite.setPosition(tmp.getPosition()); }
 void setTileNumber(int);
 void setColor(sf::Color col) { sprite.setColor(col); }
 const sf::Sprite getSprite()const;
@@ -30,6 +30,7 @@ const sf::Sprite* getSpriteV();
 void setOrigin(float, float);
 void setRotation(float);
 void setPositionToCenter();
+void setPosition(sf::Vector2f);
 private: 
     Type state;
     int tileNumber;

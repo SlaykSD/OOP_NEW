@@ -1,64 +1,232 @@
-\hypertarget{classbest__list_1_1_list}{}\doxysection{best\+\_\+list\+::List$<$ T $>$ Class Template Reference}
+\doxysection{best\+\_\+list\+::List$<$ T $>$ Class Template Reference}
 \label{classbest__list_1_1_list}\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+
+
+My cool double-\/linked list. Used for implementing the effects table.  
+
+
+
+
+{\ttfamily \#include $<$List.\+h$>$}
+
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classbest__list_1_1_list_1_1_iter_list}{Iter\+List}}
-\end{DoxyCompactItemize}
+class \textbf{ Iter\+List}
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} non-\/const iterator of container class list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classbest__list_1_1_list_add6b3345ebc52ac8d7c5234244940e82}\label{classbest__list_1_1_list_add6b3345ebc52ac8d7c5234244940e82}} 
+\mbox{\label{classbest__list_1_1_list_add6b3345ebc52ac8d7c5234244940e82}} 
 typedef Node$<$ T $>$ {\bfseries Node}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a436a41d2791442d38ea8dd026a233b5f}\label{classbest__list_1_1_list_a436a41d2791442d38ea8dd026a233b5f}} 
-int {\bfseries size} () const
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a012b187fc0eaead7e77ab3ee745e6a7c}\label{classbest__list_1_1_list_a012b187fc0eaead7e77ab3ee745e6a7c}} 
-int {\bfseries empty} () const
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_ad3d85ffe687e8fa03fb3ef1c4a336f90}\label{classbest__list_1_1_list_ad3d85ffe687e8fa03fb3ef1c4a336f90}} 
-{\bfseries List} (T val)
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_ad118064fc38c8b77fa19c81cec024982}\label{classbest__list_1_1_list_ad118064fc38c8b77fa19c81cec024982}} 
-{\bfseries List} (\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \&list)
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_aceac488f6101d6bc275a9eb6c6a9fd89}\label{classbest__list_1_1_list_aceac488f6101d6bc275a9eb6c6a9fd89}} 
-\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \& {\bfseries operator=} (\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \&a)
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_ae635b093ed8afef5f7f58b2433f48f22}\label{classbest__list_1_1_list_ae635b093ed8afef5f7f58b2433f48f22}} 
-\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \& {\bfseries operator=} (\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \&\&a)
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a2e5ead8f0bcc0df6315b4fb326dc246e}\label{classbest__list_1_1_list_a2e5ead8f0bcc0df6315b4fb326dc246e}} 
-\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \& {\bfseries push\+\_\+back} (const T \&fresh)
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a7bece0caccd417cb2a27b7d44e1d2aec}\label{classbest__list_1_1_list_a7bece0caccd417cb2a27b7d44e1d2aec}} 
-const T \& {\bfseries pop\+\_\+back} ()
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a637a1890b09e87178ef69071b0ee9b49}\label{classbest__list_1_1_list_a637a1890b09e87178ef69071b0ee9b49}} 
-\mbox{\hyperlink{classbest__list_1_1_list}{List}}$<$ T $>$ \& {\bfseries erase} (\mbox{\hyperlink{classbest__list_1_1_list_1_1_iter_list}{Iter\+List}} it)
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_aeff3f96eb2c6ef4433554f96ff48b0bd}\label{classbest__list_1_1_list_aeff3f96eb2c6ef4433554f96ff48b0bd}} 
-\mbox{\hyperlink{classbest__list_1_1_list_1_1_iter_list}{Iter\+List}} {\bfseries end} ()
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_ab22d05221d3217a51796ab84f584e24c}\label{classbest__list_1_1_list_ab22d05221d3217a51796ab84f584e24c}} 
-\mbox{\hyperlink{classbest__list_1_1_list_1_1_iter_list}{Iter\+List}} {\bfseries begin} ()
-\item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a92a372a3a91b81f5a861e03cf8db1c58}\label{classbest__list_1_1_list_a92a372a3a91b81f5a861e03cf8db1c58}} 
-void {\bfseries clear} ()
-\end{DoxyCompactItemize}
+int \textbf{ size} () const
+\begin{DoxyCompactList}\small\item\em This method determines the size of the list. \end{DoxyCompactList}\item 
+int \textbf{ empty} () const
+\begin{DoxyCompactList}\small\item\em The method determines whether the list is empty. \end{DoxyCompactList}\item 
+\mbox{\label{classbest__list_1_1_list_ae93dbd5e6965718e44dff6a8a33f5599}} 
+\textbf{ List} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\textbf{ List} (T val)
+\begin{DoxyCompactList}\small\item\em Initializing constructor from parameter of object. \end{DoxyCompactList}\item 
+\textbf{ List} (\textbf{ List}$<$ T $>$ \&list)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\textbf{ List}$<$ T $>$ \& \textbf{ operator=} (\textbf{ List}$<$ T $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Overloaded assignment operator. \end{DoxyCompactList}\item 
+\textbf{ List}$<$ T $>$ \& \textbf{ operator=} (\textbf{ List}$<$ T $>$ \&\&a)
+\begin{DoxyCompactList}\small\item\em Overloaded move operator. \end{DoxyCompactList}\item 
+\textbf{ List}$<$ T $>$ \& \textbf{ push\+\_\+back} (const T \&fresh)
+\begin{DoxyCompactList}\small\item\em Method of the class that inserts an element at the end of the list. \end{DoxyCompactList}\item 
+const T \& \textbf{ pop\+\_\+back} ()
+\begin{DoxyCompactList}\small\item\em Method of the class that returns an element from the end of the list. \end{DoxyCompactList}\item 
+\textbf{ List}$<$ T $>$ \& \textbf{ erase} (\textbf{ Iter\+List} it)
+\begin{DoxyCompactList}\small\item\em Cleaning method for the iterator. \end{DoxyCompactList}\item 
+\mbox{\label{classbest__list_1_1_list_aeff3f96eb2c6ef4433554f96ff48b0bd}} 
+\textbf{ Iter\+List} \textbf{ end} ()
+\begin{DoxyCompactList}\small\item\em The method returns an iterator to the end of the list. \end{DoxyCompactList}\item 
+\mbox{\label{classbest__list_1_1_list_ab22d05221d3217a51796ab84f584e24c}} 
+\textbf{ Iter\+List} \textbf{ begin} ()
+\begin{DoxyCompactList}\small\item\em The method returns an iterator to the beginning of the list. \end{DoxyCompactList}\item 
+\mbox{\label{classbest__list_1_1_list_a92a372a3a91b81f5a861e03cf8db1c58}} 
+void \textbf{ clear} ()
+\begin{DoxyCompactList}\small\item\em Method required to clear the list. \end{DoxyCompactList}\item 
+\mbox{\label{classbest__list_1_1_list_ae61b7c5a898aa341103f072a1eecd929}} 
+\textbf{ $\sim$\+List} ()
+\begin{DoxyCompactList}\small\item\em Destructor\+: cleans up the memory occupied by the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a2b81a368a7d8c8328739a7966bf7be2e}\label{classbest__list_1_1_list_a2b81a368a7d8c8328739a7966bf7be2e}} 
+\mbox{\label{classbest__list_1_1_list_a2b81a368a7d8c8328739a7966bf7be2e}} 
 class {\bfseries Iter\+List}
 \item 
-\mbox{\Hypertarget{classbest__list_1_1_list_a6db9d28bd448a131448276ee03de1e6d}\label{classbest__list_1_1_list_a6db9d28bd448a131448276ee03de1e6d}} 
+\mbox{\label{classbest__list_1_1_list_a6db9d28bd448a131448276ee03de1e6d}} 
 class {\bfseries Node}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class best\+\_\+list\+::\+List$<$ T $>$}
+
+My cool double-\/linked list. Used for implementing the effects table. 
+
+\begin{DoxyWarning}{Warning}
+Attention! There is no constant iterator, which does not allow you to work in the mode of reading constant references. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classbest__list_1_1_list_ad3d85ffe687e8fa03fb3ef1c4a336f90}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!List@{List}}
+\index{List@{List}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{List()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::\textbf{ List} (\begin{DoxyParamCaption}\item[{T}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializing constructor from parameter of object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & -\/ Data type for keeping \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classbest__list_1_1_list_ad118064fc38c8b77fa19c81cec024982}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!List@{List}}
+\index{List@{List}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{List()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::\textbf{ List} (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ copyable list \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classbest__list_1_1_list_a012b187fc0eaead7e77ab3ee745e6a7c}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!empty@{empty}}
+\index{empty@{empty}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{empty()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The method determines whether the list is empty. 
+
+\begin{DoxyReturn}{Returns}
+copy of object 
+\end{DoxyReturn}
+\mbox{\label{classbest__list_1_1_list_a637a1890b09e87178ef69071b0ee9b49}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!erase@{erase}}
+\index{erase@{erase}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{erase()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$T$>$\& \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::erase (\begin{DoxyParamCaption}\item[{\textbf{ Iter\+List}$<$ T $>$}]{it }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Cleaning method for the iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em it} & -\/ An iterator with the current pointer to the object that you want to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Link to the list 
+\end{DoxyReturn}
+\mbox{\label{classbest__list_1_1_list_ae635b093ed8afef5f7f58b2433f48f22}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{operator=()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$T$>$\& \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ \&\&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloaded move operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ moveable list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Link to the list 
+\end{DoxyReturn}
+\mbox{\label{classbest__list_1_1_list_aceac488f6101d6bc275a9eb6c6a9fd89}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{operator=()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$T$>$\& \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloaded assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ copyable list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Link to the list 
+\end{DoxyReturn}
+\mbox{\label{classbest__list_1_1_list_a7bece0caccd417cb2a27b7d44e1d2aec}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!pop\_back@{pop\_back}}
+\index{pop\_back@{pop\_back}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{pop\_back()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T\& \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::pop\+\_\+back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method of the class that returns an element from the end of the list. 
+
+\begin{DoxyReturn}{Returns}
+link to data type of object 
+\end{DoxyReturn}
+\mbox{\label{classbest__list_1_1_list_a2e5ead8f0bcc0df6315b4fb326dc246e}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{push\_back()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$T$>$\& \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{const T \&}]{fresh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method of the class that inserts an element at the end of the list. 
+
+\begin{DoxyReturn}{Returns}
+Link to the list 
+\end{DoxyReturn}
+\mbox{\label{classbest__list_1_1_list_a436a41d2791442d38ea8dd026a233b5f}} 
+\index{best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}!size@{size}}
+\index{size@{size}!best\_list::List$<$ T $>$@{best\_list::List$<$ T $>$}}
+\doxysubsubsection{size()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \textbf{ best\+\_\+list\+::\+List}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method determines the size of the list. 
+
+\begin{DoxyReturn}{Returns}
+number of integer -\/ size of list 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

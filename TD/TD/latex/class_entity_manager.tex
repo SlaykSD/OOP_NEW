@@ -1,68 +1,106 @@
-\hypertarget{class_entity_manager}{}\doxysection{Entity\+Manager Class Reference}
+\doxysection{Entity\+Manager Class Reference}
 \label{class_entity_manager}\index{EntityManager@{EntityManager}}
+
+
+The main game class that provides control over all entities.  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Manager.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_entity_manager_a183bbdd2119665c0bcff571dd28ba400}\label{class_entity_manager_a183bbdd2119665c0bcff571dd28ba400}} 
-{\bfseries Entity\+Manager} (\mbox{\hyperlink{class_level}{Level}} \&)
+\mbox{\label{class_entity_manager_a183bbdd2119665c0bcff571dd28ba400}} 
+{\bfseries Entity\+Manager} (\textbf{ Level} \&)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a1dfbaf471e423d03d1a340a51b43c762}\label{class_entity_manager_a1dfbaf471e423d03d1a340a51b43c762}} 
-bool {\bfseries set\+Parameters} (\mbox{\hyperlink{class_level}{Level}} lvl)
+\mbox{\label{class_entity_manager_a1dfbaf471e423d03d1a340a51b43c762}} 
+bool {\bfseries set\+Parameters} (\textbf{ Level} lvl)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a709c317cdf259f470c2e855a8164a129}\label{class_entity_manager_a709c317cdf259f470c2e855a8164a129}} 
-bool {\bfseries update} (sf\+::\+Time frame\+Time)
-\item 
-\mbox{\Hypertarget{class_entity_manager_a325ff693a9bab4fae4f75926f6d4e5cb}\label{class_entity_manager_a325ff693a9bab4fae4f75926f6d4e5cb}} 
+bool \textbf{ update} (sf\+::\+Time frame\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} main method of the class that handles the time tick. \end{DoxyCompactList}\item 
+\mbox{\label{class_entity_manager_a325ff693a9bab4fae4f75926f6d4e5cb}} 
 void {\bfseries draw} (sf\+::\+Render\+Window $\ast$window)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a26bf095d40cd63054913c41cc477e846}\label{class_entity_manager_a26bf095d40cd63054913c41cc477e846}} 
-void {\bfseries add\+Tower} (\mbox{\hyperlink{class_tower}{Tower}} \&tower)
+\mbox{\label{class_entity_manager_a26bf095d40cd63054913c41cc477e846}} 
+void {\bfseries add\+Tower} (\textbf{ Tower} \&tower)
 \item 
-\mbox{\Hypertarget{class_entity_manager_ac601d445ff4e993757ec87959503af08}\label{class_entity_manager_ac601d445ff4e993757ec87959503af08}} 
+\mbox{\label{class_entity_manager_ac601d445ff4e993757ec87959503af08}} 
 int {\bfseries get\+Gold} () const
 \item 
-\mbox{\Hypertarget{class_entity_manager_ae53fbf93ac31aee4853064315c9ffdbe}\label{class_entity_manager_ae53fbf93ac31aee4853064315c9ffdbe}} 
+\mbox{\label{class_entity_manager_ae53fbf93ac31aee4853064315c9ffdbe}} 
 int {\bfseries set\+Gold} (int)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a6a64eb4105bee26d6331f5c49679bf00}\label{class_entity_manager_a6a64eb4105bee26d6331f5c49679bf00}} 
+\mbox{\label{class_entity_manager_a6a64eb4105bee26d6331f5c49679bf00}} 
 void {\bfseries add\+Gold} (int)
 \item 
-\mbox{\Hypertarget{class_entity_manager_af217c8129f7ee5b951d09c69e57f498f}\label{class_entity_manager_af217c8129f7ee5b951d09c69e57f498f}} 
+\mbox{\label{class_entity_manager_af217c8129f7ee5b951d09c69e57f498f}} 
 bool {\bfseries check\+Gold} (Tower\+Type, int)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a2878bf7ab747a39e2b8e09fda67f1360}\label{class_entity_manager_a2878bf7ab747a39e2b8e09fda67f1360}} 
+\mbox{\label{class_entity_manager_a2878bf7ab747a39e2b8e09fda67f1360}} 
 bool {\bfseries lvl\+UP} (sf\+::\+Vector2i vec)
 \item 
-\mbox{\Hypertarget{class_entity_manager_ab3e041b52c02a33fdee56d33789d2465}\label{class_entity_manager_ab3e041b52c02a33fdee56d33789d2465}} 
-void {\bfseries add\+System} (\mbox{\hyperlink{class_system}{System}} $\ast$, int)
+\mbox{\label{class_entity_manager_ab3e041b52c02a33fdee56d33789d2465}} 
+void {\bfseries add\+System} (\textbf{ System} $\ast$, int)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a2f948fce5acfcc7f400562756ef22984}\label{class_entity_manager_a2f948fce5acfcc7f400562756ef22984}} 
-std\+::vector$<$ \mbox{\hyperlink{class_lier}{Lier}} $\ast$ $>$ {\bfseries get\+Liers} ()
+\mbox{\label{class_entity_manager_a2f948fce5acfcc7f400562756ef22984}} 
+std\+::vector$<$ \textbf{ Lier} $\ast$ $>$ {\bfseries get\+Liers} ()
 \item 
-\mbox{\Hypertarget{class_entity_manager_abbdc03297645edee72bd9d9b2e0065c8}\label{class_entity_manager_abbdc03297645edee72bd9d9b2e0065c8}} 
-std\+::vector$<$ \mbox{\hyperlink{class_castle}{Castle}} $\ast$ $>$ {\bfseries get\+Castles} ()
+\mbox{\label{class_entity_manager_abbdc03297645edee72bd9d9b2e0065c8}} 
+std\+::vector$<$ \textbf{ Castle} $\ast$ $>$ {\bfseries get\+Castles} ()
 \item 
-\mbox{\Hypertarget{class_entity_manager_a0bd6abf55d5119c69c0221e53e673588}\label{class_entity_manager_a0bd6abf55d5119c69c0221e53e673588}} 
+\mbox{\label{class_entity_manager_a0bd6abf55d5119c69c0221e53e673588}} 
 bool {\bfseries remove\+Tower} (sf\+::\+Vector2i vec)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a5d6395d6f66d8eff12fd23ea187be845}\label{class_entity_manager_a5d6395d6f66d8eff12fd23ea187be845}} 
-std\+::vector$<$ \mbox{\hyperlink{class_trap}{Trap}} $\ast$ $>$ {\bfseries get\+Traps} ()
+\mbox{\label{class_entity_manager_a5d6395d6f66d8eff12fd23ea187be845}} 
+std\+::vector$<$ \textbf{ Trap} $\ast$ $>$ {\bfseries get\+Traps} ()
 \item 
-\mbox{\Hypertarget{class_entity_manager_a4291b6eb6d436eb6d1d843e3d0438ec7}\label{class_entity_manager_a4291b6eb6d436eb6d1d843e3d0438ec7}} 
-std\+::vector$<$ \mbox{\hyperlink{class_tower}{Tower}} $\ast$ $>$ {\bfseries get\+Towers} ()
+\mbox{\label{class_entity_manager_a4291b6eb6d436eb6d1d843e3d0438ec7}} 
+std\+::vector$<$ \textbf{ Tower} $\ast$ $>$ {\bfseries get\+Towers} ()
 \item 
-\mbox{\Hypertarget{class_entity_manager_a477182cda4cd05ad1c0072666d1a8080}\label{class_entity_manager_a477182cda4cd05ad1c0072666d1a8080}} 
-void {\bfseries add\+Trap} (\mbox{\hyperlink{class_trap}{Trap}} \&trap)
+\mbox{\label{class_entity_manager_a477182cda4cd05ad1c0072666d1a8080}} 
+void {\bfseries add\+Trap} (\textbf{ Trap} \&trap)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a1ca176150575bebd1dc7d4e977b9b573}\label{class_entity_manager_a1ca176150575bebd1dc7d4e977b9b573}} 
+\mbox{\label{class_entity_manager_a1ca176150575bebd1dc7d4e977b9b573}} 
 bool {\bfseries remove\+Trap} (sf\+::\+Vector2i vec)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a5604b572065e94e11d296d8418cc7b26}\label{class_entity_manager_a5604b572065e94e11d296d8418cc7b26}} 
-void {\bfseries set\+Game\+State} (\mbox{\hyperlink{class_game_state}{Game\+State}} $\ast$gS)
+\mbox{\label{class_entity_manager_a5604b572065e94e11d296d8418cc7b26}} 
+void {\bfseries set\+Game\+State} (\textbf{ Game\+State} $\ast$gS)
 \item 
-\mbox{\Hypertarget{class_entity_manager_a669bba5605d756c0458723413088725d}\label{class_entity_manager_a669bba5605d756c0458723413088725d}} 
-void {\bfseries apply\+Changes} ()
-\end{DoxyCompactItemize}
+void \textbf{ apply\+Changes} ()
+\begin{DoxyCompactList}\small\item\em Class method required for changing a dynamic array of entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main game class that provides control over all entities. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_entity_manager_a669bba5605d756c0458723413088725d}} 
+\index{EntityManager@{EntityManager}!applyChanges@{applyChanges}}
+\index{applyChanges@{applyChanges}!EntityManager@{EntityManager}}
+\doxysubsubsection{applyChanges()}
+{\footnotesize\ttfamily void Entity\+Manager\+::apply\+Changes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Class method required for changing a dynamic array of entities. 
+
+The bottom line\+: Loads all of the active elements in the array \mbox{\label{class_entity_manager_a709c317cdf259f470c2e855a8164a129}} 
+\index{EntityManager@{EntityManager}!update@{update}}
+\index{update@{update}!EntityManager@{EntityManager}}
+\doxysubsubsection{update()}
+{\footnotesize\ttfamily bool Entity\+Manager\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{frame\+Time }\end{DoxyParamCaption})}
+
+
+
+\doxyref{A}{p.}{class_a} main method of the class that handles the time tick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

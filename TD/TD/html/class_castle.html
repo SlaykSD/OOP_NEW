@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Castle Class Reference</title>
+<title>Tower Defense for chosen: Castle Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -68,14 +70,19 @@ $(function() {
 <div class="title">Castle Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>It is castle descriptor.  
+ <a href="class_castle.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_castle_8h_source.html">Castle.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Castle:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_castle.png" usemap="#Castle_map" alt=""/>
   <map id="Castle_map" name="Castle_map">
-<area href="class_bulding.html" alt="Bulding" shape="rect" coords="0,56,54,80"/>
-<area href="class_entity.html" alt="Entity" shape="rect" coords="0,0,54,24"/>
+<area href="class_bulding.html" title="It is a descriptor of a logical structure that occupies a single tile." alt="Bulding" shape="rect" coords="0,56,54,80"/>
+<area href="class_entity.html" title="The general abstract entity class." alt="Entity" shape="rect" coords="0,0,54,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -85,10 +92,11 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Castle</b> (const <a class="el" href="class_tile.html">Tile</a> *tile)</td></tr>
 <tr class="separator:ab66cdfbfdd1aa57c4e20a309a9e10052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3431d035feb6ca5064e3e4f0845469"><td class="memItemLeft" align="right" valign="top"><a id="a0b3431d035feb6ca5064e3e4f0845469"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_castle.html#a0b3431d035feb6ca5064e3e4f0845469">update</a> (sf::Time)</td></tr>
+<tr class="memdesc:a0b3431d035feb6ca5064e3e4f0845469"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a.html">A</a> virtual method of the class that handles the time tick. <br /></td></tr>
 <tr class="separator:a0b3431d035feb6ca5064e3e4f0845469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40652d14377d615fd3b9dba4c6c490d4"><td class="memItemLeft" align="right" valign="top"><a id="a40652d14377d615fd3b9dba4c6c490d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (sf::RenderWindow *window)</td></tr>
+<tr class="memitem:a40652d14377d615fd3b9dba4c6c490d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_castle.html#a40652d14377d615fd3b9dba4c6c490d4">draw</a> (sf::RenderWindow *window)</td></tr>
+<tr class="memdesc:a40652d14377d615fd3b9dba4c6c490d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty function.  <a href="class_castle.html#a40652d14377d615fd3b9dba4c6c490d4">More...</a><br /></td></tr>
 <tr class="separator:a40652d14377d615fd3b9dba4c6c490d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023bf3ccafb369e2c0a3ab17af664ecd"><td class="memItemLeft" align="right" valign="top"><a id="a023bf3ccafb369e2c0a3ab17af664ecd"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>takeDamage</b> (float damage)</td></tr>
@@ -119,9 +127,36 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab3b8110646513b661582fbdfd431095c inherit pro_attribs_class_bulding"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afedb461476e4c1689b8ceb1841425b58"></a>
-<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_manager</b></td></tr>
+<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afedb461476e4c1689b8ceb1841425b58">_manager</a></td></tr>
+<tr class="memdesc:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safety pointer to the entity controller. <br /></td></tr>
 <tr class="separator:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>It is castle descriptor. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a40652d14377d615fd3b9dba4c6c490d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40652d14377d615fd3b9dba4c6c490d4">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Castle::draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empty function. </p>
+<p>Output information about the hp lock status </p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>It may break due to frequent font loading </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It may break due to frequent font loading </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>fix font </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_castle_8h_source.html">Castle.h</a></li>
 <li>Castle.cpp</li>

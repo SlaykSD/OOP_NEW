@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Bulding Class Reference</title>
+<title>Tower Defense for chosen: Bulding Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -69,17 +71,22 @@ $(function() {
 <div class="title">Bulding Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>It is a descriptor of a logical structure that occupies a single tile.  
+ <a href="class_bulding.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_bulding_8h_source.html">Bulding.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Bulding:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_bulding.png" usemap="#Bulding_map" alt=""/>
   <map id="Bulding_map" name="Bulding_map">
-<area href="class_entity.html" alt="Entity" shape="rect" coords="96,0,150,24"/>
-<area href="class_castle.html" alt="Castle" shape="rect" coords="0,112,54,136"/>
-<area href="class_lier.html" alt="Lier" shape="rect" coords="64,112,118,136"/>
-<area href="class_tower.html" alt="Tower" shape="rect" coords="128,112,182,136"/>
-<area href="class_trap.html" alt="Trap" shape="rect" coords="192,112,246,136"/>
+<area href="class_entity.html" title="The general abstract entity class." alt="Entity" shape="rect" coords="96,0,150,24"/>
+<area href="class_castle.html" title="It is castle descriptor." alt="Castle" shape="rect" coords="0,112,54,136"/>
+<area href="class_lier.html" title="It is a lair descriptor Controls the launch of waves." alt="Lier" shape="rect" coords="64,112,118,136"/>
+<area href="class_tower.html" title="The class implements the descriptor of the tower." alt="Tower" shape="rect" coords="128,112,182,136"/>
+<area href="class_trap.html" title="This is the trap descriptor." alt="Trap" shape="rect" coords="192,112,246,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -95,7 +102,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTile</b> (const <a
 const <a class="el" href="class_tile.html">Tile</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTile</b> ()</td></tr>
 <tr class="separator:aaff47bc9d8a8148860a46ae5ca358635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbffc217eae1b2fc21c25ec3fee87f0d"><td class="memItemLeft" align="right" valign="top"><a id="adbffc217eae1b2fc21c25ec3fee87f0d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time)=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bulding.html#adbffc217eae1b2fc21c25ec3fee87f0d">update</a> (sf::Time)=0</td></tr>
+<tr class="memdesc:adbffc217eae1b2fc21c25ec3fee87f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a.html">A</a> virtual method of the class that handles the time tick. <br /></td></tr>
 <tr class="separator:adbffc217eae1b2fc21c25ec3fee87f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a0821acbefecf6949e1220a306dffc30e inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a0821acbefecf6949e1220a306dffc30e"></a>
@@ -112,10 +120,13 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ab3b8110646513b661582fbdfd431095c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afedb461476e4c1689b8ceb1841425b58"></a>
-<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_manager</b></td></tr>
+<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afedb461476e4c1689b8ceb1841425b58">_manager</a></td></tr>
+<tr class="memdesc:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safety pointer to the entity controller. <br /></td></tr>
 <tr class="separator:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>It is a descriptor of a logical structure that occupies a single tile. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_bulding_8h_source.html">Bulding.h</a></li>
 <li>Bulding.cpp</li>
 </ul>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Targets Struct Reference</title>
+<title>Tower Defense for chosen: Targets Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -69,6 +71,11 @@ $(function() {
 <div class="title">Targets Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure that describes all the visible towers of the enemies, with their characteristics.  
+ <a href="struct_targets.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_move_system_8h_source.html">MoveSystem.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -79,16 +86,21 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a35ba02aa65be3226767161266a050713"><td class="memItemLeft" align="right" valign="top"><a id="a35ba02aa65be3226767161266a050713"></a>
-std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>targets</b></td></tr>
+std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_targets.html#a35ba02aa65be3226767161266a050713">targets</a></td></tr>
+<tr class="memdesc:a35ba02aa65be3226767161266a050713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enemies visible by towers. <br /></td></tr>
 <tr class="separator:a35ba02aa65be3226767161266a050713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d49101c64bc6985d3e58f6de78437e"><td class="memItemLeft" align="right" valign="top"><a id="a39d49101c64bc6985d3e58f6de78437e"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>distances_t</b></td></tr>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_targets.html#a39d49101c64bc6985d3e58f6de78437e">distances_t</a></td></tr>
+<tr class="memdesc:a39d49101c64bc6985d3e58f6de78437e"><td class="mdescLeft">&#160;</td><td class="mdescRight">distance to tower for enemies <br /></td></tr>
 <tr class="separator:a39d49101c64bc6985d3e58f6de78437e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c2e3832573e1fb9368252b2423599b2"><td class="memItemLeft" align="right" valign="top"><a id="a4c2e3832573e1fb9368252b2423599b2"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>distances_c</b></td></tr>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_targets.html#a4c2e3832573e1fb9368252b2423599b2">distances_c</a></td></tr>
+<tr class="memdesc:a4c2e3832573e1fb9368252b2423599b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">distance to castle for enemies <br /></td></tr>
 <tr class="separator:a4c2e3832573e1fb9368252b2423599b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure that describes all the visible towers of the enemies, with their characteristics. </p>
+</div><hr/>The documentation for this struct was generated from the following files:<ul>
 <li><a class="el" href="_move_system_8h_source.html">MoveSystem.h</a></li>
 <li>MoveSystem.cpp</li>
 </ul>

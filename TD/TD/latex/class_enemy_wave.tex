@@ -1,5 +1,14 @@
-\hypertarget{class_enemy_wave}{}\doxysection{Enemy\+Wave Class Reference}
+\doxysection{Enemy\+Wave Class Reference}
 \label{class_enemy_wave}\index{EnemyWave@{EnemyWave}}
+
+
+Class describing the enemy wave controller.  
+
+
+
+
+{\ttfamily \#include $<$Enemy\+Wave.\+h$>$}
+
 Inheritance diagram for Enemy\+Wave\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,22 +18,43 @@ Inheritance diagram for Enemy\+Wave\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_enemy_wave_a643428840799bc45f0a002fc7951d877}\label{class_enemy_wave_a643428840799bc45f0a002fc7951d877}} 
+\mbox{\label{class_enemy_wave_a643428840799bc45f0a002fc7951d877}} 
 {\bfseries Enemy\+Wave} (std\+::list$<$ sf\+::\+Vector2i $>$, int)
 \item 
-\mbox{\Hypertarget{class_enemy_wave_a90b6b0879d22e909f01461d116c90e13}\label{class_enemy_wave_a90b6b0879d22e909f01461d116c90e13}} 
+\mbox{\label{class_enemy_wave_a90b6b0879d22e909f01461d116c90e13}} 
 void {\bfseries draw} (sf\+::\+Render\+Window $\ast$window)
 \item 
-\mbox{\Hypertarget{class_enemy_wave_a6b4821f8e937586749437e294f796063}\label{class_enemy_wave_a6b4821f8e937586749437e294f796063}} 
-virtual void {\bfseries update} (sf\+::\+Time)
+virtual void \textbf{ update} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} virtual overloaded method of the class that handles the time tick. \end{DoxyCompactList}\item 
+\mbox{\label{class_enemy_wave_ae5ae24bde0216fa6587c4300573c5bd6}} 
+std\+::vector$<$ \textbf{ Enemy} $\ast$ $>$ {\bfseries get\+Enemies} () const
 \item 
-\mbox{\Hypertarget{class_enemy_wave_ae5ae24bde0216fa6587c4300573c5bd6}\label{class_enemy_wave_ae5ae24bde0216fa6587c4300573c5bd6}} 
-std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ $>$ {\bfseries get\+Enemies} () const
-\item 
-\mbox{\Hypertarget{class_enemy_wave_a2767b85f0d60a5844538152aa32a69a2}\label{class_enemy_wave_a2767b85f0d60a5844538152aa32a69a2}} 
-bool {\bfseries remove\+Enemy} (\mbox{\hyperlink{class_enemy}{Enemy}} $\ast$)
-\end{DoxyCompactItemize}
+\mbox{\label{class_enemy_wave_a2767b85f0d60a5844538152aa32a69a2}} 
+bool \textbf{ remove\+Enemy} (\textbf{ Enemy} $\ast$)
+\begin{DoxyCompactList}\small\item\em remove \doxyref{Enemy}{p.}{class_enemy} from vector \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class describing the enemy wave controller. 
+
+Able to generate a wave and when hp of enemy = 0 -\/ remove the enemy. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_enemy_wave_a6b4821f8e937586749437e294f796063}} 
+\index{EnemyWave@{EnemyWave}!update@{update}}
+\index{update@{update}!EnemyWave@{EnemyWave}}
+\doxysubsubsection{update()}
+{\footnotesize\ttfamily void Enemy\+Wave\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxyref{A}{p.}{class_a} virtual overloaded method of the class that handles the time tick. 
+
+Sends each enemy a time tick and records the hp status of each enemy in the wave 
+
+Implements \textbf{ Entity} \doxyref{}{p.}{class_entity_aaff401e0df8a6712c6a705a18ea06f36}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

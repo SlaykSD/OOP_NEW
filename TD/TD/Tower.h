@@ -64,8 +64,9 @@ public:
 	/*!
 	\brief Specifies the starting point of the sprite in the center*/
 	void setOrigin();
-	void setAngle(float angle) { angleOfRotation = angle; }
+	void setAngle(float angle);
 	float getAngle()const { return angleOfRotation; }
+	const TableStateTower& getTable() const { return table; }
 private:
 	sf::Time elapsedTime;
 	float angleOfRotation;

@@ -19,13 +19,17 @@ public:
 	\todo fix font
 	*/
 	void draw(sf::RenderWindow* window);
-	bool takeDamage(float damage) 
+	bool takeDamage(float damage)
 	{
 		hp -= damage;
-		if (hp < 0)
+		if (hp <= 0)
+		{
 			hp = 0;
-		return true;
+			return true;
+		}
+		return false;
 	}
+	float gethp()const { return hp; }
 private:
 	sf::Font font;
 	sf::Text textCastle;

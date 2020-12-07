@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Grid Class Reference</title>
+<title>Tower Defense for chosen: Grid Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -68,6 +70,11 @@ $(function() {
 <div class="title">Grid Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_a.html">A</a> class that describes interaction with map tiles.  
+ <a href="class_grid.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_grid_8h_source.html">Grid.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -91,8 +98,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>findObjects</b> (<a cl
 <tr class="memitem:a44a6fb2cbc46223978b49c2455225339"><td class="memItemLeft" align="right" valign="top"><a id="a44a6fb2cbc46223978b49c2455225339"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>setTiles</b> (std::vector&lt; <a class="el" href="struct_layer.html">Layer</a> &gt; tmp, int, int, <a class="el" href="struct_objects.html">Objects</a> *)</td></tr>
 <tr class="separator:a44a6fb2cbc46223978b49c2455225339"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fc28a45e8d808d3d0c7a4d9b5544076"><td class="memItemLeft" align="right" valign="top"><a id="a2fc28a45e8d808d3d0c7a4d9b5544076"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setStateObject</b> (sf::Vector2i Position, int)</td></tr>
+<tr class="memitem:a2fc28a45e8d808d3d0c7a4d9b5544076"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#a2fc28a45e8d808d3d0c7a4d9b5544076">setStateObject</a> (sf::Vector2i Position, int)</td></tr>
+<tr class="memdesc:a2fc28a45e8d808d3d0c7a4d9b5544076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method of the class required to change the tile state.  <a href="class_grid.html#a2fc28a45e8d808d3d0c7a4d9b5544076">More...</a><br /></td></tr>
 <tr class="separator:a2fc28a45e8d808d3d0c7a4d9b5544076"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa890508b01ac1835a04fafdc1346f42d"><td class="memItemLeft" align="right" valign="top"><a id="aa890508b01ac1835a04fafdc1346f42d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b> (sf::Texture)</td></tr>
@@ -101,7 +108,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b> (sf::T
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRectGrid</b> (std::vector&lt; sf::Rect&lt; int &gt;&gt; rectG)</td></tr>
 <tr class="separator:a2e632437a4772e93787317fdc4cfee7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_a.html">A</a> class that describes interaction with map tiles. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ac9ff4f63552b4c61ff90fcb35ad66c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ac9ff4f63552b4c61ff90fcb35ad66c">&#9670;&nbsp;</a></span>Grid()</h2>
 
@@ -116,7 +125,47 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setRectGrid</b> (std:
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="class_grid.html">Grid</a> implementation </p>
+<p><a class="el" href="class_grid.html" title="A class that describes interaction with map tiles.">Grid</a> implementation </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2fc28a45e8d808d3d0c7a4d9b5544076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fc28a45e8d808d3d0c7a4d9b5544076">&#9670;&nbsp;</a></span>setStateObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Grid::setStateObject </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector2i&#160;</td>
+          <td class="paramname"><em>Position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method of the class required to change the tile state. </p>
+<p>All States are described in the <a class="el" href="_type_8h_source.html">Type.h</a> file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>- the vector describing the coordinates of the tile </td></tr>
+    <tr><td class="paramname">type</td><td>- type of change 2 -&gt; add <a class="el" href="class_trap.html" title="This is the trap descriptor.">Trap</a>, 1-&gt; add tower , -1 - remove <a class="el" href="class_tower.html" title="The class implements the descriptor of the tower.">Tower</a>, -2 -&gt;remove trap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 if succes and 0 if fail </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Tiles must be 64 by 64 pixels </dd></dl>
 
 </div>
 </div>

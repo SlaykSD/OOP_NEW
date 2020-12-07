@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Enemy Class Reference</title>
+<title>Tower Defense for chosen: Enemy Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -69,16 +71,21 @@ $(function() {
 <div class="title">Enemy Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Is the specifier of the enemy.  
+ <a href="class_enemy.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_enemy_8h_source.html">Enemy.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Enemy:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_enemy.png" usemap="#Enemy_map" alt=""/>
   <map id="Enemy_map" name="Enemy_map">
-<area href="class_entity.html" alt="Entity" shape="rect" coords="102,0,194,24"/>
-<area href="class_heavy_infantry.html" alt="HeavyInfantry" shape="rect" coords="0,112,92,136"/>
-<area href="class_heavy_ranger.html" alt="HeavyRanger" shape="rect" coords="102,112,194,136"/>
-<area href="class_light_infantry.html" alt="LightInfantry" shape="rect" coords="204,112,296,136"/>
+<area href="class_entity.html" title="The general abstract entity class." alt="Entity" shape="rect" coords="102,0,194,24"/>
+<area href="class_heavy_infantry.html" title="It is a subtype of the enemy class-a slow but heavily armed soldier in uniform." alt="HeavyInfantry" shape="rect" coords="0,112,92,136"/>
+<area href="class_heavy_ranger.html" title="It is a subtype of the enemy class-a fast and heavily armed soldier in uniform." alt="HeavyRanger" shape="rect" coords="102,112,194,136"/>
+<area href="class_light_infantry.html" title="Represents a subtype of the enemy class - an ordinary man in uniform." alt="LightInfantry" shape="rect" coords="204,112,296,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -90,14 +97,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9dd1709fee77da44cda2414bedc84bbb"><td class="memItemLeft" align="right" valign="top"><a id="a9dd1709fee77da44cda2414bedc84bbb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnemyWave</b> (<a class="el" href="class_enemy_wave.html">EnemyWave</a> *wave)</td></tr>
 <tr class="separator:a9dd1709fee77da44cda2414bedc84bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a959297cb70649140721b8adbe77bf773"><td class="memItemLeft" align="right" valign="top"><a id="a959297cb70649140721b8adbe77bf773"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>controlEffects</b> (sf::Time)</td></tr>
+<tr class="memitem:a959297cb70649140721b8adbe77bf773"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a959297cb70649140721b8adbe77bf773">controlEffects</a> (sf::Time)</td></tr>
+<tr class="memdesc:a959297cb70649140721b8adbe77bf773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method of the class intended for processing effects in void <a class="el" href="class_enemy.html#a67109c84a4ce39fcc7144ab5a39e004c" title="A virtual method of the class that handles the time tick.">update()</a>  <a href="class_enemy.html#a959297cb70649140721b8adbe77bf773">More...</a><br /></td></tr>
 <tr class="separator:a959297cb70649140721b8adbe77bf773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67f792dfd61d7faea57d0d569100a181"><td class="memItemLeft" align="right" valign="top"><a id="a67f792dfd61d7faea57d0d569100a181"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>addEffect</b> (EffectType)</td></tr>
 <tr class="separator:a67f792dfd61d7faea57d0d569100a181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48a08ae65652d7a04011e5768124c73a"><td class="memItemLeft" align="right" valign="top"><a id="a48a08ae65652d7a04011e5768124c73a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>findEffect</b> (EffectType)</td></tr>
+<tr class="memitem:a48a08ae65652d7a04011e5768124c73a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a48a08ae65652d7a04011e5768124c73a">findEffect</a> (EffectType)</td></tr>
+<tr class="memdesc:a48a08ae65652d7a04011e5768124c73a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a.html">A</a> method that searches for identical effects and updates the effect.  <a href="class_enemy.html#a48a08ae65652d7a04011e5768124c73a">More...</a><br /></td></tr>
 <tr class="separator:a48a08ae65652d7a04011e5768124c73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d1241d94466f86fc651590516447acb"><td class="memItemLeft" align="right" valign="top"><a id="a3d1241d94466f86fc651590516447acb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateEf</b> (sf::Time)</td></tr>
@@ -115,7 +122,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getSpeed</b> ()</td>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setIncreaseDamage</b> (float tmp)</td></tr>
 <tr class="separator:a5a352a7035371c1a122919aa471271b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67109c84a4ce39fcc7144ab5a39e004c"><td class="memItemLeft" align="right" valign="top"><a id="a67109c84a4ce39fcc7144ab5a39e004c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a67109c84a4ce39fcc7144ab5a39e004c">update</a> (sf::Time)</td></tr>
+<tr class="memdesc:a67109c84a4ce39fcc7144ab5a39e004c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a.html">A</a> virtual method of the class that handles the time tick. <br /></td></tr>
 <tr class="separator:a67109c84a4ce39fcc7144ab5a39e004c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a225fbc50c65be768bec6df9197093b"><td class="memItemLeft" align="right" valign="top"><a id="a2a225fbc50c65be768bec6df9197093b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setVisible</b> (bool vis)</td></tr>
@@ -144,11 +152,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrigin</b> ()</td>
 <tr class="memitem:a696fa9b71571bd433fb4e13c20ac85d4"><td class="memItemLeft" align="right" valign="top"><a id="a696fa9b71571bd433fb4e13c20ac85d4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reSetOrigin</b> ()</td></tr>
 <tr class="separator:a696fa9b71571bd433fb4e13c20ac85d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc66950b2cb6b9c027e751db0b76f3d"><td class="memItemLeft" align="right" valign="top"><a id="a5bc66950b2cb6b9c027e751db0b76f3d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>selfdestruction</b> ()</td></tr>
+<tr class="memitem:a5bc66950b2cb6b9c027e751db0b76f3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a5bc66950b2cb6b9c027e751db0b76f3d">selfdestruction</a> ()</td></tr>
+<tr class="memdesc:a5bc66950b2cb6b9c027e751db0b76f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method is designed to destroy itself due to lack of hp.  <a href="class_enemy.html#a5bc66950b2cb6b9c027e751db0b76f3d">More...</a><br /></td></tr>
 <tr class="separator:a5bc66950b2cb6b9c027e751db0b76f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0701afec570376ae71c9d4632d7154c"><td class="memItemLeft" align="right" valign="top"><a id="aa0701afec570376ae71c9d4632d7154c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>takeDamage</b> (float damage, EffectType type)</td></tr>
+<tr class="memitem:aa0701afec570376ae71c9d4632d7154c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aa0701afec570376ae71c9d4632d7154c">takeDamage</a> (float damage, EffectType type)</td></tr>
+<tr class="memdesc:aa0701afec570376ae71c9d4632d7154c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method of the class that is intended for dealing damage and adding an effect to the table.  <a href="class_enemy.html#aa0701afec570376ae71c9d4632d7154c">More...</a><br /></td></tr>
 <tr class="separator:aa0701afec570376ae71c9d4632d7154c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e35e82a20ff2af8653279e59b27c7b4"><td class="memItemLeft" align="right" valign="top"><a id="a3e35e82a20ff2af8653279e59b27c7b4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getGold</b> () const</td></tr>
@@ -213,9 +221,128 @@ sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>healthbar</b><
 <tr class="separator:a1d59202909b7b467dc02e8fce46ce99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afedb461476e4c1689b8ceb1841425b58"></a>
-<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_manager</b></td></tr>
+<a class="el" href="class_entity_manager.html">EntityManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afedb461476e4c1689b8ceb1841425b58">_manager</a></td></tr>
+<tr class="memdesc:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safety pointer to the entity controller. <br /></td></tr>
 <tr class="separator:afedb461476e4c1689b8ceb1841425b58 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Is the specifier of the enemy. </p>
+<p>Contains a mountain of functions for interacting with class parameters, including attributes such as |Speed| , |hp| , |Money| and other. Also functions for interacting with the effects table </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a959297cb70649140721b8adbe77bf773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a959297cb70649140721b8adbe77bf773">&#9670;&nbsp;</a></span>controlEffects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::controlEffects </td>
+          <td>(</td>
+          <td class="paramtype">sf::Time&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method of the class intended for processing effects in void <a class="el" href="class_enemy.html#a67109c84a4ce39fcc7144ab5a39e004c" title="A virtual method of the class that handles the time tick.">update()</a> </p>
+<p>Checks the time of all effects and adds the time to the counter for all effects. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>- time tick </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if table of effects - empty and 1 if else </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>method can kill enemy and don't give money player </dd></dl>
+
+</div>
+</div>
+<a id="a48a08ae65652d7a04011e5768124c73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a08ae65652d7a04011e5768124c73a">&#9670;&nbsp;</a></span>findEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::findEffect </td>
+          <td>(</td>
+          <td class="paramtype">EffectType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_a.html">A</a> method that searches for identical effects and updates the effect. </p>
+<p>This method is designed to eliminate the collision of 2 identical effects. if the same type of effect is found, the timer will simply update </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>- EffectType - type effect, which enemy get from traps or tower </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if table of effects - empty and 1 if else </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>method can kill enemy and don't give money player </dd></dl>
+
+</div>
+</div>
+<a id="a5bc66950b2cb6b9c027e751db0b76f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc66950b2cb6b9c027e751db0b76f3d">&#9670;&nbsp;</a></span>selfdestruction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::selfdestruction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The method is designed to destroy itself due to lack of hp. </p>
+<p>If you remove this feature, the enemy will die in a loop, after dying from the effect, which is not good </p><dl class="section warning"><dt>Warning</dt><dd>method can kill enemy and don't give money player </dd></dl>
+
+</div>
+</div>
+<a id="aa0701afec570376ae71c9d4632d7154c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0701afec570376ae71c9d4632d7154c">&#9670;&nbsp;</a></span>takeDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::takeDamage </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>damage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EffectType&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method of the class that is intended for dealing damage and adding an effect to the table. </p>
+<p>Checks the time of all effects and adds the time to the counter for all effects. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">damage</td><td>- Obviously the damage the poor guy will take </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>- EffectType - type effect, which enemy get from traps or tower </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if enemy is dead and false if else </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_enemy_8h_source.html">Enemy.h</a></li>
 <li>Enemy.cpp</li>

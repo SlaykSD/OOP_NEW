@@ -66,3 +66,16 @@ void Tile::setPositionToCenter()
 	pos = pos + center;
 	sprite.setPosition(pos);
 }
+void Tile::setPosition(sf::Vector2f pos)
+{
+	if ((pos.x > sprite.getTextureRect().width * 9)||
+		(pos.y > sprite.getTextureRect().height * 9)||
+		(pos.x <0)|| (pos.y<0))
+	{
+		throw "going beyond";
+	}
+	else
+	{
+		sprite.setPosition(pos);
+	}
+}

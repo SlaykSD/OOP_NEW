@@ -43,7 +43,7 @@ namespace best_list {
 		class IterList;
 		friend class IterList;
 	private:
-		friend class Node;
+		friend struct Node;
 		Node* head; //! The pointer to head element of list
 		Node* last;//! The pointer to last element of list
 

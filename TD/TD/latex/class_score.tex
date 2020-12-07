@@ -1,5 +1,14 @@
-\hypertarget{class_score}{}\doxysection{Score Class Reference}
+\doxysection{Score Class Reference}
 \label{class_score}\index{Score@{Score}}
+
+
+Illustrates the player\textquotesingle{}s game score and balance.  
+
+
+
+
+{\ttfamily \#include $<$Score.\+h$>$}
+
 Inheritance diagram for Score\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,19 +18,29 @@ Inheritance diagram for Score\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_score_ab13e3fabf881e5a3ec5c4b7685e95e86}\label{class_score_ab13e3fabf881e5a3ec5c4b7685e95e86}} 
-virtual void {\bfseries update} (sf\+::\+Time)
-\item 
-\mbox{\Hypertarget{class_score_a1141d6f39128e62749bbb8604447ce35}\label{class_score_a1141d6f39128e62749bbb8604447ce35}} 
+\mbox{\label{class_score_ab13e3fabf881e5a3ec5c4b7685e95e86}} 
+virtual void \textbf{ update} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} virtual method of the class that handles the time tick. \end{DoxyCompactList}\item 
+\mbox{\label{class_score_a1141d6f39128e62749bbb8604447ce35}} 
 int {\bfseries get\+Gold} () const
 \item 
-\mbox{\Hypertarget{class_score_ab0ba0527db8f7a30cd298e5f77b6bda4}\label{class_score_ab0ba0527db8f7a30cd298e5f77b6bda4}} 
-void {\bfseries draw} (sf\+::\+Render\+Window $\ast$window)
-\item 
-\mbox{\Hypertarget{class_score_a323925464371506f66e6ee417e02aa3d}\label{class_score_a323925464371506f66e6ee417e02aa3d}} 
+\mbox{\label{class_score_ab0ba0527db8f7a30cd298e5f77b6bda4}} 
+void \textbf{ draw} (sf\+::\+Render\+Window $\ast$window)
+\begin{DoxyCompactList}\small\item\em Draws the game account and balance. \end{DoxyCompactList}\item 
+\mbox{\label{class_score_a323925464371506f66e6ee417e02aa3d}} 
 bool {\bfseries set\+Gold} (int)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Illustrates the player\textquotesingle{}s game score and balance. 
+
+\begin{DoxyWarning}{Warning}
+kills doesn\textquotesingle{}t add score 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\textbf{ Todo}]add points from kills enemy \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

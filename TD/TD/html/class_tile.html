@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Tile Class Reference</title>
+<title>Tower Defense for chosen: Tile Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -68,11 +70,15 @@ $(function() {
 <div class="title">Tile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>It is a class that describes a landscape element.  
+ <a href="class_tile.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_tile_8h_source.html">Tile.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a319cf900ed11f0e6affadcaa144eb91e"><td class="memItemLeft" align="right" valign="top"><a id="a319cf900ed11f0e6affadcaa144eb91e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (int)</td></tr>
+<tr class="memitem:a319cf900ed11f0e6affadcaa144eb91e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile.html#a319cf900ed11f0e6affadcaa144eb91e">setState</a> (int)</td></tr>
 <tr class="separator:a319cf900ed11f0e6affadcaa144eb91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29dce83bcfb502b032e0e20270e4a1c0"><td class="memItemLeft" align="right" valign="top"><a id="a29dce83bcfb502b032e0e20270e4a1c0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSprite</b> (const sf::Sprite &amp;tmp)</td></tr>
@@ -111,6 +117,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotation</b> (floa
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPositionToCenter</b> ()</td></tr>
 <tr class="separator:a438e0e6043cfb05548a358a5bc1740a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>It is a class that describes a landscape element. </p>
+<p>It is necessary to implement the logic of building towers and traps, and also contains the texture of the map square. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a319cf900ed11f0e6affadcaa144eb91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319cf900ed11f0e6affadcaa144eb91e">&#9670;&nbsp;</a></span>setState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tile::setState </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>\Method of the class that sets the state of the cell</p>
+<p>All cell States are described in the <a class="el" href="_type_8h_source.html">Type.h</a> file </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_tile_8h_source.html">Tile.h</a></li>
 <li>Tile.cpp</li>

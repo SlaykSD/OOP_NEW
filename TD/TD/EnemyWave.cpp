@@ -38,7 +38,7 @@ void EnemyWave::update(sf::Time dt)
 	}
 	for (int i = 0; i < size; i++)
 	{
-		if (wave[i]->getHP() == 0)
+		if (wave[i]->gethp() == 0)
 			removeEnemy(wave[i]);
 		else
 			wave[i]->update(dt);

@@ -1,5 +1,14 @@
-\hypertarget{class_trap}{}\doxysection{Trap Class Reference}
+\doxysection{Trap Class Reference}
 \label{class_trap}\index{Trap@{Trap}}
+
+
+This is the trap descriptor.  
+
+
+
+
+{\ttfamily \#include $<$Trap.\+h$>$}
+
 Inheritance diagram for Trap\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,40 +18,73 @@ Inheritance diagram for Trap\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_trap_ad20e99ae61b0e8c98657b52df3c387fe}\label{class_trap_ad20e99ae61b0e8c98657b52df3c387fe}} 
-{\bfseries Trap} (const \mbox{\hyperlink{class_tile}{Tile}} $\ast$tile, Effect\+Type type)
+\mbox{\label{class_trap_ad20e99ae61b0e8c98657b52df3c387fe}} 
+{\bfseries Trap} (const \textbf{ Tile} $\ast$tile, Effect\+Type type)
 \item 
-\mbox{\Hypertarget{class_trap_adb26ae69a04e64fe1c090ba4d5bc89cb}\label{class_trap_adb26ae69a04e64fe1c090ba4d5bc89cb}} 
-{\bfseries Trap} (const \mbox{\hyperlink{class_trap}{Trap}} \&c)
+\mbox{\label{class_trap_adb26ae69a04e64fe1c090ba4d5bc89cb}} 
+{\bfseries Trap} (const \textbf{ Trap} \&c)
 \item 
-\mbox{\Hypertarget{class_trap_a44ff616c085b100a1d5499d6a235d0af}\label{class_trap_a44ff616c085b100a1d5499d6a235d0af}} 
-const \mbox{\hyperlink{class_trap}{Trap}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_trap}{Trap}} \&c)
+\mbox{\label{class_trap_a44ff616c085b100a1d5499d6a235d0af}} 
+const \textbf{ Trap} \& {\bfseries operator=} (const \textbf{ Trap} \&c)
 \item 
-\mbox{\Hypertarget{class_trap_ad16544efeb74b7dc55998056095f9d4f}\label{class_trap_ad16544efeb74b7dc55998056095f9d4f}} 
-virtual void {\bfseries update} (sf\+::\+Time)
-\item 
-\mbox{\Hypertarget{class_trap_adc4c3f7a8c169258a40e0e23269a22fd}\label{class_trap_adc4c3f7a8c169258a40e0e23269a22fd}} 
+virtual void \textbf{ update} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} virtual overloaded method of the class that handles the time tick. \end{DoxyCompactList}\item 
+\mbox{\label{class_trap_adc4c3f7a8c169258a40e0e23269a22fd}} 
 void {\bfseries draw} (sf\+::\+Render\+Window $\ast$window)
 \item 
-\mbox{\Hypertarget{class_trap_a237399404815091cb8bd3d02d5bade61}\label{class_trap_a237399404815091cb8bd3d02d5bade61}} 
+\mbox{\label{class_trap_a237399404815091cb8bd3d02d5bade61}} 
 float {\bfseries get\+Damage} () const
 \item 
-\mbox{\Hypertarget{class_trap_a08897b18c3031f1d9b47eb56b4759f8a}\label{class_trap_a08897b18c3031f1d9b47eb56b4759f8a}} 
+\mbox{\label{class_trap_a08897b18c3031f1d9b47eb56b4759f8a}} 
 Effect\+Type {\bfseries get\+Effect\+Type} () const
 \item 
-\mbox{\Hypertarget{class_trap_a5e68aa9333e1ebadfe6415047e145f81}\label{class_trap_a5e68aa9333e1ebadfe6415047e145f81}} 
+\mbox{\label{class_trap_a5e68aa9333e1ebadfe6415047e145f81}} 
 float {\bfseries get\+Range} () const
 \item 
-\mbox{\Hypertarget{class_trap_a78e80eb05d377103ef590b27e00d105c}\label{class_trap_a78e80eb05d377103ef590b27e00d105c}} 
+\mbox{\label{class_trap_a78e80eb05d377103ef590b27e00d105c}} 
 bool {\bfseries get\+Mode} () const
 \item 
-\mbox{\Hypertarget{class_trap_a404dc8dbbd3f175d0f299dadb085165f}\label{class_trap_a404dc8dbbd3f175d0f299dadb085165f}} 
+\mbox{\label{class_trap_a404dc8dbbd3f175d0f299dadb085165f}} 
 void {\bfseries set\+Mode} (bool mode)
 \item 
-\mbox{\Hypertarget{class_trap_ab01fed632c36a61ef3d0170ebe12e2d9}\label{class_trap_ab01fed632c36a61ef3d0170ebe12e2d9}} 
+\mbox{\label{class_trap_ab01fed632c36a61ef3d0170ebe12e2d9}} 
 bool {\bfseries check\+Time} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This is the trap descriptor. 
+
+In fact, it\textquotesingle{}s just a timer bomb, it explodes (in a certain radius (40 pixels)), deals damage to all enemies, at the moment when it\textquotesingle{}s time to detonate \begin{DoxyRefDesc}{Bug}
+\item[\textbf{ Bug}]It doesn\textquotesingle{}t detonated if it doesn\textquotesingle{}t see enemies \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Todo}
+\item[\textbf{ Todo}]fix bug in \doxyref{Move\+System}{p.}{class_move_system} \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+It doesn\textquotesingle{}t detonated if it doesn\textquotesingle{}t see enemies 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_trap_ad16544efeb74b7dc55998056095f9d4f}} 
+\index{Trap@{Trap}!update@{update}}
+\index{update@{update}!Trap@{Trap}}
+\doxysubsubsection{update()}
+{\footnotesize\ttfamily void Trap\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxyref{A}{p.}{class_a} virtual overloaded method of the class that handles the time tick. 
+
+Deals damage if it\textquotesingle{}s a poison tower, and adds up the time ticks until it\textquotesingle{}s time to detonate. 
+\begin{DoxyParams}{Parameters}
+{\em dt} & -\/ tick time $<$-\/ see in Game description \\
+\hline
+\end{DoxyParams}
+
+
+Implements \textbf{ Bulding} \doxyref{}{p.}{class_bulding_adbffc217eae1b2fc21c25ec3fee87f0d}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

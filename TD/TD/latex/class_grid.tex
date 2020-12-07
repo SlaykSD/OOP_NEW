@@ -1,47 +1,84 @@
-\hypertarget{class_grid}{}\doxysection{Grid Class Reference}
+\doxysection{Grid Class Reference}
 \label{class_grid}\index{Grid@{Grid}}
+
+
+\doxyref{A}{p.}{class_a} class that describes interaction with map tiles.  
+
+
+
+
+{\ttfamily \#include $<$Grid.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid}} ()
+\textbf{ Grid} ()
 \item 
-\mbox{\Hypertarget{class_grid_a6533d5cf8152e136e74c9536f3a02677}\label{class_grid_a6533d5cf8152e136e74c9536f3a02677}} 
-const \mbox{\hyperlink{class_tile}{Tile}} $\ast$ {\bfseries get\+Tile} (int i, int j) const
+\mbox{\label{class_grid_a6533d5cf8152e136e74c9536f3a02677}} 
+const \textbf{ Tile} $\ast$ {\bfseries get\+Tile} (int i, int j) const
 \item 
-\mbox{\Hypertarget{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}\label{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}} 
+\mbox{\label{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}} 
 void {\bfseries draw} (sf\+::\+Render\+Window \&window)
 \item 
-\mbox{\Hypertarget{class_grid_acc62752af91bfbcc48e2f9c8a7fda6ac}\label{class_grid_acc62752af91bfbcc48e2f9c8a7fda6ac}} 
-const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_tile}{Tile}} $>$ $>$ \& {\bfseries get\+Tiles} () const
+\mbox{\label{class_grid_acc62752af91bfbcc48e2f9c8a7fda6ac}} 
+const std\+::vector$<$ std\+::vector$<$ \textbf{ Tile} $>$ $>$ \& {\bfseries get\+Tiles} () const
 \item 
-\mbox{\Hypertarget{class_grid_a89f558f159ff247845869603ffa66df8}\label{class_grid_a89f558f159ff247845869603ffa66df8}} 
-void {\bfseries set\+Tiles} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_tile}{Tile}} $>$$>$ new\+Map)
+\mbox{\label{class_grid_a89f558f159ff247845869603ffa66df8}} 
+void {\bfseries set\+Tiles} (const std\+::vector$<$ std\+::vector$<$ \textbf{ Tile} $>$$>$ new\+Map)
 \item 
-\mbox{\Hypertarget{class_grid_a68a2867066c1038f62ca727ac7e4aed8}\label{class_grid_a68a2867066c1038f62ca727ac7e4aed8}} 
-int {\bfseries find\+Objects} (\mbox{\hyperlink{struct_objects}{Objects}} $\ast$obj, sf\+::\+Sprite tile)
+\mbox{\label{class_grid_a68a2867066c1038f62ca727ac7e4aed8}} 
+int {\bfseries find\+Objects} (\textbf{ Objects} $\ast$obj, sf\+::\+Sprite tile)
 \item 
-\mbox{\Hypertarget{class_grid_a44a6fb2cbc46223978b49c2455225339}\label{class_grid_a44a6fb2cbc46223978b49c2455225339}} 
-bool {\bfseries set\+Tiles} (std\+::vector$<$ \mbox{\hyperlink{struct_layer}{Layer}} $>$ tmp, int, int, \mbox{\hyperlink{struct_objects}{Objects}} $\ast$)
+\mbox{\label{class_grid_a44a6fb2cbc46223978b49c2455225339}} 
+bool {\bfseries set\+Tiles} (std\+::vector$<$ \textbf{ Layer} $>$ tmp, int, int, \textbf{ Objects} $\ast$)
 \item 
-\mbox{\Hypertarget{class_grid_a2fc28a45e8d808d3d0c7a4d9b5544076}\label{class_grid_a2fc28a45e8d808d3d0c7a4d9b5544076}} 
-int {\bfseries set\+State\+Object} (sf\+::\+Vector2i Position, int)
-\item 
-\mbox{\Hypertarget{class_grid_aa890508b01ac1835a04fafdc1346f42d}\label{class_grid_aa890508b01ac1835a04fafdc1346f42d}} 
+int \textbf{ set\+State\+Object} (sf\+::\+Vector2i Position, int)
+\begin{DoxyCompactList}\small\item\em Method of the class required to change the tile state. \end{DoxyCompactList}\item 
+\mbox{\label{class_grid_aa890508b01ac1835a04fafdc1346f42d}} 
 void {\bfseries set\+Texture} (sf\+::\+Texture)
 \item 
-\mbox{\Hypertarget{class_grid_a2e632437a4772e93787317fdc4cfee7f}\label{class_grid_a2e632437a4772e93787317fdc4cfee7f}} 
+\mbox{\label{class_grid_a2e632437a4772e93787317fdc4cfee7f}} 
 void {\bfseries set\+Rect\+Grid} (std\+::vector$<$ sf\+::\+Rect$<$ int $>$$>$ rectG)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\doxyref{A}{p.}{class_a} class that describes interaction with map tiles. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}\label{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}} 
+\mbox{\label{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}} 
 \index{Grid@{Grid}!Grid@{Grid}}
 \index{Grid@{Grid}!Grid@{Grid}}
-\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}}
+\doxysubsubsection{Grid()}
 {\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\hyperlink{class_grid}{Grid}} implementation 
+\doxyref{Grid}{p.}{class_grid} implementation 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_grid_a2fc28a45e8d808d3d0c7a4d9b5544076}} 
+\index{Grid@{Grid}!setStateObject@{setStateObject}}
+\index{setStateObject@{setStateObject}!Grid@{Grid}}
+\doxysubsubsection{setStateObject()}
+{\footnotesize\ttfamily int Grid\+::set\+State\+Object (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{Position,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+Method of the class required to change the tile state. 
+
+All States are described in the \doxyref{Type.\+h}{p.}{_type_8h_source} file 
+\begin{DoxyParams}{Parameters}
+{\em position} & -\/ the vector describing the coordinates of the tile \\
+\hline
+{\em type} & -\/ type of change 2 -\/$>$ add \doxyref{Trap}{p.}{class_trap}, 1-\/$>$ add tower , -\/1 -\/ remove \doxyref{Tower}{p.}{class_tower}, -\/2 -\/$>$remove trap \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if succes and 0 if fail 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Tiles must be 64 by 64 pixels 
+\end{DoxyWarning}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

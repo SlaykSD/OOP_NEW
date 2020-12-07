@@ -1,5 +1,14 @@
-\hypertarget{class_tower}{}\doxysection{Tower Class Reference}
+\doxysection{Tower Class Reference}
 \label{class_tower}\index{Tower@{Tower}}
+
+
+The class implements the descriptor of the tower.  
+
+
+
+
+{\ttfamily \#include $<$Tower.\+h$>$}
+
 Inheritance diagram for Tower\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,52 +18,80 @@ Inheritance diagram for Tower\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_tower_a52c551eb40f7ed5b47afbb78e8a43e01}\label{class_tower_a52c551eb40f7ed5b47afbb78e8a43e01}} 
-{\bfseries Tower} (const \mbox{\hyperlink{class_tower}{Tower}} \&)
+\mbox{\label{class_tower_a52c551eb40f7ed5b47afbb78e8a43e01}} 
+{\bfseries Tower} (const \textbf{ Tower} \&)
 \item 
-\mbox{\Hypertarget{class_tower_ad05f5220504c27ed82a522984ad0df34}\label{class_tower_ad05f5220504c27ed82a522984ad0df34}} 
-{\bfseries Tower} (const \mbox{\hyperlink{class_tile}{Tile}} $\ast$tile, Tower\+Type)
+\mbox{\label{class_tower_ad05f5220504c27ed82a522984ad0df34}} 
+{\bfseries Tower} (const \textbf{ Tile} $\ast$tile, Tower\+Type)
 \item 
-\mbox{\Hypertarget{class_tower_ab1a6c411e6a28f7a48238f5da0ed51de}\label{class_tower_ab1a6c411e6a28f7a48238f5da0ed51de}} 
-virtual void {\bfseries update} (sf\+::\+Time)
-\item 
-\mbox{\Hypertarget{class_tower_a80fb1e17db2b9a657e60517858857fb0}\label{class_tower_a80fb1e17db2b9a657e60517858857fb0}} 
-void {\bfseries draw} (sf\+::\+Render\+Window $\ast$window)
-\item 
-\mbox{\Hypertarget{class_tower_a4e6faf723eeb4be11e62eba1bc9f6c73}\label{class_tower_a4e6faf723eeb4be11e62eba1bc9f6c73}} 
+virtual void \textbf{ update} (sf\+::\+Time)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} virtual overloaded method of the class that handles the time tick. \end{DoxyCompactList}\item 
+\mbox{\label{class_tower_a80fb1e17db2b9a657e60517858857fb0}} 
+void \textbf{ draw} (sf\+::\+Render\+Window $\ast$window)
+\begin{DoxyCompactList}\small\item\em \doxyref{A}{p.}{class_a} class method that simply draws a tower (a sprite rotated by an angle) \end{DoxyCompactList}\item 
+\mbox{\label{class_tower_a4e6faf723eeb4be11e62eba1bc9f6c73}} 
 Tower\+Type {\bfseries get\+Tower\+Type} () const
 \item 
-\mbox{\Hypertarget{class_tower_a4a69796c3c65aeae2d42ef631d69eb6c}\label{class_tower_a4a69796c3c65aeae2d42ef631d69eb6c}} 
+\mbox{\label{class_tower_a4a69796c3c65aeae2d42ef631d69eb6c}} 
 int {\bfseries get\+Level} () const
 \item 
-\mbox{\Hypertarget{class_tower_a40f6954628828fe72114b673a7d66f0b}\label{class_tower_a40f6954628828fe72114b673a7d66f0b}} 
-const \mbox{\hyperlink{class_tower}{Tower}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_tower}{Tower}} \&)
+\mbox{\label{class_tower_a40f6954628828fe72114b673a7d66f0b}} 
+const \textbf{ Tower} \& {\bfseries operator=} (const \textbf{ Tower} \&)
 \item 
-\mbox{\Hypertarget{class_tower_a507bc80e6a1b32e55188a5eb11be889c}\label{class_tower_a507bc80e6a1b32e55188a5eb11be889c}} 
+\mbox{\label{class_tower_a507bc80e6a1b32e55188a5eb11be889c}} 
 void {\bfseries lvl\+UP} ()
 \item 
-\mbox{\Hypertarget{class_tower_a68983d813fce66a4ee33f2252f7f6548}\label{class_tower_a68983d813fce66a4ee33f2252f7f6548}} 
-void {\bfseries set\+Target} (\mbox{\hyperlink{class_enemy}{Enemy}} $\ast$tmp)
+\mbox{\label{class_tower_a68983d813fce66a4ee33f2252f7f6548}} 
+void {\bfseries set\+Target} (\textbf{ Enemy} $\ast$tmp)
 \item 
-\mbox{\Hypertarget{class_tower_a0bf807d1c4bf8c1102d8b5d640716597}\label{class_tower_a0bf807d1c4bf8c1102d8b5d640716597}} 
+\mbox{\label{class_tower_a0bf807d1c4bf8c1102d8b5d640716597}} 
 void {\bfseries remove\+Color} ()
 \item 
-\mbox{\Hypertarget{class_tower_a77ad39398372dea3ab87d3f0754283b6}\label{class_tower_a77ad39398372dea3ab87d3f0754283b6}} 
-\mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ {\bfseries get\+Target} () const
+\mbox{\label{class_tower_a77ad39398372dea3ab87d3f0754283b6}} 
+\textbf{ Enemy} $\ast$ {\bfseries get\+Target} () const
 \item 
-\mbox{\Hypertarget{class_tower_a07d4c3696812370348df4926c1fe45f0}\label{class_tower_a07d4c3696812370348df4926c1fe45f0}} 
+\mbox{\label{class_tower_a07d4c3696812370348df4926c1fe45f0}} 
 float {\bfseries get\+Range} () const
 \item 
-\mbox{\Hypertarget{class_tower_a6a88018504ab3308a33f013dc2605613}\label{class_tower_a6a88018504ab3308a33f013dc2605613}} 
-void {\bfseries set\+Origin} ()
-\item 
-\mbox{\Hypertarget{class_tower_a3bb03728e74d099a1351d1351a68ca3c}\label{class_tower_a3bb03728e74d099a1351d1351a68ca3c}} 
+\mbox{\label{class_tower_a6a88018504ab3308a33f013dc2605613}} 
+void \textbf{ set\+Origin} ()
+\begin{DoxyCompactList}\small\item\em Specifies the starting point of the sprite in the center. \end{DoxyCompactList}\item 
+\mbox{\label{class_tower_a3bb03728e74d099a1351d1351a68ca3c}} 
 void {\bfseries set\+Angle} (float angle)
 \item 
-\mbox{\Hypertarget{class_tower_ad7d5f2ceaff05dde85c535daa899dd5f}\label{class_tower_ad7d5f2ceaff05dde85c535daa899dd5f}} 
+\mbox{\label{class_tower_ad7d5f2ceaff05dde85c535daa899dd5f}} 
 float {\bfseries get\+Angle} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The class implements the descriptor of the tower. 
+
+Able to deal $<$\+Target$>$ damage as well as an effect ( in the case of a magic tower ) Able to turn relative to the target,make a shot in accordance with its attack speed. The player earns money from tower kills \begin{DoxyRefDesc}{Bug}
+\item[\textbf{ Bug}]Some textures look crooked \+:C \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_tower_ab1a6c411e6a28f7a48238f5da0ed51de}} 
+\index{Tower@{Tower}!update@{update}}
+\index{update@{update}!Tower@{Tower}}
+\doxysubsubsection{update()}
+{\footnotesize\ttfamily void Tower\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{frametime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxyref{A}{p.}{class_a} virtual overloaded method of the class that handles the time tick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Time} & -\/ time tick corresponding to 1/60 of a second The function implements the rotation and firing of the tower at the enemy, if the shot is successful, it adds money to the player. As a result of the shot (or not) resets the target \\
+\hline
+\end{DoxyParams}
+
+
+Implements \textbf{ Bulding} \doxyref{}{p.}{class_bulding_adbffc217eae1b2fc21c25ec3fee87f0d}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

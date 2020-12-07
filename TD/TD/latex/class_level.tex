@@ -1,32 +1,66 @@
-\hypertarget{class_level}{}\doxysection{Level Class Reference}
+\doxysection{Level Class Reference}
 \label{class_level}\index{Level@{Level}}
+
+
+It is a landscape descriptor.  
+
+
+
+
+{\ttfamily \#include $<$level.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_level_a5fa303ec69c77e681808d956ee5a0935}\label{class_level_a5fa303ec69c77e681808d956ee5a0935}} 
+\mbox{\label{class_level_a5fa303ec69c77e681808d956ee5a0935}} 
 {\bfseries Level} (std\+::string filename)
 \item 
-\mbox{\Hypertarget{class_level_a1f10e04fbe066347b35705c01dc0b115}\label{class_level_a1f10e04fbe066347b35705c01dc0b115}} 
-bool {\bfseries Load\+From\+File} (std\+::string filename)
-\item 
-\mbox{\Hypertarget{class_level_a1bd9b9b3b569f97a6cc925908fd1d3b5}\label{class_level_a1bd9b9b3b569f97a6cc925908fd1d3b5}} 
+bool \textbf{ Load\+From\+File} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em The main function of the class that implements loading a map from a file. \end{DoxyCompactList}\item 
+\mbox{\label{class_level_a1bd9b9b3b569f97a6cc925908fd1d3b5}} 
 void {\bfseries Draw\+Grid} (sf\+::\+Render\+Window \&window)
 \item 
-\mbox{\Hypertarget{class_level_aa857a970cf07f16316546f82ce9cd3e4}\label{class_level_aa857a970cf07f16316546f82ce9cd3e4}} 
+\mbox{\label{class_level_aa857a970cf07f16316546f82ce9cd3e4}} 
 sf\+::\+Vector2i {\bfseries Get\+Tile\+Size} ()
 \item 
-\mbox{\Hypertarget{class_level_a1b95f830d4cc667ced292e0daf99b04a}\label{class_level_a1b95f830d4cc667ced292e0daf99b04a}} 
+\mbox{\label{class_level_a1b95f830d4cc667ced292e0daf99b04a}} 
 bool {\bfseries set\+Object} (sf\+::\+Vector2i Position, int)
 \item 
-\mbox{\Hypertarget{class_level_a76bc63b812e3081597389c1116b1cec1}\label{class_level_a76bc63b812e3081597389c1116b1cec1}} 
-const \mbox{\hyperlink{class_grid}{Grid}} \& {\bfseries get\+Grid} () const
+\mbox{\label{class_level_a76bc63b812e3081597389c1116b1cec1}} 
+const \textbf{ Grid} \& {\bfseries get\+Grid} () const
 \item 
-\mbox{\Hypertarget{class_level_a837f16f54740355e095bb36d924cee4e}\label{class_level_a837f16f54740355e095bb36d924cee4e}} 
+\mbox{\label{class_level_a837f16f54740355e095bb36d924cee4e}} 
 std\+::map$<$ std\+::string, std\+::list$<$ sf\+::\+Vector2i $>$ $>$ $\ast$ {\bfseries get\+Road} ()
 \item 
-\mbox{\Hypertarget{class_level_a813f535f613e8f02faf7e7fb702bdb5c}\label{class_level_a813f535f613e8f02faf7e7fb702bdb5c}} 
+\mbox{\label{class_level_a813f535f613e8f02faf7e7fb702bdb5c}} 
 bool {\bfseries get\+Errors} () const
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is a landscape descriptor. 
+
+Contains a logical grid of tiles. Required for loading data into the grid. \begin{DoxyWarning}{Warning}
+Checks do not provide full verification of the card. There may be breakdowns due to the continuity of the road 
+
+The size is 10 by 10 tiles, but this can be changed, Tiles must be 64 by 64 pixels 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_level_a1f10e04fbe066347b35705c01dc0b115}} 
+\index{Level@{Level}!LoadFromFile@{LoadFromFile}}
+\index{LoadFromFile@{LoadFromFile}!Level@{Level}}
+\doxysubsubsection{LoadFromFile()}
+{\footnotesize\ttfamily bool Level\+::\+Load\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+The main function of the class that implements loading a map from a file. 
+
+Need to download and parse the xml of the map. \begin{DoxyWarning}{Warning}
+Possibility of crash due to inaccuracy of the map 
+\end{DoxyWarning}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

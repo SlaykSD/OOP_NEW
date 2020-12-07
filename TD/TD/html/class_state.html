@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: State Class Reference</title>
+<title>Tower Defense for chosen: State Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="magic_tower_m.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Tower Defense for chosen
    </div>
+   <div id="projectbrief">My program will include rotating towers and running enemies that will take damage from them</div>
   </td>
  </tr>
  </tbody>
@@ -68,13 +70,18 @@ $(function() {
 <div class="title">State Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An abstract class that represents the state of the game.  
+ <a href="class_state.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_state_8h_source.html">State.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for State:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_state.png" usemap="#State_map" alt=""/>
   <map id="State_map" name="State_map">
-<area href="class_game_state.html" alt="GameState" shape="rect" coords="0,56,90,80"/>
+<area href="class_game_state.html" title="The method returns an iterator to the beginning of the list." alt="GameState" shape="rect" coords="0,56,90,80"/>
 <area href="class_system_mouse.html" alt="SystemMouse" shape="rect" coords="100,56,190,80"/>
   </map>
 </div></div>
@@ -85,10 +92,13 @@ Public Member Functions</h2></td></tr>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>handleEvent</b> (const sf::Event &amp;event)=0</td></tr>
 <tr class="separator:a19965f83460b248c42952aac8d001206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5926bc7a373edff9e57f3ffe94ca13"><td class="memItemLeft" align="right" valign="top"><a id="acd5926bc7a373edff9e57f3ffe94ca13"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time dt)=0</td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#acd5926bc7a373edff9e57f3ffe94ca13">update</a> (sf::Time dt)=0</td></tr>
+<tr class="memdesc:acd5926bc7a373edff9e57f3ffe94ca13"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual function for handle event <br /></td></tr>
 <tr class="separator:acd5926bc7a373edff9e57f3ffe94ca13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An abstract class that represents the state of the game. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_state_8h_source.html">State.h</a></li>
 </ul>
 </div><!-- contents -->
