@@ -5,7 +5,7 @@
 
 GameState::GameState(sf::RenderWindow* window1): window(window1), level("oneMapObject.tmx") , eManager(level)
 {
-//	eManager.setParameters(level);
+//	eManager.setParameters(level);4
 }
 
 bool GameState::handleEvent(const sf::Event& event)
